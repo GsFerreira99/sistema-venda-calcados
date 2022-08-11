@@ -1,0 +1,7 @@
+<RCC>
+  <qresource prefix="icons">
+    <file>adicionar.png</file>
+    <file>hamb.png</file>
+    <file>lupa.png</file>
+  </qresource>
+</RCC>
