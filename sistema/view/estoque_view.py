@@ -2,9 +2,9 @@
 from PySide2.QtWidgets import QWidget
 
 #Telas
-from interface.telas.vendas import Ui_Vendas
+from interface.telas.estoque import Ui_Estoque
 
-class VendasView(Ui_Vendas, QWidget):
+class EstoqueView(Ui_Estoque, QWidget):
 
     def __init__(self, parent=None):
         super().__init__(parent)

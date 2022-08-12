@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'vendasWBpNFV.ui'
+## Form generated from reading UI file 'vendasHTxRcK.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -18,7 +18,8 @@ class Ui_Vendas(object):
     def setupUi(self, Vendas):
         if not Vendas.objectName():
             Vendas.setObjectName(u"Vendas")
-        Vendas.resize(1056, 822)
+        Vendas.resize(900, 700)
+        Vendas.setMinimumSize(QSize(900, 700))
         Vendas.setStyleSheet(u"QWidget{\n"
 "	background-color: rgb(236, 242, 248);\n"
 "}\n"
@@ -36,6 +37,9 @@ class Ui_Vendas(object):
 "margin: 5px;\n"
 "margin-top:0;\n"
 "}")
+        self.page = QWidget()
+        self.page.setObjectName(u"page")
+        self.stackedWidget.addWidget(self.page)
         self.consulta = QWidget()
         self.consulta.setObjectName(u"consulta")
         self.verticalLayout = QVBoxLayout(self.consulta)
@@ -898,7 +902,7 @@ class Ui_Vendas(object):
 
         self.retranslateUi(Vendas)
 
-        self.stackedWidget.setCurrentIndex(1)
+        self.stackedWidget.setCurrentIndex(0)
 
 
         QMetaObject.connectSlotsByName(Vendas)

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'homeduXvCG.ui'
+## Form generated from reading UI file 'homejZoPvD.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -18,7 +18,7 @@ class Ui_Home(object):
     def setupUi(self, Home):
         if not Home.objectName():
             Home.setObjectName(u"Home")
-        Home.resize(1034, 632)
+        Home.resize(1034, 661)
         Home.setStyleSheet(u"QWidget{\n"
 "background-color: rgb(236, 242, 248);\n"
 "}\n"
@@ -243,6 +243,8 @@ class Ui_Home(object):
 
         self.content = QStackedWidget(Home)
         self.content.setObjectName(u"content")
+        sizePolicy.setHeightForWidth(self.content.sizePolicy().hasHeightForWidth())
+        self.content.setSizePolicy(sizePolicy)
 
         self.gridLayout.addWidget(self.content, 1, 1, 1, 1)
 

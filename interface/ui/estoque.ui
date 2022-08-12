@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Vendas</class>
- <widget class="QWidget" name="Vendas">
+ <class>Estoque</class>
+ <widget class="QWidget" name="Estoque">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -53,7 +53,7 @@ margin-top:0;
 }</string>
      </property>
      <property name="currentIndex">
-      <number>0</number>
+      <number>2</number>
      </property>
      <widget class="QWidget" name="page"/>
      <widget class="QWidget" name="consulta">
@@ -108,7 +108,7 @@ margin-top:0;
              </font>
             </property>
             <property name="text">
-             <string>Consultar Vendas</string>
+             <string>Consultar Produtos</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
@@ -203,7 +203,7 @@ QPushButton:pressed{
         </widget>
        </item>
        <item>
-        <widget class="QTableWidget" name="table_vendas">
+        <widget class="QTableWidget" name="table_produtos">
          <property name="font">
           <font>
            <family>Raleway</family>
@@ -223,27 +223,37 @@ QPushButton:pressed{
          </attribute>
          <column>
           <property name="text">
-           <string>Código</string>
+           <string>Código/Cód. Barras</string>
           </property>
          </column>
          <column>
           <property name="text">
-           <string>Data</string>
+           <string>Descrição</string>
           </property>
          </column>
          <column>
           <property name="text">
-           <string>Cliente</string>
+           <string>Uni.</string>
           </property>
          </column>
          <column>
           <property name="text">
-           <string>Valor</string>
+           <string>Qnt</string>
           </property>
          </column>
          <column>
           <property name="text">
-           <string>Qnt. Produtos</string>
+           <string>Preço Compra</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>Preço Venda</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>Fornecedor</string>
           </property>
          </column>
         </widget>
@@ -298,6 +308,36 @@ QPushButton:pressed{
              </size>
             </property>
            </spacer>
+          </item>
+          <item>
+           <widget class="QPushButton" name="btn_adcEstoque">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>150</width>
+              <height>35</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <family>Raleway</family>
+              <pointsize>9</pointsize>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true"/>
+            </property>
+            <property name="text">
+             <string>Adicionar Estoque</string>
+            </property>
+           </widget>
           </item>
           <item>
            <widget class="QPushButton" name="btn_deletar">
@@ -416,215 +456,11 @@ QPushButton:pressed{
              </font>
             </property>
             <property name="text">
-             <string>Consultar Vendas</string>
+             <string>Cadastrar Novo Produto</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
             </property>
-           </widget>
-          </item>
-          <item row="0" column="4">
-           <widget class="QFrame" name="frame_6">
-            <property name="minimumSize">
-             <size>
-              <width>0</width>
-              <height>70</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>150</width>
-              <height>16777215</height>
-             </size>
-            </property>
-            <property name="frameShape">
-             <enum>QFrame::StyledPanel</enum>
-            </property>
-            <property name="frameShadow">
-             <enum>QFrame::Raised</enum>
-            </property>
-            <layout class="QGridLayout" name="gridLayout_5">
-             <item row="0" column="0">
-              <widget class="QLabel" name="label_4">
-               <property name="font">
-                <font>
-                 <family>Raleway</family>
-                 <pointsize>8</pointsize>
-                 <weight>75</weight>
-                 <bold>true</bold>
-                </font>
-               </property>
-               <property name="text">
-                <string>Cliente</string>
-               </property>
-              </widget>
-             </item>
-             <item row="1" column="0">
-              <widget class="QLineEdit" name="input_cliente">
-               <property name="sizePolicy">
-                <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-                 <horstretch>0</horstretch>
-                 <verstretch>0</verstretch>
-                </sizepolicy>
-               </property>
-               <property name="maximumSize">
-                <size>
-                 <width>16777215</width>
-                 <height>30</height>
-                </size>
-               </property>
-               <property name="font">
-                <font>
-                 <family>Raleway</family>
-                </font>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">QLineEdit {
-	background-color:white;
-	border-radius: 10px;
-	border: 1px solid rgb(158, 162, 166);
-	padding-left: 20px;
-}</string>
-               </property>
-              </widget>
-             </item>
-            </layout>
-           </widget>
-          </item>
-          <item row="0" column="3">
-           <widget class="QFrame" name="frame_9">
-            <property name="minimumSize">
-             <size>
-              <width>0</width>
-              <height>70</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>150</width>
-              <height>16777215</height>
-             </size>
-            </property>
-            <property name="frameShape">
-             <enum>QFrame::StyledPanel</enum>
-            </property>
-            <property name="frameShadow">
-             <enum>QFrame::Raised</enum>
-            </property>
-            <layout class="QGridLayout" name="gridLayout_6">
-             <item row="0" column="0">
-              <widget class="QLabel" name="label_5">
-               <property name="font">
-                <font>
-                 <family>Raleway</family>
-                 <pointsize>8</pointsize>
-                 <weight>75</weight>
-                 <bold>true</bold>
-                </font>
-               </property>
-               <property name="text">
-                <string>Data</string>
-               </property>
-              </widget>
-             </item>
-             <item row="1" column="0">
-              <widget class="QLineEdit" name="input_data">
-               <property name="sizePolicy">
-                <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-                 <horstretch>0</horstretch>
-                 <verstretch>0</verstretch>
-                </sizepolicy>
-               </property>
-               <property name="maximumSize">
-                <size>
-                 <width>16777215</width>
-                 <height>30</height>
-                </size>
-               </property>
-               <property name="font">
-                <font>
-                 <family>Raleway</family>
-                </font>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">QLineEdit {
-	background-color:white;
-	border-radius: 10px;
-	border: 1px solid rgb(158, 162, 166);
-	padding-left: 20px;
-}</string>
-               </property>
-              </widget>
-             </item>
-            </layout>
-           </widget>
-          </item>
-          <item row="0" column="2">
-           <widget class="QFrame" name="frame_10">
-            <property name="minimumSize">
-             <size>
-              <width>0</width>
-              <height>70</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>150</width>
-              <height>16777215</height>
-             </size>
-            </property>
-            <property name="frameShape">
-             <enum>QFrame::StyledPanel</enum>
-            </property>
-            <property name="frameShadow">
-             <enum>QFrame::Raised</enum>
-            </property>
-            <layout class="QGridLayout" name="gridLayout_7">
-             <item row="0" column="0">
-              <widget class="QLabel" name="label_6">
-               <property name="font">
-                <font>
-                 <family>Raleway</family>
-                 <pointsize>8</pointsize>
-                 <weight>75</weight>
-                 <bold>true</bold>
-                </font>
-               </property>
-               <property name="text">
-                <string>Nr. Venda</string>
-               </property>
-              </widget>
-             </item>
-             <item row="1" column="0">
-              <widget class="QLineEdit" name="input_nrVenda">
-               <property name="sizePolicy">
-                <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-                 <horstretch>0</horstretch>
-                 <verstretch>0</verstretch>
-                </sizepolicy>
-               </property>
-               <property name="maximumSize">
-                <size>
-                 <width>16777215</width>
-                 <height>30</height>
-                </size>
-               </property>
-               <property name="font">
-                <font>
-                 <family>Raleway</family>
-                </font>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">QLineEdit {
-	background-color:white;
-	border-radius: 10px;
-	border: 1px solid rgb(158, 162, 166);
-	padding-left: 20px;
-}</string>
-               </property>
-              </widget>
-             </item>
-            </layout>
            </widget>
           </item>
           <item row="0" column="1">
@@ -645,6 +481,9 @@ QPushButton:pressed{
        </item>
        <item>
         <widget class="QFrame" name="frame_8">
+         <property name="styleSheet">
+          <string notr="true"/>
+         </property>
          <property name="frameShape">
           <enum>QFrame::StyledPanel</enum>
          </property>
@@ -664,305 +503,21 @@ QPushButton:pressed{
           <property name="verticalSpacing">
            <number>20</number>
           </property>
-          <item row="0" column="0">
-           <widget class="QFrame" name="frame_11">
-            <property name="minimumSize">
+          <item row="2" column="1">
+           <spacer name="horizontalSpacer_5">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
              <size>
-              <width>0</width>
-              <height>70</height>
+              <width>40</width>
+              <height>20</height>
              </size>
             </property>
-            <property name="maximumSize">
-             <size>
-              <width>75</width>
-              <height>70</height>
-             </size>
-            </property>
-            <property name="frameShape">
-             <enum>QFrame::StyledPanel</enum>
-            </property>
-            <property name="frameShadow">
-             <enum>QFrame::Raised</enum>
-            </property>
-            <layout class="QGridLayout" name="gridLayout_9">
-             <property name="leftMargin">
-              <number>0</number>
-             </property>
-             <property name="topMargin">
-              <number>9</number>
-             </property>
-             <property name="rightMargin">
-              <number>0</number>
-             </property>
-             <item row="0" column="0">
-              <widget class="QLabel" name="label_7">
-               <property name="font">
-                <font>
-                 <family>Raleway</family>
-                 <pointsize>8</pointsize>
-                 <weight>75</weight>
-                 <bold>true</bold>
-                </font>
-               </property>
-               <property name="text">
-                <string>Quantidade</string>
-               </property>
-              </widget>
-             </item>
-             <item row="1" column="0">
-              <widget class="QLineEdit" name="input_quantidade">
-               <property name="sizePolicy">
-                <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-                 <horstretch>0</horstretch>
-                 <verstretch>0</verstretch>
-                </sizepolicy>
-               </property>
-               <property name="maximumSize">
-                <size>
-                 <width>16777215</width>
-                 <height>30</height>
-                </size>
-               </property>
-               <property name="font">
-                <font>
-                 <family>Raleway</family>
-                </font>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">QLineEdit {
-	background-color:white;
-	border-radius: 10px;
-	border: 1px solid rgb(158, 162, 166);
-	padding-left: 20px;
-}</string>
-               </property>
-              </widget>
-             </item>
-            </layout>
-           </widget>
+           </spacer>
           </item>
-          <item row="0" column="4">
-           <widget class="QFrame" name="frame_12">
-            <property name="minimumSize">
-             <size>
-              <width>0</width>
-              <height>70</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>75</width>
-              <height>70</height>
-             </size>
-            </property>
-            <property name="frameShape">
-             <enum>QFrame::StyledPanel</enum>
-            </property>
-            <property name="frameShadow">
-             <enum>QFrame::Raised</enum>
-            </property>
-            <layout class="QGridLayout" name="gridLayout_10">
-             <property name="leftMargin">
-              <number>0</number>
-             </property>
-             <property name="rightMargin">
-              <number>0</number>
-             </property>
-             <item row="0" column="0">
-              <widget class="QLabel" name="label_8">
-               <property name="font">
-                <font>
-                 <family>Raleway</family>
-                 <pointsize>8</pointsize>
-                 <weight>75</weight>
-                 <bold>true</bold>
-                </font>
-               </property>
-               <property name="text">
-                <string>Preço</string>
-               </property>
-              </widget>
-             </item>
-             <item row="1" column="0">
-              <widget class="QLineEdit" name="input_preco">
-               <property name="sizePolicy">
-                <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-                 <horstretch>0</horstretch>
-                 <verstretch>0</verstretch>
-                </sizepolicy>
-               </property>
-               <property name="maximumSize">
-                <size>
-                 <width>16777215</width>
-                 <height>30</height>
-                </size>
-               </property>
-               <property name="font">
-                <font>
-                 <family>Raleway</family>
-                </font>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">QLineEdit {
-	background-color:white;
-	border-radius: 10px;
-	border: 1px solid rgb(158, 162, 166);
-	padding-left: 20px;
-}</string>
-               </property>
-              </widget>
-             </item>
-            </layout>
-           </widget>
-          </item>
-          <item row="1" column="0" colspan="7">
-           <widget class="QTableWidget" name="table">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Expanding" vsizetype="Maximum">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="minimumSize">
-             <size>
-              <width>0</width>
-              <height>200</height>
-             </size>
-            </property>
-            <property name="font">
-             <font>
-              <family>Raleway</family>
-              <weight>75</weight>
-              <bold>true</bold>
-             </font>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">QTableWidget{
-	background-color: rgb(255, 255, 255);
-	border-radius: 10px;
-	border: 1px solid black;
-}</string>
-            </property>
-            <attribute name="horizontalHeaderCascadingSectionResizes">
-             <bool>false</bool>
-            </attribute>
-            <attribute name="horizontalHeaderStretchLastSection">
-             <bool>true</bool>
-            </attribute>
-            <column>
-             <property name="text">
-              <string>Código</string>
-             </property>
-            </column>
-            <column>
-             <property name="text">
-              <string>Descrição</string>
-             </property>
-            </column>
-            <column>
-             <property name="text">
-              <string>Un.</string>
-             </property>
-            </column>
-            <column>
-             <property name="text">
-              <string>Qtde.</string>
-             </property>
-            </column>
-            <column>
-             <property name="text">
-              <string>Tam.</string>
-             </property>
-            </column>
-            <column>
-             <property name="text">
-              <string>Cor</string>
-             </property>
-            </column>
-            <column>
-             <property name="text">
-              <string>Pc. Unitário</string>
-             </property>
-            </column>
-            <column>
-             <property name="text">
-              <string>% Desc</string>
-             </property>
-            </column>
-            <column>
-             <property name="text">
-              <string>R$ Desc</string>
-             </property>
-            </column>
-            <column>
-             <property name="text">
-              <string>Total Bruto</string>
-             </property>
-            </column>
-            <column>
-             <property name="text">
-              <string>Total Líquido</string>
-             </property>
-            </column>
-           </widget>
-          </item>
-          <item row="0" column="5">
-           <widget class="QFrame" name="frame_15">
-            <property name="frameShape">
-             <enum>QFrame::StyledPanel</enum>
-            </property>
-            <property name="frameShadow">
-             <enum>QFrame::Raised</enum>
-            </property>
-            <layout class="QVBoxLayout" name="verticalLayout_3">
-             <property name="spacing">
-              <number>0</number>
-             </property>
-             <property name="leftMargin">
-              <number>0</number>
-             </property>
-             <property name="topMargin">
-              <number>20</number>
-             </property>
-             <property name="rightMargin">
-              <number>0</number>
-             </property>
-             <property name="bottomMargin">
-              <number>0</number>
-             </property>
-             <item>
-              <widget class="QPushButton" name="btn_add">
-               <property name="maximumSize">
-                <size>
-                 <width>40</width>
-                 <height>40</height>
-                </size>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">QPushButton{
-	border: none;
-	padding: 3px;
-	image: url(:/icons/adicionar.png);
-}
-
-QPushButton:hover{
-	padding: 1px;
-}
-
-QPushButton:pressed{
-	padding: 2px;
-}</string>
-               </property>
-               <property name="text">
-                <string/>
-               </property>
-              </widget>
-             </item>
-            </layout>
-           </widget>
-          </item>
-          <item row="2" column="0" colspan="7">
-           <widget class="QFrame" name="frame_22">
+          <item row="2" column="0">
+           <widget class="QFrame" name="frame_35">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
               <horstretch>0</horstretch>
@@ -978,7 +533,7 @@ QPushButton:pressed{
             <property name="maximumSize">
              <size>
               <width>16777215</width>
-              <height>70</height>
+              <height>200</height>
              </size>
             </property>
             <property name="frameShape">
@@ -987,9 +542,9 @@ QPushButton:pressed{
             <property name="frameShadow">
              <enum>QFrame::Raised</enum>
             </property>
-            <layout class="QGridLayout" name="gridLayout_19">
+            <layout class="QGridLayout" name="gridLayout_32">
              <property name="leftMargin">
-              <number>0</number>
+              <number>10</number>
              </property>
              <property name="topMargin">
               <number>0</number>
@@ -1000,12 +555,15 @@ QPushButton:pressed{
              <property name="bottomMargin">
               <number>0</number>
              </property>
-             <item row="0" column="5">
-              <widget class="QFrame" name="frame_21">
-               <property name="maximumSize">
+             <property name="horizontalSpacing">
+              <number>27</number>
+             </property>
+             <item row="0" column="0" rowspan="2">
+              <widget class="QFrame" name="frame_39">
+               <property name="minimumSize">
                 <size>
-                 <width>100</width>
-                 <height>70</height>
+                 <width>350</width>
+                 <height>0</height>
                 </size>
                </property>
                <property name="frameShape">
@@ -1014,7 +572,7 @@ QPushButton:pressed{
                <property name="frameShadow">
                 <enum>QFrame::Raised</enum>
                </property>
-               <layout class="QGridLayout" name="gridLayout_18">
+               <layout class="QGridLayout" name="gridLayout_42">
                 <property name="leftMargin">
                  <number>0</number>
                 </property>
@@ -1025,7 +583,13 @@ QPushButton:pressed{
                  <number>0</number>
                 </property>
                 <item row="0" column="0">
-                 <widget class="QLabel" name="label_16">
+                 <widget class="QLabel" name="label_33">
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>20</height>
+                   </size>
+                  </property>
                   <property name="font">
                    <font>
                     <family>Raleway</family>
@@ -1035,31 +599,14 @@ QPushButton:pressed{
                    </font>
                   </property>
                   <property name="text">
-                   <string>TROCO</string>
+                   <string>Observação</string>
                   </property>
                  </widget>
                 </item>
                 <item row="1" column="0">
-                 <widget class="QLineEdit" name="input_troco">
-                  <property name="sizePolicy">
-                   <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-                    <horstretch>0</horstretch>
-                    <verstretch>0</verstretch>
-                   </sizepolicy>
-                  </property>
-                  <property name="maximumSize">
-                   <size>
-                    <width>16777215</width>
-                    <height>30</height>
-                   </size>
-                  </property>
-                  <property name="font">
-                   <font>
-                    <family>Raleway</family>
-                   </font>
-                  </property>
+                 <widget class="QTextEdit" name="input_observacao">
                   <property name="styleSheet">
-                   <string notr="true">QLineEdit {
+                   <string notr="true">QTextEdit {
 	background-color:white;
 	border-radius: 10px;
 	border: 1px solid rgb(158, 162, 166);
@@ -1072,7 +619,7 @@ QPushButton:pressed{
               </widget>
              </item>
              <item row="0" column="3">
-              <widget class="QFrame" name="frame_19">
+              <widget class="QFrame" name="frame_43">
                <property name="maximumSize">
                 <size>
                  <width>100</width>
@@ -1085,7 +632,7 @@ QPushButton:pressed{
                <property name="frameShadow">
                 <enum>QFrame::Raised</enum>
                </property>
-               <layout class="QGridLayout" name="gridLayout_16">
+               <layout class="QGridLayout" name="gridLayout_40">
                 <property name="leftMargin">
                  <number>0</number>
                 </property>
@@ -1096,7 +643,7 @@ QPushButton:pressed{
                  <number>0</number>
                 </property>
                 <item row="0" column="0">
-                 <widget class="QLabel" name="label_14">
+                 <widget class="QLabel" name="label_34">
                   <property name="font">
                    <font>
                     <family>Raleway</family>
@@ -1106,83 +653,12 @@ QPushButton:pressed{
                    </font>
                   </property>
                   <property name="text">
-                   <string>TOTAL DE ITENS</string>
+                   <string>Estoque Atual</string>
                   </property>
                  </widget>
                 </item>
                 <item row="1" column="0">
-                 <widget class="QLineEdit" name="input_totalItem">
-                  <property name="sizePolicy">
-                   <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-                    <horstretch>0</horstretch>
-                    <verstretch>0</verstretch>
-                   </sizepolicy>
-                  </property>
-                  <property name="maximumSize">
-                   <size>
-                    <width>16777215</width>
-                    <height>30</height>
-                   </size>
-                  </property>
-                  <property name="font">
-                   <font>
-                    <family>Raleway</family>
-                   </font>
-                  </property>
-                  <property name="styleSheet">
-                   <string notr="true">QLineEdit {
-	background-color:white;
-	border-radius: 10px;
-	border: 1px solid rgb(158, 162, 166);
-	padding-left: 20px;
-}</string>
-                  </property>
-                 </widget>
-                </item>
-               </layout>
-              </widget>
-             </item>
-             <item row="0" column="0">
-              <widget class="QFrame" name="frame_16">
-               <property name="maximumSize">
-                <size>
-                 <width>100</width>
-                 <height>70</height>
-                </size>
-               </property>
-               <property name="frameShape">
-                <enum>QFrame::StyledPanel</enum>
-               </property>
-               <property name="frameShadow">
-                <enum>QFrame::Raised</enum>
-               </property>
-               <layout class="QGridLayout" name="gridLayout_13">
-                <property name="leftMargin">
-                 <number>0</number>
-                </property>
-                <property name="topMargin">
-                 <number>9</number>
-                </property>
-                <property name="rightMargin">
-                 <number>0</number>
-                </property>
-                <item row="0" column="0">
-                 <widget class="QLabel" name="label_11">
-                  <property name="font">
-                   <font>
-                    <family>Raleway</family>
-                    <pointsize>8</pointsize>
-                    <weight>75</weight>
-                    <bold>true</bold>
-                   </font>
-                  </property>
-                  <property name="text">
-                   <string>TOTAL BRUTO</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="1" column="0">
-                 <widget class="QLineEdit" name="input_totalBruto">
+                 <widget class="QLineEdit" name="input_estoqueAtual">
                   <property name="sizePolicy">
                    <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
                     <horstretch>0</horstretch>
@@ -1214,7 +690,7 @@ QPushButton:pressed{
               </widget>
              </item>
              <item row="0" column="1">
-              <widget class="QFrame" name="frame_17">
+              <widget class="QFrame" name="frame_36">
                <property name="maximumSize">
                 <size>
                  <width>100</width>
@@ -1227,7 +703,7 @@ QPushButton:pressed{
                <property name="frameShadow">
                 <enum>QFrame::Raised</enum>
                </property>
-               <layout class="QGridLayout" name="gridLayout_14">
+               <layout class="QGridLayout" name="gridLayout_33">
                 <property name="leftMargin">
                  <number>0</number>
                 </property>
@@ -1238,7 +714,7 @@ QPushButton:pressed{
                  <number>0</number>
                 </property>
                 <item row="0" column="0">
-                 <widget class="QLabel" name="label_12">
+                 <widget class="QLabel" name="label_27">
                   <property name="font">
                    <font>
                     <family>Raleway</family>
@@ -1248,12 +724,12 @@ QPushButton:pressed{
                    </font>
                   </property>
                   <property name="text">
-                   <string>DESCONTO</string>
+                   <string>Cor</string>
                   </property>
                  </widget>
                 </item>
                 <item row="1" column="0">
-                 <widget class="QLineEdit" name="input_desconto">
+                 <widget class="QLineEdit" name="input_cor">
                   <property name="sizePolicy">
                    <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
                     <horstretch>0</horstretch>
@@ -1285,7 +761,7 @@ QPushButton:pressed{
               </widget>
              </item>
              <item row="0" column="2">
-              <widget class="QFrame" name="frame_18">
+              <widget class="QFrame" name="frame_45">
                <property name="maximumSize">
                 <size>
                  <width>100</width>
@@ -1298,7 +774,7 @@ QPushButton:pressed{
                <property name="frameShadow">
                 <enum>QFrame::Raised</enum>
                </property>
-               <layout class="QGridLayout" name="gridLayout_15">
+               <layout class="QGridLayout" name="gridLayout_46">
                 <property name="leftMargin">
                  <number>0</number>
                 </property>
@@ -1309,7 +785,7 @@ QPushButton:pressed{
                  <number>0</number>
                 </property>
                 <item row="0" column="0">
-                 <widget class="QLabel" name="label_13">
+                 <widget class="QLabel" name="label_39">
                   <property name="font">
                    <font>
                     <family>Raleway</family>
@@ -1319,12 +795,392 @@ QPushButton:pressed{
                    </font>
                   </property>
                   <property name="text">
-                   <string>TOTAL LÍQUIDO</string>
+                   <string>Tamanho</string>
                   </property>
                  </widget>
                 </item>
                 <item row="1" column="0">
-                 <widget class="QLineEdit" name="input_totalLiquido">
+                 <widget class="QLineEdit" name="input_tamanho">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>30</height>
+                   </size>
+                  </property>
+                  <property name="font">
+                   <font>
+                    <family>Raleway</family>
+                   </font>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">QLineEdit {
+	background-color:white;
+	border-radius: 10px;
+	border: 1px solid rgb(158, 162, 166);
+	padding-left: 20px;
+}</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item row="0" column="0">
+           <widget class="QFrame" name="frame_34">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>70</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>70</height>
+             </size>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::StyledPanel</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Raised</enum>
+            </property>
+            <layout class="QGridLayout" name="gridLayout_31">
+             <property name="leftMargin">
+              <number>10</number>
+             </property>
+             <property name="topMargin">
+              <number>0</number>
+             </property>
+             <property name="rightMargin">
+              <number>0</number>
+             </property>
+             <property name="bottomMargin">
+              <number>0</number>
+             </property>
+             <property name="horizontalSpacing">
+              <number>30</number>
+             </property>
+             <property name="verticalSpacing">
+              <number>9</number>
+             </property>
+             <item row="0" column="1">
+              <widget class="QFrame" name="frame_38">
+               <property name="maximumSize">
+                <size>
+                 <width>16777215</width>
+                 <height>70</height>
+                </size>
+               </property>
+               <property name="frameShape">
+                <enum>QFrame::StyledPanel</enum>
+               </property>
+               <property name="frameShadow">
+                <enum>QFrame::Raised</enum>
+               </property>
+               <layout class="QGridLayout" name="gridLayout_35">
+                <property name="leftMargin">
+                 <number>0</number>
+                </property>
+                <property name="topMargin">
+                 <number>9</number>
+                </property>
+                <property name="rightMargin">
+                 <number>0</number>
+                </property>
+                <item row="0" column="0">
+                 <widget class="QLabel" name="label_30">
+                  <property name="font">
+                   <font>
+                    <family>Raleway</family>
+                    <pointsize>8</pointsize>
+                    <weight>75</weight>
+                    <bold>true</bold>
+                   </font>
+                  </property>
+                  <property name="text">
+                   <string>Descrição</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="0">
+                 <widget class="QLineEdit" name="input_descricao">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>30</height>
+                   </size>
+                  </property>
+                  <property name="font">
+                   <font>
+                    <family>Raleway</family>
+                   </font>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">QLineEdit {
+	background-color:white;
+	border-radius: 10px;
+	border: 1px solid rgb(158, 162, 166);
+	padding-left: 20px;
+}</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </widget>
+             </item>
+             <item row="0" column="0">
+              <widget class="QFrame" name="frame_37">
+               <property name="maximumSize">
+                <size>
+                 <width>130</width>
+                 <height>70</height>
+                </size>
+               </property>
+               <property name="frameShape">
+                <enum>QFrame::StyledPanel</enum>
+               </property>
+               <property name="frameShadow">
+                <enum>QFrame::Raised</enum>
+               </property>
+               <layout class="QGridLayout" name="gridLayout_34">
+                <property name="leftMargin">
+                 <number>0</number>
+                </property>
+                <property name="topMargin">
+                 <number>9</number>
+                </property>
+                <property name="rightMargin">
+                 <number>0</number>
+                </property>
+                <item row="0" column="0">
+                 <widget class="QLabel" name="label_29">
+                  <property name="font">
+                   <font>
+                    <family>Raleway</family>
+                    <pointsize>8</pointsize>
+                    <weight>75</weight>
+                    <bold>true</bold>
+                   </font>
+                  </property>
+                  <property name="text">
+                   <string>Código/Cód Barras</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="0">
+                 <widget class="QLineEdit" name="input_codBarras">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>30</height>
+                   </size>
+                  </property>
+                  <property name="font">
+                   <font>
+                    <family>Raleway</family>
+                   </font>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">QLineEdit {
+	background-color:white;
+	border-radius: 10px;
+	border: 1px solid rgb(158, 162, 166);
+	padding-left: 20px;
+}</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item row="1" column="0" colspan="2">
+           <widget class="QFrame" name="frame_27">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>70</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>70</height>
+             </size>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::StyledPanel</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Raised</enum>
+            </property>
+            <layout class="QGridLayout" name="gridLayout_24">
+             <property name="leftMargin">
+              <number>10</number>
+             </property>
+             <property name="topMargin">
+              <number>0</number>
+             </property>
+             <property name="rightMargin">
+              <number>0</number>
+             </property>
+             <property name="bottomMargin">
+              <number>0</number>
+             </property>
+             <property name="horizontalSpacing">
+              <number>30</number>
+             </property>
+             <property name="verticalSpacing">
+              <number>9</number>
+             </property>
+             <item row="0" column="0">
+              <widget class="QFrame" name="frame_30">
+               <property name="maximumSize">
+                <size>
+                 <width>100</width>
+                 <height>70</height>
+                </size>
+               </property>
+               <property name="frameShape">
+                <enum>QFrame::StyledPanel</enum>
+               </property>
+               <property name="frameShadow">
+                <enum>QFrame::Raised</enum>
+               </property>
+               <layout class="QGridLayout" name="gridLayout_27">
+                <property name="leftMargin">
+                 <number>0</number>
+                </property>
+                <property name="topMargin">
+                 <number>9</number>
+                </property>
+                <property name="rightMargin">
+                 <number>0</number>
+                </property>
+                <item row="0" column="0">
+                 <widget class="QLabel" name="label_23">
+                  <property name="font">
+                   <font>
+                    <family>Raleway</family>
+                    <pointsize>8</pointsize>
+                    <weight>75</weight>
+                    <bold>true</bold>
+                   </font>
+                  </property>
+                  <property name="text">
+                   <string>Unidade</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="0">
+                 <widget class="QLineEdit" name="input_unidade">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>30</height>
+                   </size>
+                  </property>
+                  <property name="font">
+                   <font>
+                    <family>Raleway</family>
+                   </font>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">QLineEdit {
+	background-color:white;
+	border-radius: 10px;
+	border: 1px solid rgb(158, 162, 166);
+	padding-left: 20px;
+}</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </widget>
+             </item>
+             <item row="0" column="1">
+              <widget class="QFrame" name="frame_31">
+               <property name="maximumSize">
+                <size>
+                 <width>100</width>
+                 <height>70</height>
+                </size>
+               </property>
+               <property name="frameShape">
+                <enum>QFrame::StyledPanel</enum>
+               </property>
+               <property name="frameShadow">
+                <enum>QFrame::Raised</enum>
+               </property>
+               <layout class="QGridLayout" name="gridLayout_28">
+                <property name="leftMargin">
+                 <number>0</number>
+                </property>
+                <property name="topMargin">
+                 <number>9</number>
+                </property>
+                <property name="rightMargin">
+                 <number>0</number>
+                </property>
+                <item row="0" column="0">
+                 <widget class="QLabel" name="label_24">
+                  <property name="font">
+                   <font>
+                    <family>Raleway</family>
+                    <pointsize>8</pointsize>
+                    <weight>75</weight>
+                    <bold>true</bold>
+                   </font>
+                  </property>
+                  <property name="text">
+                   <string>Preço Compra</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="0">
+                 <widget class="QLineEdit" name="input_precoCompra">
                   <property name="sizePolicy">
                    <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
                     <horstretch>0</horstretch>
@@ -1356,7 +1212,7 @@ QPushButton:pressed{
               </widget>
              </item>
              <item row="0" column="4">
-              <widget class="QFrame" name="frame_20">
+              <widget class="QFrame" name="frame_33">
                <property name="maximumSize">
                 <size>
                  <width>100</width>
@@ -1369,7 +1225,7 @@ QPushButton:pressed{
                <property name="frameShadow">
                 <enum>QFrame::Raised</enum>
                </property>
-               <layout class="QGridLayout" name="gridLayout_17">
+               <layout class="QGridLayout" name="gridLayout_30">
                 <property name="leftMargin">
                  <number>0</number>
                 </property>
@@ -1380,7 +1236,7 @@ QPushButton:pressed{
                  <number>0</number>
                 </property>
                 <item row="0" column="0">
-                 <widget class="QLabel" name="label_15">
+                 <widget class="QLabel" name="label_26">
                   <property name="font">
                    <font>
                     <family>Raleway</family>
@@ -1390,12 +1246,225 @@ QPushButton:pressed{
                    </font>
                   </property>
                   <property name="text">
-                   <string>TOTAL PAGO</string>
+                   <string>Preço Venda</string>
                   </property>
                  </widget>
                 </item>
                 <item row="1" column="0">
-                 <widget class="QLineEdit" name="input_totalPago">
+                 <widget class="QLineEdit" name="input_precoVenda">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>30</height>
+                   </size>
+                  </property>
+                  <property name="font">
+                   <font>
+                    <family>Raleway</family>
+                   </font>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">QLineEdit {
+	background-color:white;
+	border-radius: 10px;
+	border: 1px solid rgb(158, 162, 166);
+	padding-left: 20px;
+}</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </widget>
+             </item>
+             <item row="0" column="3">
+              <widget class="QFrame" name="frame_29">
+               <property name="maximumSize">
+                <size>
+                 <width>100</width>
+                 <height>70</height>
+                </size>
+               </property>
+               <property name="frameShape">
+                <enum>QFrame::StyledPanel</enum>
+               </property>
+               <property name="frameShadow">
+                <enum>QFrame::Raised</enum>
+               </property>
+               <layout class="QGridLayout" name="gridLayout_26">
+                <property name="leftMargin">
+                 <number>0</number>
+                </property>
+                <property name="topMargin">
+                 <number>9</number>
+                </property>
+                <property name="rightMargin">
+                 <number>0</number>
+                </property>
+                <item row="0" column="0">
+                 <widget class="QLabel" name="label_22">
+                  <property name="font">
+                   <font>
+                    <family>Raleway</family>
+                    <pointsize>8</pointsize>
+                    <weight>75</weight>
+                    <bold>true</bold>
+                   </font>
+                  </property>
+                  <property name="text">
+                   <string>Lucro</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="0">
+                 <widget class="QLineEdit" name="input_lucro">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>30</height>
+                   </size>
+                  </property>
+                  <property name="font">
+                   <font>
+                    <family>Raleway</family>
+                   </font>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">QLineEdit {
+	background-color:white;
+	border-radius: 10px;
+	border: 1px solid rgb(158, 162, 166);
+	padding-left: 20px;
+}</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </widget>
+             </item>
+             <item row="0" column="2">
+              <widget class="QFrame" name="frame_32">
+               <property name="maximumSize">
+                <size>
+                 <width>110</width>
+                 <height>70</height>
+                </size>
+               </property>
+               <property name="frameShape">
+                <enum>QFrame::StyledPanel</enum>
+               </property>
+               <property name="frameShadow">
+                <enum>QFrame::Raised</enum>
+               </property>
+               <layout class="QGridLayout" name="gridLayout_29">
+                <property name="leftMargin">
+                 <number>0</number>
+                </property>
+                <property name="topMargin">
+                 <number>9</number>
+                </property>
+                <property name="rightMargin">
+                 <number>0</number>
+                </property>
+                <item row="0" column="0">
+                 <widget class="QLabel" name="label_25">
+                  <property name="font">
+                   <font>
+                    <family>Raleway</family>
+                    <pointsize>8</pointsize>
+                    <weight>75</weight>
+                    <bold>true</bold>
+                   </font>
+                  </property>
+                  <property name="text">
+                   <string>Margem/Markup</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="0">
+                 <widget class="QLineEdit" name="inputMargem">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>30</height>
+                   </size>
+                  </property>
+                  <property name="font">
+                   <font>
+                    <family>Raleway</family>
+                   </font>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">QLineEdit {
+	background-color:white;
+	border-radius: 10px;
+	border: 1px solid rgb(158, 162, 166);
+	padding-left: 20px;
+}</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </widget>
+             </item>
+             <item row="0" column="5">
+              <widget class="QFrame" name="frame_28">
+               <property name="maximumSize">
+                <size>
+                 <width>100</width>
+                 <height>70</height>
+                </size>
+               </property>
+               <property name="frameShape">
+                <enum>QFrame::StyledPanel</enum>
+               </property>
+               <property name="frameShadow">
+                <enum>QFrame::Raised</enum>
+               </property>
+               <layout class="QGridLayout" name="gridLayout_25">
+                <property name="leftMargin">
+                 <number>0</number>
+                </property>
+                <property name="topMargin">
+                 <number>9</number>
+                </property>
+                <property name="rightMargin">
+                 <number>0</number>
+                </property>
+                <item row="0" column="0">
+                 <widget class="QLabel" name="label_21">
+                  <property name="font">
+                   <font>
+                    <family>Raleway</family>
+                    <pointsize>8</pointsize>
+                    <weight>75</weight>
+                    <bold>true</bold>
+                   </font>
+                  </property>
+                  <property name="text">
+                   <string>Preço Atacado</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="0">
+                 <widget class="QLineEdit" name="input_precoAtacado">
                   <property name="sizePolicy">
                    <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
                     <horstretch>0</horstretch>
@@ -1427,7 +1496,7 @@ QPushButton:pressed{
               </widget>
              </item>
              <item row="0" column="6">
-              <spacer name="horizontalSpacer_5">
+              <spacer name="horizontalSpacer_7">
                <property name="orientation">
                 <enum>Qt::Horizontal</enum>
                </property>
@@ -1442,153 +1511,18 @@ QPushButton:pressed{
             </layout>
            </widget>
           </item>
-          <item row="0" column="1" colspan="2">
-           <widget class="QFrame" name="frame_14">
-            <property name="minimumSize">
+          <item row="0" column="1">
+           <spacer name="horizontalSpacer_6">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
              <size>
-              <width>400</width>
-              <height>70</height>
+              <width>40</width>
+              <height>20</height>
              </size>
             </property>
-            <property name="maximumSize">
-             <size>
-              <width>500</width>
-              <height>70</height>
-             </size>
-            </property>
-            <property name="frameShape">
-             <enum>QFrame::StyledPanel</enum>
-            </property>
-            <property name="frameShadow">
-             <enum>QFrame::Raised</enum>
-            </property>
-            <layout class="QGridLayout" name="gridLayout_12">
-             <property name="leftMargin">
-              <number>0</number>
-             </property>
-             <property name="rightMargin">
-              <number>0</number>
-             </property>
-             <item row="0" column="0">
-              <widget class="QLabel" name="label_10">
-               <property name="font">
-                <font>
-                 <family>Raleway</family>
-                 <pointsize>8</pointsize>
-                 <weight>75</weight>
-                 <bold>true</bold>
-                </font>
-               </property>
-               <property name="text">
-                <string>Descrição/Código</string>
-               </property>
-              </widget>
-             </item>
-             <item row="1" column="0">
-              <widget class="QLineEdit" name="input_descricao">
-               <property name="sizePolicy">
-                <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-                 <horstretch>0</horstretch>
-                 <verstretch>0</verstretch>
-                </sizepolicy>
-               </property>
-               <property name="maximumSize">
-                <size>
-                 <width>16777215</width>
-                 <height>30</height>
-                </size>
-               </property>
-               <property name="font">
-                <font>
-                 <family>Raleway</family>
-                </font>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">QLineEdit {
-	background-color:white;
-	border-radius: 10px;
-	border: 1px solid rgb(158, 162, 166);
-	padding-left: 20px;
-}</string>
-               </property>
-              </widget>
-             </item>
-            </layout>
-           </widget>
-          </item>
-          <item row="0" column="3">
-           <widget class="QFrame" name="frame_13">
-            <property name="minimumSize">
-             <size>
-              <width>0</width>
-              <height>70</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>75</width>
-              <height>70</height>
-             </size>
-            </property>
-            <property name="frameShape">
-             <enum>QFrame::StyledPanel</enum>
-            </property>
-            <property name="frameShadow">
-             <enum>QFrame::Raised</enum>
-            </property>
-            <layout class="QGridLayout" name="gridLayout_11">
-             <property name="leftMargin">
-              <number>0</number>
-             </property>
-             <property name="rightMargin">
-              <number>0</number>
-             </property>
-             <item row="0" column="0">
-              <widget class="QLabel" name="label_9">
-               <property name="font">
-                <font>
-                 <family>Raleway</family>
-                 <pointsize>8</pointsize>
-                 <weight>75</weight>
-                 <bold>true</bold>
-                </font>
-               </property>
-               <property name="text">
-                <string>Unidade</string>
-               </property>
-              </widget>
-             </item>
-             <item row="1" column="0">
-              <widget class="QLineEdit" name="input_unidade">
-               <property name="sizePolicy">
-                <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-                 <horstretch>0</horstretch>
-                 <verstretch>0</verstretch>
-                </sizepolicy>
-               </property>
-               <property name="maximumSize">
-                <size>
-                 <width>16777215</width>
-                 <height>30</height>
-                </size>
-               </property>
-               <property name="font">
-                <font>
-                 <family>Raleway</family>
-                </font>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">QLineEdit {
-	background-color:white;
-	border-radius: 10px;
-	border: 1px solid rgb(158, 162, 166);
-	padding-left: 20px;
-}</string>
-               </property>
-              </widget>
-             </item>
-            </layout>
-           </widget>
+           </spacer>
           </item>
          </layout>
         </widget>
