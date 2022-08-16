@@ -4,19 +4,20 @@ from sistema.view.login_view import LoginView
 
 class LoginController:
 
-    def __init__(self, parent=None):
+    def __init__(self, db, parent=None):
+        self.__db = db
         self.view = LoginView(parent)
-        self.model = LoginModel()
+        self.model = LoginModel(self.__db)
 
         self.view.btn_acessar.setAutoDefault(True)
 
     def acessar_sistema(self):
         self.model.definir_credenciais(self.view.receber_credenciais_login())
         autenticacao = self.model.autenticar()
-        if autenticacao == True:
-            self.view.mensagem_erro(autenticacao)
-            return True
+        if autenticacao.empty == False:
+            self.view.mensagem_erro(False)
+            return autenticacao
         else:
-            self.view.mensagem_erro(autenticacao)
+            self.view.mensagem_erro(True)
             
         

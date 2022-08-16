@@ -1,6 +1,7 @@
 class LoginModel:
 
-    def __init__(self) -> None:
+    def __init__(self, db:object) -> None:
+        self.db = db
         self.__usuario = None
         self.__senha = None
 
@@ -12,7 +13,8 @@ class LoginModel:
     def autenticar(self):
         if self.__usuario == '' or self.__senha == '':
             return False
-        elif self.__usuario == 'gabriel' and self.__senha == 'gsf151299':
-            return True
+        consulta = self.db.select(f"SELECT * FROM usuarios WHERE usuario = '{self.__usuario}' AND senha = '{self.__senha}'")
+        if consulta.empty == False:
+            return consulta
         else:
             return False
