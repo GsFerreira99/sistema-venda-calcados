@@ -53,3 +53,16 @@ def moeda(valor):
     return locale.currency(valor, grouping=True)
 
     
+def cpf_cnpj(val):
+    if len(val) == 11:
+        return f"{val[:3]}.{val[3:6]}.{val[6:9]}-{val[9:]}"
+    elif len(val) == 14:
+        return f"{val[:2]}.{val[2:5]}.{val[6:8]}/{val[8:12]}-{val[12:]}"
+    else:
+        return val
+
+def celular(val):
+    if len(val) == 11:
+        return f"{val[:2]} {val[2:7]}-{val[7:]}"
+    else:
+        return val

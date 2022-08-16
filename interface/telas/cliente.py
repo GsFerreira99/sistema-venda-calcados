@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'clientesnZEAUA.ui'
+## Form generated from reading UI file 'clientesfYILMa.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -281,105 +281,9 @@ class Ui_Cliente(object):
         self.gridLayout_24.setHorizontalSpacing(30)
         self.gridLayout_24.setVerticalSpacing(9)
         self.gridLayout_24.setContentsMargins(10, 0, 0, 0)
-        self.frame_33 = QFrame(self.frame_27)
-        self.frame_33.setObjectName(u"frame_33")
-        self.frame_33.setMaximumSize(QSize(100, 70))
-        self.frame_33.setFrameShape(QFrame.StyledPanel)
-        self.frame_33.setFrameShadow(QFrame.Raised)
-        self.gridLayout_30 = QGridLayout(self.frame_33)
-        self.gridLayout_30.setObjectName(u"gridLayout_30")
-        self.gridLayout_30.setContentsMargins(0, 9, 0, -1)
-        self.label_26 = QLabel(self.frame_33)
-        self.label_26.setObjectName(u"label_26")
-        self.label_26.setFont(font2)
-
-        self.gridLayout_30.addWidget(self.label_26, 0, 0, 1, 1)
-
-        self.input_email = QLineEdit(self.frame_33)
-        self.input_email.setObjectName(u"input_email")
-        sizePolicy2.setHeightForWidth(self.input_email.sizePolicy().hasHeightForWidth())
-        self.input_email.setSizePolicy(sizePolicy2)
-        self.input_email.setMaximumSize(QSize(16777215, 30))
-        self.input_email.setFont(font1)
-        self.input_email.setStyleSheet(u"QLineEdit {\n"
-"	background-color:white;\n"
-"	border-radius: 10px;\n"
-"	border: 1px solid rgb(158, 162, 166);\n"
-"	padding-left: 20px;\n"
-"}")
-
-        self.gridLayout_30.addWidget(self.input_email, 1, 0, 1, 1)
-
-
-        self.gridLayout_24.addWidget(self.frame_33, 0, 4, 1, 1)
-
-        self.frame_32 = QFrame(self.frame_27)
-        self.frame_32.setObjectName(u"frame_32")
-        self.frame_32.setMaximumSize(QSize(110, 70))
-        self.frame_32.setFrameShape(QFrame.StyledPanel)
-        self.frame_32.setFrameShadow(QFrame.Raised)
-        self.gridLayout_29 = QGridLayout(self.frame_32)
-        self.gridLayout_29.setObjectName(u"gridLayout_29")
-        self.gridLayout_29.setContentsMargins(0, 9, 0, -1)
-        self.label_25 = QLabel(self.frame_32)
-        self.label_25.setObjectName(u"label_25")
-        self.label_25.setFont(font2)
-
-        self.gridLayout_29.addWidget(self.label_25, 0, 0, 1, 1)
-
-        self.input_inscricaoEstadual = QLineEdit(self.frame_32)
-        self.input_inscricaoEstadual.setObjectName(u"input_inscricaoEstadual")
-        sizePolicy2.setHeightForWidth(self.input_inscricaoEstadual.sizePolicy().hasHeightForWidth())
-        self.input_inscricaoEstadual.setSizePolicy(sizePolicy2)
-        self.input_inscricaoEstadual.setMaximumSize(QSize(16777215, 30))
-        self.input_inscricaoEstadual.setFont(font1)
-        self.input_inscricaoEstadual.setStyleSheet(u"QLineEdit {\n"
-"	background-color:white;\n"
-"	border-radius: 10px;\n"
-"	border: 1px solid rgb(158, 162, 166);\n"
-"	padding-left: 20px;\n"
-"}")
-
-        self.gridLayout_29.addWidget(self.input_inscricaoEstadual, 1, 0, 1, 1)
-
-
-        self.gridLayout_24.addWidget(self.frame_32, 0, 2, 1, 1)
-
         self.horizontalSpacer_7 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
-        self.gridLayout_24.addItem(self.horizontalSpacer_7, 0, 5, 1, 1)
-
-        self.frame_31 = QFrame(self.frame_27)
-        self.frame_31.setObjectName(u"frame_31")
-        self.frame_31.setMaximumSize(QSize(100, 70))
-        self.frame_31.setFrameShape(QFrame.StyledPanel)
-        self.frame_31.setFrameShadow(QFrame.Raised)
-        self.gridLayout_28 = QGridLayout(self.frame_31)
-        self.gridLayout_28.setObjectName(u"gridLayout_28")
-        self.gridLayout_28.setContentsMargins(0, 9, 0, -1)
-        self.label_24 = QLabel(self.frame_31)
-        self.label_24.setObjectName(u"label_24")
-        self.label_24.setFont(font2)
-
-        self.gridLayout_28.addWidget(self.label_24, 0, 0, 1, 1)
-
-        self.input_cpf = QLineEdit(self.frame_31)
-        self.input_cpf.setObjectName(u"input_cpf")
-        sizePolicy2.setHeightForWidth(self.input_cpf.sizePolicy().hasHeightForWidth())
-        self.input_cpf.setSizePolicy(sizePolicy2)
-        self.input_cpf.setMaximumSize(QSize(16777215, 30))
-        self.input_cpf.setFont(font1)
-        self.input_cpf.setStyleSheet(u"QLineEdit {\n"
-"	background-color:white;\n"
-"	border-radius: 10px;\n"
-"	border: 1px solid rgb(158, 162, 166);\n"
-"	padding-left: 20px;\n"
-"}")
-
-        self.gridLayout_28.addWidget(self.input_cpf, 1, 0, 1, 1)
-
-
-        self.gridLayout_24.addWidget(self.frame_31, 0, 1, 1, 1)
+        self.gridLayout_24.addItem(self.horizontalSpacer_7, 0, 4, 1, 1)
 
         self.frame_29 = QFrame(self.frame_27)
         self.frame_29.setObjectName(u"frame_29")
@@ -411,39 +315,103 @@ class Ui_Cliente(object):
         self.gridLayout_26.addWidget(self.input_nascimento, 1, 0, 1, 1)
 
 
-        self.gridLayout_24.addWidget(self.frame_29, 0, 3, 1, 1)
+        self.gridLayout_24.addWidget(self.frame_29, 0, 2, 1, 1)
 
-        self.frame_30 = QFrame(self.frame_27)
-        self.frame_30.setObjectName(u"frame_30")
-        self.frame_30.setMaximumSize(QSize(100, 70))
-        self.frame_30.setFrameShape(QFrame.StyledPanel)
-        self.frame_30.setFrameShadow(QFrame.Raised)
-        self.gridLayout_27 = QGridLayout(self.frame_30)
-        self.gridLayout_27.setObjectName(u"gridLayout_27")
-        self.gridLayout_27.setContentsMargins(0, 9, 0, -1)
-        self.label_23 = QLabel(self.frame_30)
-        self.label_23.setObjectName(u"label_23")
-        self.label_23.setFont(font2)
+        self.frame_32 = QFrame(self.frame_27)
+        self.frame_32.setObjectName(u"frame_32")
+        self.frame_32.setMaximumSize(QSize(110, 70))
+        self.frame_32.setFrameShape(QFrame.StyledPanel)
+        self.frame_32.setFrameShadow(QFrame.Raised)
+        self.gridLayout_29 = QGridLayout(self.frame_32)
+        self.gridLayout_29.setObjectName(u"gridLayout_29")
+        self.gridLayout_29.setContentsMargins(0, 9, 0, -1)
+        self.label_25 = QLabel(self.frame_32)
+        self.label_25.setObjectName(u"label_25")
+        self.label_25.setFont(font2)
 
-        self.gridLayout_27.addWidget(self.label_23, 0, 0, 1, 1)
+        self.gridLayout_29.addWidget(self.label_25, 0, 0, 1, 1)
 
-        self.input_tipo = QLineEdit(self.frame_30)
-        self.input_tipo.setObjectName(u"input_tipo")
-        sizePolicy2.setHeightForWidth(self.input_tipo.sizePolicy().hasHeightForWidth())
-        self.input_tipo.setSizePolicy(sizePolicy2)
-        self.input_tipo.setMaximumSize(QSize(16777215, 30))
-        self.input_tipo.setFont(font1)
-        self.input_tipo.setStyleSheet(u"QLineEdit {\n"
+        self.input_inscricaoEstadual = QLineEdit(self.frame_32)
+        self.input_inscricaoEstadual.setObjectName(u"input_inscricaoEstadual")
+        sizePolicy2.setHeightForWidth(self.input_inscricaoEstadual.sizePolicy().hasHeightForWidth())
+        self.input_inscricaoEstadual.setSizePolicy(sizePolicy2)
+        self.input_inscricaoEstadual.setMaximumSize(QSize(16777215, 30))
+        self.input_inscricaoEstadual.setFont(font1)
+        self.input_inscricaoEstadual.setStyleSheet(u"QLineEdit {\n"
 "	background-color:white;\n"
 "	border-radius: 10px;\n"
 "	border: 1px solid rgb(158, 162, 166);\n"
 "	padding-left: 20px;\n"
 "}")
 
-        self.gridLayout_27.addWidget(self.input_tipo, 1, 0, 1, 1)
+        self.gridLayout_29.addWidget(self.input_inscricaoEstadual, 1, 0, 1, 1)
 
 
-        self.gridLayout_24.addWidget(self.frame_30, 0, 0, 1, 1)
+        self.gridLayout_24.addWidget(self.frame_32, 0, 1, 1, 1)
+
+        self.frame_31 = QFrame(self.frame_27)
+        self.frame_31.setObjectName(u"frame_31")
+        self.frame_31.setMaximumSize(QSize(100, 70))
+        self.frame_31.setFrameShape(QFrame.StyledPanel)
+        self.frame_31.setFrameShadow(QFrame.Raised)
+        self.gridLayout_28 = QGridLayout(self.frame_31)
+        self.gridLayout_28.setObjectName(u"gridLayout_28")
+        self.gridLayout_28.setContentsMargins(0, 9, 0, -1)
+        self.label_24 = QLabel(self.frame_31)
+        self.label_24.setObjectName(u"label_24")
+        self.label_24.setFont(font2)
+
+        self.gridLayout_28.addWidget(self.label_24, 0, 0, 1, 1)
+
+        self.input_cpf = QLineEdit(self.frame_31)
+        self.input_cpf.setObjectName(u"input_cpf")
+        sizePolicy2.setHeightForWidth(self.input_cpf.sizePolicy().hasHeightForWidth())
+        self.input_cpf.setSizePolicy(sizePolicy2)
+        self.input_cpf.setMaximumSize(QSize(16777215, 30))
+        self.input_cpf.setFont(font1)
+        self.input_cpf.setStyleSheet(u"QLineEdit {\n"
+"	background-color:white;\n"
+"	border-radius: 10px;\n"
+"	border: 1px solid rgb(158, 162, 166);\n"
+"	padding-left: 20px;\n"
+"}")
+
+        self.gridLayout_28.addWidget(self.input_cpf, 1, 0, 1, 1)
+
+
+        self.gridLayout_24.addWidget(self.frame_31, 0, 0, 1, 1)
+
+        self.frame_33 = QFrame(self.frame_27)
+        self.frame_33.setObjectName(u"frame_33")
+        self.frame_33.setMaximumSize(QSize(100, 70))
+        self.frame_33.setFrameShape(QFrame.StyledPanel)
+        self.frame_33.setFrameShadow(QFrame.Raised)
+        self.gridLayout_30 = QGridLayout(self.frame_33)
+        self.gridLayout_30.setObjectName(u"gridLayout_30")
+        self.gridLayout_30.setContentsMargins(0, 9, 0, -1)
+        self.label_26 = QLabel(self.frame_33)
+        self.label_26.setObjectName(u"label_26")
+        self.label_26.setFont(font2)
+
+        self.gridLayout_30.addWidget(self.label_26, 0, 0, 1, 1)
+
+        self.input_email = QLineEdit(self.frame_33)
+        self.input_email.setObjectName(u"input_email")
+        sizePolicy2.setHeightForWidth(self.input_email.sizePolicy().hasHeightForWidth())
+        self.input_email.setSizePolicy(sizePolicy2)
+        self.input_email.setMaximumSize(QSize(16777215, 30))
+        self.input_email.setFont(font1)
+        self.input_email.setStyleSheet(u"QLineEdit {\n"
+"	background-color:white;\n"
+"	border-radius: 10px;\n"
+"	border: 1px solid rgb(158, 162, 166);\n"
+"	padding-left: 20px;\n"
+"}")
+
+        self.gridLayout_30.addWidget(self.input_email, 1, 0, 1, 1)
+
+
+        self.gridLayout_24.addWidget(self.frame_33, 0, 3, 1, 1)
 
 
         self.gridLayout_8.addWidget(self.frame_27, 1, 0, 1, 2)
@@ -748,74 +716,6 @@ class Ui_Cliente(object):
         self.horizontalLayout_4 = QHBoxLayout(self.frame_34)
         self.horizontalLayout_4.setObjectName(u"horizontalLayout_4")
         self.horizontalLayout_4.setContentsMargins(10, 0, 0, 0)
-        self.frame_37 = QFrame(self.frame_34)
-        self.frame_37.setObjectName(u"frame_37")
-        sizePolicy1.setHeightForWidth(self.frame_37.sizePolicy().hasHeightForWidth())
-        self.frame_37.setSizePolicy(sizePolicy1)
-        self.frame_37.setMaximumSize(QSize(80, 70))
-        self.frame_37.setFrameShape(QFrame.StyledPanel)
-        self.frame_37.setFrameShadow(QFrame.Raised)
-        self.gridLayout_34 = QGridLayout(self.frame_37)
-        self.gridLayout_34.setObjectName(u"gridLayout_34")
-        self.gridLayout_34.setContentsMargins(0, 9, 0, -1)
-        self.label_29 = QLabel(self.frame_37)
-        self.label_29.setObjectName(u"label_29")
-        self.label_29.setFont(font2)
-
-        self.gridLayout_34.addWidget(self.label_29, 0, 0, 1, 1)
-
-        self.input_codigo = QLineEdit(self.frame_37)
-        self.input_codigo.setObjectName(u"input_codigo")
-        sizePolicy2.setHeightForWidth(self.input_codigo.sizePolicy().hasHeightForWidth())
-        self.input_codigo.setSizePolicy(sizePolicy2)
-        self.input_codigo.setMaximumSize(QSize(16777215, 30))
-        self.input_codigo.setFont(font1)
-        self.input_codigo.setStyleSheet(u"QLineEdit {\n"
-"	background-color:white;\n"
-"	border-radius: 10px;\n"
-"	border: 1px solid rgb(158, 162, 166);\n"
-"	padding-left: 20px;\n"
-"}")
-
-        self.gridLayout_34.addWidget(self.input_codigo, 1, 0, 1, 1)
-
-
-        self.horizontalLayout_4.addWidget(self.frame_37)
-
-        self.frame_42 = QFrame(self.frame_34)
-        self.frame_42.setObjectName(u"frame_42")
-        sizePolicy1.setHeightForWidth(self.frame_42.sizePolicy().hasHeightForWidth())
-        self.frame_42.setSizePolicy(sizePolicy1)
-        self.frame_42.setMaximumSize(QSize(130, 70))
-        self.frame_42.setFrameShape(QFrame.StyledPanel)
-        self.frame_42.setFrameShadow(QFrame.Raised)
-        self.gridLayout_38 = QGridLayout(self.frame_42)
-        self.gridLayout_38.setObjectName(u"gridLayout_38")
-        self.gridLayout_38.setContentsMargins(0, 9, 0, -1)
-        self.label_35 = QLabel(self.frame_42)
-        self.label_35.setObjectName(u"label_35")
-        self.label_35.setFont(font2)
-
-        self.gridLayout_38.addWidget(self.label_35, 0, 0, 1, 1)
-
-        self.input_data = QLineEdit(self.frame_42)
-        self.input_data.setObjectName(u"input_data")
-        sizePolicy2.setHeightForWidth(self.input_data.sizePolicy().hasHeightForWidth())
-        self.input_data.setSizePolicy(sizePolicy2)
-        self.input_data.setMaximumSize(QSize(100, 30))
-        self.input_data.setFont(font1)
-        self.input_data.setStyleSheet(u"QLineEdit {\n"
-"	background-color:white;\n"
-"	border-radius: 10px;\n"
-"	border: 1px solid rgb(158, 162, 166);\n"
-"	padding-left: 20px;\n"
-"}")
-
-        self.gridLayout_38.addWidget(self.input_data, 1, 0, 1, 1)
-
-
-        self.horizontalLayout_4.addWidget(self.frame_42)
-
         self.frame_41 = QFrame(self.frame_34)
         self.frame_41.setObjectName(u"frame_41")
         sizePolicy1.setHeightForWidth(self.frame_41.sizePolicy().hasHeightForWidth())
@@ -1056,7 +956,7 @@ class Ui_Cliente(object):
 
         self.retranslateUi(Cliente)
 
-        self.stackedWidget.setCurrentIndex(1)
+        self.stackedWidget.setCurrentIndex(2)
 
 
         QMetaObject.connectSlotsByName(Cliente)
@@ -1082,11 +982,10 @@ class Ui_Cliente(object):
         self.btn_deletar.setText(QCoreApplication.translate("Cliente", u"Deletar", None))
         self.btn_editar.setText(QCoreApplication.translate("Cliente", u"Editar", None))
         self.label_3.setText(QCoreApplication.translate("Cliente", u"Cadastrar Novo Cliente", None))
-        self.label_26.setText(QCoreApplication.translate("Cliente", u"Email", None))
+        self.label_22.setText(QCoreApplication.translate("Cliente", u"Data Nascimento", None))
         self.label_25.setText(QCoreApplication.translate("Cliente", u"Inscri\u00e7\u00e3o Estadual", None))
         self.label_24.setText(QCoreApplication.translate("Cliente", u"CPF/CNPJ", None))
-        self.label_22.setText(QCoreApplication.translate("Cliente", u"Data Nascimento", None))
-        self.label_23.setText(QCoreApplication.translate("Cliente", u"Tipo", None))
+        self.label_26.setText(QCoreApplication.translate("Cliente", u"Email", None))
         self.label_38.setText(QCoreApplication.translate("Cliente", u"Endere\u00e7o", None))
         self.label_28.setText(QCoreApplication.translate("Cliente", u"Complemento", None))
         self.label_40.setText(QCoreApplication.translate("Cliente", u"CEP", None))
@@ -1094,9 +993,7 @@ class Ui_Cliente(object):
         self.label_37.setText(QCoreApplication.translate("Cliente", u"UF", None))
         self.label_42.setText(QCoreApplication.translate("Cliente", u"Bairro", None))
         self.label_33.setText(QCoreApplication.translate("Cliente", u"Observa\u00e7\u00e3o", None))
-        self.label_29.setText(QCoreApplication.translate("Cliente", u"C\u00f3digo", None))
-        self.label_35.setText(QCoreApplication.translate("Cliente", u"Data Cadastro", None))
-        self.label_32.setText(QCoreApplication.translate("Cliente", u"Nome Cliente", None))
+        self.label_32.setText(QCoreApplication.translate("Cliente", u"Nome", None))
         self.label_31.setText(QCoreApplication.translate("Cliente", u"Celular", None))
         self.label_30.setText(QCoreApplication.translate("Cliente", u"Telefone", None))
         self.input_telefone.setText("")

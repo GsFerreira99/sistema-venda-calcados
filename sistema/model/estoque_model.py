@@ -1,6 +1,6 @@
 from sistema.funcoes.genericos import moeda
 from sistema.funcoes.tabela import Tabela
-from PySide2.QtWidgets import QTableWidgetItem
+from PySide2.QtWidgets import QTableWidgetItem, QHeaderView
 
 class EstoqueModel:
 
@@ -30,7 +30,8 @@ class EstoqueModel:
         return insert
 
     def deletar(self):
-        pass
+        insert = self.__db.deletar(f"DELETE FROM estoque WHERE id = {int(self.__dados['id'])}" )
+        return insert
 
     def editar(self):
         pass
@@ -49,9 +50,11 @@ class TabelaEstoque(Tabela):
     def __init__(self, obj: object, df, db):
         super().__init__(obj, df, db)
 
-    def preencher_tabela(self):
-        self.limpar()
+        self.resize_colum(1, QHeaderView.Stretch)
 
+    def preencher_tabela(self): 
+        self.limpar()
+ 
         nRows, nColumns = self.df.shape
         self.tabela.setRowCount(nRows)
         for row in range(nRows):

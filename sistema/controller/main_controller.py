@@ -23,7 +23,7 @@ class MainController:
         self.login = LoginController(self.__db)
         self.vendas = VendasController()
         self.estoque = EstoqueController(self.__db)
-        self.clientes = ClienteController()
+        self.clientes = ClienteController(self.__db)
         self.fornecedor = FornecedorController(self.__db)
 
         self.login.view.btn_acessar.clicked.connect(lambda: self.acessar_sistema())

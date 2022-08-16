@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'fornecedoresCQlPTa.ui'
+## Form generated from reading UI file 'fornecedoresQtgvCH.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -137,35 +137,39 @@ class Ui_Fornecedor(object):
 
         self.verticalLayout.addWidget(self.frame)
 
-        self.table_clientes = QTableWidget(self.consulta)
-        if (self.table_clientes.columnCount() < 6):
-            self.table_clientes.setColumnCount(6)
+        self.table_fornecedores = QTableWidget(self.consulta)
+        if (self.table_fornecedores.columnCount() < 6):
+            self.table_fornecedores.setColumnCount(6)
         __qtablewidgetitem = QTableWidgetItem()
-        self.table_clientes.setHorizontalHeaderItem(0, __qtablewidgetitem)
+        self.table_fornecedores.setHorizontalHeaderItem(0, __qtablewidgetitem)
         __qtablewidgetitem1 = QTableWidgetItem()
-        self.table_clientes.setHorizontalHeaderItem(1, __qtablewidgetitem1)
+        self.table_fornecedores.setHorizontalHeaderItem(1, __qtablewidgetitem1)
         __qtablewidgetitem2 = QTableWidgetItem()
-        self.table_clientes.setHorizontalHeaderItem(2, __qtablewidgetitem2)
+        self.table_fornecedores.setHorizontalHeaderItem(2, __qtablewidgetitem2)
         __qtablewidgetitem3 = QTableWidgetItem()
-        self.table_clientes.setHorizontalHeaderItem(3, __qtablewidgetitem3)
+        self.table_fornecedores.setHorizontalHeaderItem(3, __qtablewidgetitem3)
         __qtablewidgetitem4 = QTableWidgetItem()
-        self.table_clientes.setHorizontalHeaderItem(4, __qtablewidgetitem4)
+        self.table_fornecedores.setHorizontalHeaderItem(4, __qtablewidgetitem4)
         __qtablewidgetitem5 = QTableWidgetItem()
-        self.table_clientes.setHorizontalHeaderItem(5, __qtablewidgetitem5)
-        self.table_clientes.setObjectName(u"table_clientes")
+        self.table_fornecedores.setHorizontalHeaderItem(5, __qtablewidgetitem5)
+        self.table_fornecedores.setObjectName(u"table_fornecedores")
         font3 = QFont()
         font3.setFamily(u"Raleway")
         font3.setBold(True)
         font3.setWeight(75)
-        self.table_clientes.setFont(font3)
-        self.table_clientes.setStyleSheet(u"QTableWidget{\n"
+        self.table_fornecedores.setFont(font3)
+        self.table_fornecedores.setStyleSheet(u"QTableWidget{\n"
 "	background-color: rgb(255, 255, 255);\n"
 "	border-radius: 10px;\n"
 "	border: 1px solid black;\n"
 "}")
-        self.table_clientes.horizontalHeader().setStretchLastSection(True)
+        self.table_fornecedores.setEditTriggers(QAbstractItemView.NoEditTriggers)
+        self.table_fornecedores.setSelectionMode(QAbstractItemView.SingleSelection)
+        self.table_fornecedores.setSelectionBehavior(QAbstractItemView.SelectRows)
+        self.table_fornecedores.horizontalHeader().setStretchLastSection(True)
+        self.table_fornecedores.verticalHeader().setVisible(False)
 
-        self.verticalLayout.addWidget(self.table_clientes)
+        self.verticalLayout.addWidget(self.table_fornecedores)
 
         self.frame_4 = QFrame(self.consulta)
         self.frame_4.setObjectName(u"frame_4")
@@ -924,7 +928,7 @@ class Ui_Fornecedor(object):
 
         self.retranslateUi(Fornecedor)
 
-        self.stackedWidget.setCurrentIndex(2)
+        self.stackedWidget.setCurrentIndex(1)
 
 
         QMetaObject.connectSlotsByName(Fornecedor)
@@ -935,17 +939,17 @@ class Ui_Fornecedor(object):
         self.label.setText(QCoreApplication.translate("Fornecedor", u"Consultar Fornecedores", None))
         self.label_2.setText(QCoreApplication.translate("Fornecedor", u"Pesquisar", None))
         self.btn_busca.setText("")
-        ___qtablewidgetitem = self.table_clientes.horizontalHeaderItem(0)
+        ___qtablewidgetitem = self.table_fornecedores.horizontalHeaderItem(0)
         ___qtablewidgetitem.setText(QCoreApplication.translate("Fornecedor", u"C\u00f3digo", None));
-        ___qtablewidgetitem1 = self.table_clientes.horizontalHeaderItem(1)
+        ___qtablewidgetitem1 = self.table_fornecedores.horizontalHeaderItem(1)
         ___qtablewidgetitem1.setText(QCoreApplication.translate("Fornecedor", u"Nome", None));
-        ___qtablewidgetitem2 = self.table_clientes.horizontalHeaderItem(2)
-        ___qtablewidgetitem2.setText(QCoreApplication.translate("Fornecedor", u"CNPJ", None));
-        ___qtablewidgetitem3 = self.table_clientes.horizontalHeaderItem(3)
+        ___qtablewidgetitem2 = self.table_fornecedores.horizontalHeaderItem(2)
+        ___qtablewidgetitem2.setText(QCoreApplication.translate("Fornecedor", u"CPF/CNPJ", None));
+        ___qtablewidgetitem3 = self.table_fornecedores.horizontalHeaderItem(3)
         ___qtablewidgetitem3.setText(QCoreApplication.translate("Fornecedor", u"Inscri\u00e7\u00e3o Estadual", None));
-        ___qtablewidgetitem4 = self.table_clientes.horizontalHeaderItem(4)
+        ___qtablewidgetitem4 = self.table_fornecedores.horizontalHeaderItem(4)
         ___qtablewidgetitem4.setText(QCoreApplication.translate("Fornecedor", u"Email", None));
-        ___qtablewidgetitem5 = self.table_clientes.horizontalHeaderItem(5)
+        ___qtablewidgetitem5 = self.table_fornecedores.horizontalHeaderItem(5)
         ___qtablewidgetitem5.setText(QCoreApplication.translate("Fornecedor", u"Celular", None));
         self.btn_deletar.setText(QCoreApplication.translate("Fornecedor", u"Deletar", None))
         self.btn_editar.setText(QCoreApplication.translate("Fornecedor", u"Editar", None))

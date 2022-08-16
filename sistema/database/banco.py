@@ -49,6 +49,8 @@ class DataBase:
         try:
             self.tabela_estoque()
             self.tabela_usuario()
+            self.tabela_fornecedor()
+            self.tabela_cliente()
         except mysql.connector.errors.ProgrammingError as e:
             return e
         return "Tabela 'estoque' criada com sucesso."
@@ -90,6 +92,26 @@ class DataBase:
                 uf VARCHAR(2),
                 observacao VARCHAR(255)
                 )""")
+    
+    def tabela_cliente(self):
+        self._cursor.execute("""CREATE TABLE cliente (
+                id INT AUTO_INCREMENT PRIMARY KEY,
+                criado_em DATE NOT NULL,
+                nome VARCHAR(255) NOT NULL,
+                celular VARCHAR(11),
+                telefone VARCHAR(11),
+                cpf_cnpj VARCHAR(14) NOT NULL,
+                inscricao_estadual VARCHAR(14),
+                nascimento DATE,
+                email VARCHAR(50),
+                cep VARCHAR(8),
+                endereco VARCHAR(255),
+                complemento VARCHAR(255),
+                bairro VARCHAR(255),
+                cidade VARCHAR(255),
+                uf VARCHAR(2),
+                observacao VARCHAR(255)
+                )""")
 
     def tabela_usuario(self):
         self._cursor.execute("""CREATE TABLE usuarios (
@@ -112,69 +134,11 @@ class DataBase:
     def select(self, sql):
         return pd.read_sql(sql, con=self._engine)
 
-
-
-sql = """INSERT INTO decretos (
-            N_DECRETO,
-            DOTACAO_SUPLEMENTADA,
-            DOTACAO_ANULADO,
-            VALOR_FINANCEIRO,
-            VALOR_FISICO_ATUAL_SUPLEMENTADO,
-            VALOR_FISICO_ATUAL_ANULADO,
-            DATA_ALTERACAO_ORCAMENTARIA,
-            NOME_ORGAO_SUPLEMENTADO,
-            UNIDADE_SUPLEMENTADO,
-            NOME_ORGAO_SUPLEMENTADO2,
-            FUCAO_SUPLEMENTADO,
-            SUBFUNCAO_SUPLEMENTADO,
-            ID_PROGRAMA_SUPLEMENTADO,
-            PROGRAMA_SUPLEMENTADO,
-            ID_ACAO_SUPLEMENTADO,
-            ACAO_SUPLEMENTADO,
-            NATUREZA_DA_DESPESA_SUPLEMENTADO,
-            FONTE_DE_RECURSO_SUPLEMENTADO,
-            NOME_PRODUTO_SUPLEMENTADO,
-            ORGAO_ANULADO,
-            UNIDADE_ANULADO,
-            NOME_ORGAO_ANULADO,
-            FUNCAO_ANULADO,
-            SUBFUNCAO_ANULADO,
-            ID_PROGRAMA_ANULADO,
-            PROGRAMA_ANULADO,
-            ID_ACAO_ANULADO,
-            ACAO_ANULADO,
-            NATUREZA_DA_DESPEZA_ANULADA,
-            FONTE_DE_RECURSO_ANULADA,
-            NOME_PRODUTO_ANULADO,
-            OCORRIDO,
-            COL_ALERTA,
-            DATA_EMAIL_INICIAL,
-            EMAIL_INICIAL,
-            EMAIL_ENVIADO,
-            NOVA_META_FISICA_ANULADO,
-            NOVA_META_FISICA_SUPLEMENTADO,
-            INSERIDO_METAS,
-            ATUALIZADO_NO_SISTEMA,
-            DATA_CONTATO_1_ORIGEM,
-            CONTATO_1_ORIGEM,
-            STATUS_1_ORIGEM,
-            DATA_CONTATO_2_ORIGEM,
-            CONTATO_2_ORIGEM,
-            STATUS_2_ORIGEM,
-            DATA_CONTATO_3_ORIGEM,
-            CONTATO_3_ORIGEM,
-            STATUS_3_ORIGEM,
-            DATA_CONTATO_1_DESTINO,
-            CONTATO_1_DESTINO,
-            STATUS_1_DESTINO,
-            DATA_CONTATO_2_DESTINO,
-            CONTATO_2_DESTINO,
-            STATUS_2_DESTINO,
-            DATA_CONTATO_3_DESTINO,
-            CONTATO_3_DESTINO,
-            STATUS_3_DESTINO
-            ) 
-            VALUES (
-                %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s,
-                %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s,
-                %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"""
+    def deletar(self, sql):
+        try:
+            self._cursor.execute(sql)
+            self._db.commit()
+            return True
+        except mysql.connector.Error as e:
+            print(e)
+            return False

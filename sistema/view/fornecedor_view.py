@@ -65,7 +65,6 @@ class FornecedorView(Ui_Fornecedor, QWidget):
         self.input_uf.setText('')
         self.input_observacao.setText('')
 
-
     def receber_dados(self):
         return {
             "nome": self.input_nome.text(),
@@ -82,6 +81,9 @@ class FornecedorView(Ui_Fornecedor, QWidget):
             "uf": self.input_uf.text(),
             "observacao": self.input_observacao.toPlainText(),
         }
+
+    def linha_selecionada(self):
+        return self.table_fornecedores.currentRow()
 
     def vazios(self):
         pass

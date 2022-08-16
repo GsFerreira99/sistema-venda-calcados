@@ -24,12 +24,19 @@ class EstoqueController:
 
 
         self.view.btn_busca.clicked.connect(lambda: self.busca())
+        self.view.btn_deletar.clicked.connect(lambda: self.deletar())
+
+    def deletar(self):
+        model = EstoqueModel(self.__db, self.table.retorna_objeto(self.view.linha_selecionada()))
+        model.deletar()
+        mensagem(f"Produto '{model.dados['descricao']}' deletado com sucesso.", QMessageBox.Information, 'Info')
+        self.busca()
 
     def busca(self):
         campo = self.view.btn_busca.text()
-        table = TabelaEstoque(self.view.table_produtos, self.__db.select("SELECT * FROM estoque"), self.__db)
+        self.table = TabelaEstoque(self.view.table_produtos, self.__db.select("SELECT * FROM estoque"), self.__db)
 
-        table.preencher_tabela()
+        self.table.preencher_tabela()
 
 
     def limpar_tela(self):

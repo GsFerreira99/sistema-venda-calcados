@@ -1,5 +1,6 @@
+from ast import Delete
 from sistema.view.fornecedor_view import FornecedorView
-from sistema.model.fornecedore_model import FornecedorModel
+from sistema.model.fornecedore_model import FornecedorModel, TabelaFornecedor
 
 from sistema.funcoes.poupup import mensagem
 from PySide2.QtWidgets import QMessageBox
@@ -18,6 +19,15 @@ class FornecedorController:
 
         self.view.btn_salvar.clicked.connect(lambda: self.cadastrar_fornecedor())
 
+        self.view.btn_busca.clicked.connect(lambda: self.busca())
+        self.view.btn_deletar.clicked.connect(lambda: self.deletar())
+
+    def deletar(self):
+        model = FornecedorModel(self.__db, self.table.retorna_objeto(self.view.linha_selecionada()))
+        model.deletar()
+        mensagem(f"Fornecedor '{model.dados['nome']}' deletado com sucesso.", QMessageBox.Information, 'Info')
+        self.busca()
+
     def cadastrar_fornecedor(self):
         fornecedor = FornecedorModel(self.__db, pd.Series(self.view.receber_dados()))
         if fornecedor.salvar() == True:
@@ -29,3 +39,9 @@ class FornecedorController:
 
     def limpar_tela(self):
         self.view.limpar()
+
+    def busca(self):
+        campo = self.view.btn_busca.text()
+        self.table = TabelaFornecedor(self.view.table_fornecedores, self.__db.select("SELECT * FROM fornecedor"), self.__db)
+
+        self.table.preencher_tabela()

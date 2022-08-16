@@ -99,6 +99,9 @@ class EstoqueView(Ui_Estoque, QWidget):
         self.input_precoVenda.setText(moeda((compra + valLucro)))
         self.input_precoAtacado.setText(moeda((compra + valLucro)))
 
+    def linha_selecionada(self):
+        return self.table_produtos.currentRow()
+
     def receber_dados(self):
         return {
             "cod_barras": self.input_codBarras.text(),

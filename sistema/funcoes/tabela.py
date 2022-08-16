@@ -1,5 +1,6 @@
 from PySide2.QtWidgets import QTableWidgetItem
 
+
 class Tabela:
 
     def __init__(self, obj:object, df, db):
@@ -10,6 +11,14 @@ class Tabela:
 
     def df_table(self):
         pass
+
+    def retorna_objeto(self, index):
+        return self.df.iloc[index]
+
+    def resize_colum(self, column, tipo):
+        """colum=(numero da coluna), tipo=(QHeaderView.ResizeToContents, QHeaderView.Stretch)"""
+        header = self.tabela.horizontalHeader()       
+        header.setSectionResizeMode(column, tipo)
     
     def preencher_tabela(self):
         self.limpar()

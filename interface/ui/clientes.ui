@@ -53,7 +53,7 @@ margin-top:0;
 }</string>
      </property>
      <property name="currentIndex">
-      <number>1</number>
+      <number>2</number>
      </property>
      <widget class="QWidget" name="page"/>
      <widget class="QWidget" name="consulta">
@@ -514,7 +514,20 @@ QPushButton:pressed{
               <number>9</number>
              </property>
              <item row="0" column="4">
-              <widget class="QFrame" name="frame_33">
+              <spacer name="horizontalSpacer_7">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>40</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item row="0" column="2">
+              <widget class="QFrame" name="frame_29">
                <property name="maximumSize">
                 <size>
                  <width>100</width>
@@ -527,7 +540,7 @@ QPushButton:pressed{
                <property name="frameShadow">
                 <enum>QFrame::Raised</enum>
                </property>
-               <layout class="QGridLayout" name="gridLayout_30">
+               <layout class="QGridLayout" name="gridLayout_26">
                 <property name="leftMargin">
                  <number>0</number>
                 </property>
@@ -538,7 +551,7 @@ QPushButton:pressed{
                  <number>0</number>
                 </property>
                 <item row="0" column="0">
-                 <widget class="QLabel" name="label_26">
+                 <widget class="QLabel" name="label_22">
                   <property name="font">
                    <font>
                     <family>Raleway</family>
@@ -548,12 +561,12 @@ QPushButton:pressed{
                    </font>
                   </property>
                   <property name="text">
-                   <string>Email</string>
+                   <string>Data Nascimento</string>
                   </property>
                  </widget>
                 </item>
                 <item row="1" column="0">
-                 <widget class="QLineEdit" name="input_email">
+                 <widget class="QLineEdit" name="input_nascimento">
                   <property name="sizePolicy">
                    <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
                     <horstretch>0</horstretch>
@@ -584,7 +597,7 @@ QPushButton:pressed{
                </layout>
               </widget>
              </item>
-             <item row="0" column="2">
+             <item row="0" column="1">
               <widget class="QFrame" name="frame_32">
                <property name="maximumSize">
                 <size>
@@ -655,20 +668,7 @@ QPushButton:pressed{
                </layout>
               </widget>
              </item>
-             <item row="0" column="5">
-              <spacer name="horizontalSpacer_7">
-               <property name="orientation">
-                <enum>Qt::Horizontal</enum>
-               </property>
-               <property name="sizeHint" stdset="0">
-                <size>
-                 <width>40</width>
-                 <height>20</height>
-                </size>
-               </property>
-              </spacer>
-             </item>
-             <item row="0" column="1">
+             <item row="0" column="0">
               <widget class="QFrame" name="frame_31">
                <property name="maximumSize">
                 <size>
@@ -740,7 +740,7 @@ QPushButton:pressed{
               </widget>
              </item>
              <item row="0" column="3">
-              <widget class="QFrame" name="frame_29">
+              <widget class="QFrame" name="frame_33">
                <property name="maximumSize">
                 <size>
                  <width>100</width>
@@ -753,7 +753,7 @@ QPushButton:pressed{
                <property name="frameShadow">
                 <enum>QFrame::Raised</enum>
                </property>
-               <layout class="QGridLayout" name="gridLayout_26">
+               <layout class="QGridLayout" name="gridLayout_30">
                 <property name="leftMargin">
                  <number>0</number>
                 </property>
@@ -764,7 +764,7 @@ QPushButton:pressed{
                  <number>0</number>
                 </property>
                 <item row="0" column="0">
-                 <widget class="QLabel" name="label_22">
+                 <widget class="QLabel" name="label_26">
                   <property name="font">
                    <font>
                     <family>Raleway</family>
@@ -774,83 +774,12 @@ QPushButton:pressed{
                    </font>
                   </property>
                   <property name="text">
-                   <string>Data Nascimento</string>
+                   <string>Email</string>
                   </property>
                  </widget>
                 </item>
                 <item row="1" column="0">
-                 <widget class="QLineEdit" name="input_nascimento">
-                  <property name="sizePolicy">
-                   <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-                    <horstretch>0</horstretch>
-                    <verstretch>0</verstretch>
-                   </sizepolicy>
-                  </property>
-                  <property name="maximumSize">
-                   <size>
-                    <width>16777215</width>
-                    <height>30</height>
-                   </size>
-                  </property>
-                  <property name="font">
-                   <font>
-                    <family>Raleway</family>
-                   </font>
-                  </property>
-                  <property name="styleSheet">
-                   <string notr="true">QLineEdit {
-	background-color:white;
-	border-radius: 10px;
-	border: 1px solid rgb(158, 162, 166);
-	padding-left: 20px;
-}</string>
-                  </property>
-                 </widget>
-                </item>
-               </layout>
-              </widget>
-             </item>
-             <item row="0" column="0">
-              <widget class="QFrame" name="frame_30">
-               <property name="maximumSize">
-                <size>
-                 <width>100</width>
-                 <height>70</height>
-                </size>
-               </property>
-               <property name="frameShape">
-                <enum>QFrame::StyledPanel</enum>
-               </property>
-               <property name="frameShadow">
-                <enum>QFrame::Raised</enum>
-               </property>
-               <layout class="QGridLayout" name="gridLayout_27">
-                <property name="leftMargin">
-                 <number>0</number>
-                </property>
-                <property name="topMargin">
-                 <number>9</number>
-                </property>
-                <property name="rightMargin">
-                 <number>0</number>
-                </property>
-                <item row="0" column="0">
-                 <widget class="QLabel" name="label_23">
-                  <property name="font">
-                   <font>
-                    <family>Raleway</family>
-                    <pointsize>8</pointsize>
-                    <weight>75</weight>
-                    <bold>true</bold>
-                   </font>
-                  </property>
-                  <property name="text">
-                   <string>Tipo</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="1" column="0">
-                 <widget class="QLineEdit" name="input_tipo">
+                 <widget class="QLineEdit" name="input_email">
                   <property name="sizePolicy">
                    <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
                     <horstretch>0</horstretch>
@@ -1629,160 +1558,6 @@ QPushButton:pressed{
               <number>0</number>
              </property>
              <item>
-              <widget class="QFrame" name="frame_37">
-               <property name="sizePolicy">
-                <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
-                 <horstretch>0</horstretch>
-                 <verstretch>0</verstretch>
-                </sizepolicy>
-               </property>
-               <property name="maximumSize">
-                <size>
-                 <width>80</width>
-                 <height>70</height>
-                </size>
-               </property>
-               <property name="frameShape">
-                <enum>QFrame::StyledPanel</enum>
-               </property>
-               <property name="frameShadow">
-                <enum>QFrame::Raised</enum>
-               </property>
-               <layout class="QGridLayout" name="gridLayout_34">
-                <property name="leftMargin">
-                 <number>0</number>
-                </property>
-                <property name="topMargin">
-                 <number>9</number>
-                </property>
-                <property name="rightMargin">
-                 <number>0</number>
-                </property>
-                <item row="0" column="0">
-                 <widget class="QLabel" name="label_29">
-                  <property name="font">
-                   <font>
-                    <family>Raleway</family>
-                    <pointsize>8</pointsize>
-                    <weight>75</weight>
-                    <bold>true</bold>
-                   </font>
-                  </property>
-                  <property name="text">
-                   <string>Código</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="1" column="0">
-                 <widget class="QLineEdit" name="input_codigo">
-                  <property name="sizePolicy">
-                   <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-                    <horstretch>0</horstretch>
-                    <verstretch>0</verstretch>
-                   </sizepolicy>
-                  </property>
-                  <property name="maximumSize">
-                   <size>
-                    <width>16777215</width>
-                    <height>30</height>
-                   </size>
-                  </property>
-                  <property name="font">
-                   <font>
-                    <family>Raleway</family>
-                   </font>
-                  </property>
-                  <property name="styleSheet">
-                   <string notr="true">QLineEdit {
-	background-color:white;
-	border-radius: 10px;
-	border: 1px solid rgb(158, 162, 166);
-	padding-left: 20px;
-}</string>
-                  </property>
-                 </widget>
-                </item>
-               </layout>
-              </widget>
-             </item>
-             <item>
-              <widget class="QFrame" name="frame_42">
-               <property name="sizePolicy">
-                <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
-                 <horstretch>0</horstretch>
-                 <verstretch>0</verstretch>
-                </sizepolicy>
-               </property>
-               <property name="maximumSize">
-                <size>
-                 <width>130</width>
-                 <height>70</height>
-                </size>
-               </property>
-               <property name="frameShape">
-                <enum>QFrame::StyledPanel</enum>
-               </property>
-               <property name="frameShadow">
-                <enum>QFrame::Raised</enum>
-               </property>
-               <layout class="QGridLayout" name="gridLayout_38">
-                <property name="leftMargin">
-                 <number>0</number>
-                </property>
-                <property name="topMargin">
-                 <number>9</number>
-                </property>
-                <property name="rightMargin">
-                 <number>0</number>
-                </property>
-                <item row="0" column="0">
-                 <widget class="QLabel" name="label_35">
-                  <property name="font">
-                   <font>
-                    <family>Raleway</family>
-                    <pointsize>8</pointsize>
-                    <weight>75</weight>
-                    <bold>true</bold>
-                   </font>
-                  </property>
-                  <property name="text">
-                   <string>Data Cadastro</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="1" column="0">
-                 <widget class="QLineEdit" name="input_data">
-                  <property name="sizePolicy">
-                   <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-                    <horstretch>0</horstretch>
-                    <verstretch>0</verstretch>
-                   </sizepolicy>
-                  </property>
-                  <property name="maximumSize">
-                   <size>
-                    <width>100</width>
-                    <height>30</height>
-                   </size>
-                  </property>
-                  <property name="font">
-                   <font>
-                    <family>Raleway</family>
-                   </font>
-                  </property>
-                  <property name="styleSheet">
-                   <string notr="true">QLineEdit {
-	background-color:white;
-	border-radius: 10px;
-	border: 1px solid rgb(158, 162, 166);
-	padding-left: 20px;
-}</string>
-                  </property>
-                 </widget>
-                </item>
-               </layout>
-              </widget>
-             </item>
-             <item>
               <widget class="QFrame" name="frame_41">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
@@ -1829,7 +1604,7 @@ QPushButton:pressed{
                    </font>
                   </property>
                   <property name="text">
-                   <string>Nome Cliente</string>
+                   <string>Nome</string>
                   </property>
                  </widget>
                 </item>
