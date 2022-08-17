@@ -31,8 +31,11 @@ def limpar_dinheiro(val):
     return converter_string_float(val.replace("R$ ", ""))
  
 def limpar_porcento(val):
-    val = val.replace("%", "")
-    return converter_string_float(val)
+    try:
+        val = val.replace("%", "")
+        return converter_string_float(val)
+    except:
+        return converter_string_float(val)
 
 def converter_string_int(val):
     try:

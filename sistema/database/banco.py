@@ -142,3 +142,12 @@ class DataBase:
         except mysql.connector.Error as e:
             print(e)
             return False
+
+    def atualizar(self, sql):
+        try:
+            self._cursor.execute(sql)
+            self._db.commit()
+            return True
+        except mysql.connector.Error as e:
+            print(e)
+            return False

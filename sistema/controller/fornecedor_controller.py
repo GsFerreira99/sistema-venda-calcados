@@ -2,7 +2,7 @@ from ast import Delete
 from sistema.view.fornecedor_view import FornecedorView
 from sistema.model.fornecedore_model import FornecedorModel, TabelaFornecedor
 
-from sistema.funcoes.poupup import mensagem
+from sistema.funcoes.poupup import mensagem, confirma
 from PySide2.QtWidgets import QMessageBox
 
 import pandas as pd
@@ -24,9 +24,14 @@ class FornecedorController:
 
     def deletar(self):
         model = FornecedorModel(self.__db, self.table.retorna_objeto(self.view.linha_selecionada()))
-        model.deletar()
-        mensagem(f"Fornecedor '{model.dados['nome']}' deletado com sucesso.", QMessageBox.Information, 'Info')
-        self.busca()
+        status = confirma(f"Deseja deletar o fornecedor '{model.dados['nome']}'?", QMessageBox.Information, 'Confirmação')
+        if status == True:
+            status = model.deletar()
+            if status == False:
+                mensagem(f"O fornecedor '{model.dados['nome']}' possui produtos cadastrados no estoque, delete os produtos para poder exclui-lo.", QMessageBox.Information, 'Info')
+            else:
+                mensagem(f"Fornecedor '{model.dados['nome']}' deletado com sucesso.", QMessageBox.Information, 'Info')
+                self.busca()
 
     def cadastrar_fornecedor(self):
         fornecedor = FornecedorModel(self.__db, pd.Series(self.view.receber_dados()))

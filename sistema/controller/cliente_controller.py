@@ -2,7 +2,7 @@ from datetime import datetime
 from sistema.view.cliente_view import ClienteView
 from sistema.model.cliente_model import ClienteModel, TabelaCliente
 
-from sistema.funcoes.poupup import mensagem
+from sistema.funcoes.poupup import mensagem, confirma
 from PySide2.QtWidgets import QMessageBox
 
 import pandas as pd
@@ -23,9 +23,11 @@ class ClienteController:
 
     def deletar(self):
         model = ClienteModel(self.__db, self.table.retorna_objeto(self.view.linha_selecionada()))
-        model.deletar()
-        mensagem(f"Cliente '{model.dados['nome']}' deletado com sucesso.", QMessageBox.Information, 'Info')
-        self.busca()
+        status = confirma(f"Deseja deletar o produto '{model.dados['nome']}'?", QMessageBox.Information, 'Confirmação')
+        if status == True:
+            status = model.deletar()
+            mensagem(f"Cliente '{model.dados['nome']}' deletado com sucesso.", QMessageBox.Information, 'Info')
+            self.busca()
 
     def cadastrar_fornecedor(self):
         cliente = ClienteModel(self.__db, pd.Series(self.view.receber_dados()))

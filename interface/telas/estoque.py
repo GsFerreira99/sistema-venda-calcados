@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'estoqueeXiHxQ.ui'
+## Form generated from reading UI file 'estoqueqeBfFf.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -138,8 +138,8 @@ class Ui_Estoque(object):
         self.verticalLayout.addWidget(self.frame)
 
         self.table_produtos = QTableWidget(self.consulta)
-        if (self.table_produtos.columnCount() < 7):
-            self.table_produtos.setColumnCount(7)
+        if (self.table_produtos.columnCount() < 9):
+            self.table_produtos.setColumnCount(9)
         __qtablewidgetitem = QTableWidgetItem()
         self.table_produtos.setHorizontalHeaderItem(0, __qtablewidgetitem)
         __qtablewidgetitem1 = QTableWidgetItem()
@@ -154,6 +154,10 @@ class Ui_Estoque(object):
         self.table_produtos.setHorizontalHeaderItem(5, __qtablewidgetitem5)
         __qtablewidgetitem6 = QTableWidgetItem()
         self.table_produtos.setHorizontalHeaderItem(6, __qtablewidgetitem6)
+        __qtablewidgetitem7 = QTableWidgetItem()
+        self.table_produtos.setHorizontalHeaderItem(7, __qtablewidgetitem7)
+        __qtablewidgetitem8 = QTableWidgetItem()
+        self.table_produtos.setHorizontalHeaderItem(8, __qtablewidgetitem8)
         self.table_produtos.setObjectName(u"table_produtos")
         font3 = QFont()
         font3.setFamily(u"Raleway")
@@ -165,6 +169,7 @@ class Ui_Estoque(object):
 "	border-radius: 10px;\n"
 "	border: 1px solid black;\n"
 "}")
+        self.table_produtos.setEditTriggers(QAbstractItemView.NoEditTriggers)
         self.table_produtos.setSelectionBehavior(QAbstractItemView.SelectRows)
         self.table_produtos.horizontalHeader().setStretchLastSection(True)
 
@@ -915,7 +920,7 @@ class Ui_Estoque(object):
 
         self.retranslateUi(Estoque)
 
-        self.stackedWidget.setCurrentIndex(2)
+        self.stackedWidget.setCurrentIndex(1)
 
 
         QMetaObject.connectSlotsByName(Estoque)
@@ -931,15 +936,19 @@ class Ui_Estoque(object):
         ___qtablewidgetitem1 = self.table_produtos.horizontalHeaderItem(1)
         ___qtablewidgetitem1.setText(QCoreApplication.translate("Estoque", u"Descri\u00e7\u00e3o", None));
         ___qtablewidgetitem2 = self.table_produtos.horizontalHeaderItem(2)
-        ___qtablewidgetitem2.setText(QCoreApplication.translate("Estoque", u"Uni.", None));
+        ___qtablewidgetitem2.setText(QCoreApplication.translate("Estoque", u"Cor", None));
         ___qtablewidgetitem3 = self.table_produtos.horizontalHeaderItem(3)
-        ___qtablewidgetitem3.setText(QCoreApplication.translate("Estoque", u"Qnt", None));
+        ___qtablewidgetitem3.setText(QCoreApplication.translate("Estoque", u"Tamanho", None));
         ___qtablewidgetitem4 = self.table_produtos.horizontalHeaderItem(4)
-        ___qtablewidgetitem4.setText(QCoreApplication.translate("Estoque", u"Pre\u00e7o Compra", None));
+        ___qtablewidgetitem4.setText(QCoreApplication.translate("Estoque", u"Uni.", None));
         ___qtablewidgetitem5 = self.table_produtos.horizontalHeaderItem(5)
-        ___qtablewidgetitem5.setText(QCoreApplication.translate("Estoque", u"Pre\u00e7o Venda", None));
+        ___qtablewidgetitem5.setText(QCoreApplication.translate("Estoque", u"Qnt", None));
         ___qtablewidgetitem6 = self.table_produtos.horizontalHeaderItem(6)
-        ___qtablewidgetitem6.setText(QCoreApplication.translate("Estoque", u"Fornecedor", None));
+        ___qtablewidgetitem6.setText(QCoreApplication.translate("Estoque", u"Pre\u00e7o Compra", None));
+        ___qtablewidgetitem7 = self.table_produtos.horizontalHeaderItem(7)
+        ___qtablewidgetitem7.setText(QCoreApplication.translate("Estoque", u"Pre\u00e7o Venda", None));
+        ___qtablewidgetitem8 = self.table_produtos.horizontalHeaderItem(8)
+        ___qtablewidgetitem8.setText(QCoreApplication.translate("Estoque", u"Fornecedor", None));
         self.btn_adcEstoque.setText(QCoreApplication.translate("Estoque", u"Adicionar Estoque", None))
         self.btn_deletar.setText(QCoreApplication.translate("Estoque", u"Deletar", None))
         self.btn_editar.setText(QCoreApplication.translate("Estoque", u"Editar", None))

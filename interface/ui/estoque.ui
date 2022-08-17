@@ -239,6 +239,16 @@ QPushButton:pressed{
          </column>
          <column>
           <property name="text">
+           <string>Cor</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>Tamanho</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
            <string>Uni.</string>
           </property>
          </column>
