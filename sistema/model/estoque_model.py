@@ -35,6 +35,9 @@ class EstoqueModel:
         insert = self.__db.deletar(f"DELETE FROM estoque WHERE id = {int(self.dados['id'])}" )
         return insert
 
+    def __getitem__(self, item):
+        return self.dados[item]
+
     def editar(self):
         update = self.__db.atualizar(
             f"""
@@ -58,8 +61,19 @@ class EstoqueModel:
                 """)
         return update
     
-    def adicionarEstoque(self, valor):
-        pass
+    def adicionarEstoque(self):
+        update = self.__db.atualizar(
+            f"""
+                    UPDATE estoque
+                    SET
+                        estoque_atual = {self.dados['estoque_atual']}
+                    WHERE
+                        id = {self.dados['id']}
+                        """)
+        return update
+
+    def atualizar_estoque(self, val):
+        self.dados['estoque_atual'] = val + int(self.dados['estoque_atual'])
 
     def atualizar_dados(self, dados:dict):
         dados['id'] = self.dados['id']

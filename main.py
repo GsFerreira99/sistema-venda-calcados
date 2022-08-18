@@ -1,24 +1,19 @@
-#PySide2
-from PySide2.QtWidgets import QApplication, QMainWindow, QStackedWidget
+from PySide2.QtWidgets import QApplication, QStackedWidget
 from PySide2 import QtGui
 
-#Controllers
 from sistema.controller.main_controller import MainController
 
 import sys
 
 
-class App(QMainWindow):
+class App:
 
     def __init__(self):
-        self.definir_window()
+        self.StackedWidget = QStackedWidget()
+        self.StackedWidget.setWindowIcon(QtGui.QIcon('logo.ico'))
         self.main = MainController(self.StackedWidget)
         self.main.definir_telas()
         self.main.definir_telas_sistema()
-
-    def definir_window(self):
-        self.StackedWidget = QStackedWidget()
-        self.StackedWidget.setWindowIcon(QtGui.QIcon('logo.ico'))
 
     def tamanho_tela(self):
         self.StackedWidget.setStyleSheet("background-color: rgb(236, 242, 248);")
@@ -26,7 +21,8 @@ class App(QMainWindow):
 
     def exibir_tela_login(self):
         self.StackedWidget.show()
-    
+
+
 if __name__ == "__main__":
     root = QApplication(sys.argv)
     app = App()

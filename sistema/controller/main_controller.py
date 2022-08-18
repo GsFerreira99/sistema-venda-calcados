@@ -1,4 +1,4 @@
-from .estoque_controller import EstoqueController
+from sistema.controller.estoque_controller import EstoqueController
 from sistema.view.main_view import MainView
 from sistema.controller.login_controller import LoginController
 from sistema.controller.vendas_controller import VendasController
@@ -9,15 +9,15 @@ from sistema.database.banco import DataBase
 
 from PySide2.QtWidgets import QWidget
 
+
 class MainController:
 
     def __init__(self, parent=None) -> None:
         self.parent = parent
         
         self.view = MainView(self.parent)
-        
-        #Controllers
 
+        self.__db = DataBase("localhost", 'gabriel', 'Gabriel151299', '3306')
         self.conectar_db()
 
         self.login = LoginController(self.__db)
@@ -25,6 +25,8 @@ class MainController:
         self.estoque = EstoqueController(self.__db)
         self.clientes = ClienteController(self.__db)
         self.fornecedor = FornecedorController(self.__db)
+
+        self.__usuario = None
 
         self.login.view.btn_acessar.clicked.connect(lambda: self.acessar_sistema())
         self.view.btn_menu.clicked.connect(lambda: self.menu_lateral())
@@ -41,15 +43,14 @@ class MainController:
         self.parent.setCurrentIndex(0)
 
     def conectar_db(self):
-        self.__db = DataBase("localhost", 'gabriel', 'Gabriel151299', '3306')
         self.__db.conectar()
 
-    def navegacao(self, index:int):
+    def navegacao(self, index: int):
         telas = {
-            1 : [self.view.btn_vendas, "Vendas", self.vendas.view],
-            2 : [self.view.btn_estoque, "Estoque", self.estoque.view],
-            3 : [self.view.btn_clientes, "Clientes", self.clientes.view],
-            4 : [self.view.btn_fornecedores, "Fornecedores", self.fornecedor.view],
+            1: [self.view.btn_vendas, "Vendas", self.vendas.view],
+            2: [self.view.btn_estoque, "Estoque", self.estoque.view],
+            3: [self.view.btn_clientes, "Clientes", self.clientes.view],
+            4: [self.view.btn_fornecedores, "Fornecedores", self.fornecedor.view],
         }
         self.view.navegacao(index, telas)
 
