@@ -2,6 +2,8 @@ from ..funcoes.genericos import celular, cpf_cnpj
 from sistema.funcoes.tabela import Tabela
 from PySide2.QtWidgets import QTableWidgetItem, QHeaderView
 
+import pandas as pd
+
 class ClienteModel:
 
     def __init__(self, db, dados:object) -> None:
@@ -36,13 +38,35 @@ class ClienteModel:
         return insert
 
     def editar(self):
-        pass
-    
-    def adicionarEstoque(self, valor):
-        pass
+        update = self.__db.atualizar(
+            f"""
+            UPDATE cliente
+            SET
+                nome = '{self.dados['nome']}',
+                celular = '{self.dados['celular']}',
+                telefone = '{self.dados['telefone']}',
+                cpf_cnpj = '{self.dados['cpf_cnpj']}',
+                inscricao_estadual = '{self.dados['inscricao_estadual']}',
+                nascimento = '{self.dados['nascimento']}',
+                email = '{self.dados['email']}',
+                cep = '{self.dados['cep']}',
+                endereco = '{self.dados['endereco']}',
+                complemento = '{self.dados['complemento']}',
+                bairro = '{self.dados['bairro']}',
+                cidade = '{self.dados['cidade']}',
+                uf = '{self.dados['uf']}',
+                observacao = '{self.dados['observacao']}'
+            WHERE
+                id = {self.dados['id']}
+                """)
+        return update
 
-    def dadosTabela(self):
-        pass
+    def atualizar_dados(self, dados: dict):
+        dados['id'] = self.dados['id']
+        self.dados = pd.Series(dados)
+
+    def __getitem__(self, item):
+        return self.dados[item]
 
     def __str__(self) -> str:
         return self.dados['nome']

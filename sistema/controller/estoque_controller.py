@@ -77,7 +77,7 @@ class EstoqueController:
 
     def salvar_edicao(self):
         self.modelEdit.atualizar_dados(self.edit.receber_dados())
-        self.modelEdit['fornecedorId'] = int(self.__db.select(
+        self.modelEdit.dados['fornecedorId'] = int(self.__db.select(
             f"SELECT id FROM fornecedor WHERE nome = '{self.modelEdit['fornecedorId']}'").iloc[0, 0])
         if self.modelEdit.editar():
             texto = "Produto atualizado com sucesso!"

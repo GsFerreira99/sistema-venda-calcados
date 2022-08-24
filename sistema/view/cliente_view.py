@@ -56,7 +56,6 @@ class ClienteView(Ui_Cliente, QWidget):
         self.input_telefone.setText('')
         self.input_cpf.setText('')
         self.input_inscricaoEstadual.setText('')
-        self.input_nascimento.setText('')
         self.input_email.setText('')
         self.input_cep.setText('')
         self.input_endereco.setText('')
@@ -74,7 +73,7 @@ class ClienteView(Ui_Cliente, QWidget):
             "telefone": self.input_telefone.text(),
             "cpf_cnpj": self.input_cpf.text(),
             "inscricao_estadual": self.input_inscricaoEstadual.text(),
-            "nascimento": self.input_nascimento.text(),
+            "nascimento": self.input_nascimento.date().toPython(),
             "email": self.input_email.text(),
             "cep": self.input_cep.text(),
             "endereco": self.input_endereco.text(),

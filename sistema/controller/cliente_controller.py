@@ -1,5 +1,6 @@
 from datetime import datetime
 from sistema.view.cliente_view import ClienteView
+from sistema.view.cliente_edit_view import ClienteEditView
 from sistema.model.cliente_model import ClienteModel, TabelaCliente
 
 from sistema.funcoes.poupup import mensagem, confirma
@@ -12,12 +13,15 @@ class ClienteController:
     def __init__(self, db) -> None:
         self.__db = db
         self.view = ClienteView()
+        self.edit = ClienteEditView()
 
         self.view.btn_consulta.clicked.connect(lambda: self.view.navegacao(1))
         self.view.btn_novo.clicked.connect(lambda: self.view.navegacao(2))
     
         self.view.btn_salvar.clicked.connect(lambda: self.cadastrar_fornecedor())
+        self.edit.btn_salvar.clicked.connect(lambda: self.salvar_edicao())
 
+        self.view.btn_editar.clicked.connect(lambda: self.editar())
         self.view.btn_busca.clicked.connect(lambda: self.busca())
         self.view.btn_deletar.clicked.connect(lambda: self.deletar())
 
@@ -29,14 +33,32 @@ class ClienteController:
             mensagem(f"Cliente '{model.dados['nome']}' deletado com sucesso.", QMessageBox.Information, 'Info')
             self.busca()
 
+    def editar(self):
+        objeto = self.table.retorna_objeto(self.view.linha_selecionada())
+        self.modelEdit = ClienteModel(self.__db, objeto)
+        self.limpar_tela()
+        self.edit.preencher_campos(self.modelEdit.dados)
+        self.edit.show()
+
+    def salvar_edicao(self):
+        self.modelEdit.atualizar_dados(self.edit.receber_dados())
+        if self.modelEdit.editar():
+            texto = "Cliente editado com sucesso!"
+            self.limpar_tela()
+            self.edit.close()
+            self.busca()
+        else:
+            texto = "Erro ao atualizar cliente, verifique os campos."
+        mensagem(texto, QMessageBox.Information, 'Info')
+
     def cadastrar_fornecedor(self):
         cliente = ClienteModel(self.__db, pd.Series(self.view.receber_dados()))
         cliente.dados['criado_em'] = datetime.now().strftime('%Y-%m-%d')
         if cliente.salvar() == True:
-            texto = "Fornecedor Adicionado com sucesso!"
+            texto = "Cliente Adicionado com sucesso!"
             self.limpar_tela()
         else:
-            texto = "Erro ao inserir fornecedor, verifique os campos."
+            texto = "Erro ao inserir Cliente, verifique os campos."
         mensagem(texto, QMessageBox.Information, 'Info')
 
     def limpar_tela(self):

@@ -22,6 +22,7 @@ class DataBase:
                         )
             self._cursor = self._db.cursor()
             self._engine = create_engine(f'mysql://{self._user}:{self._password}@{self._host}:{self._porta}/db_sapatos')
+
             return "Conectado com sucesso."
         except mysql.connector.Error as e:
             if e.errno == 1049:
@@ -47,13 +48,13 @@ class DataBase:
 
     def criar_tabelas(self):
         try:
+            self.tabela_fornecedor()
             self.tabela_estoque()
             self.tabela_usuario()
-            self.tabela_fornecedor()
             self.tabela_cliente()
         except mysql.connector.errors.ProgrammingError as e:
             return e
-        return "Tabela 'estoque' criada com sucesso."
+        return "Tabelas criadas com sucesso."
 
     def tabela_estoque(self):
         self._cursor.execute("""CREATE TABLE estoque (

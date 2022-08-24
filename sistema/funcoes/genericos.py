@@ -1,4 +1,5 @@
 import locale
+from PySide2.QtCore import QDate
 
 locale.setlocale(locale.LC_MONETARY, "pt_BR.UTF-8")
 
@@ -26,6 +27,13 @@ def converter_string_float(val):
             return float(val.replace(",", "."))
         except:
             return float(0)
+
+def data(data):
+    try:
+        string = data.strftime('%d-%m-%Y')
+        return QDate(int(string[6:]), int(string[3:5]), int(string[:2]))
+    except AttributeError:
+        return data
 
 def limpar_dinheiro(val):
     return converter_string_float(val.replace("R$ ", ""))

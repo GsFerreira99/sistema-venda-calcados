@@ -45,7 +45,7 @@ class EstoqueModel:
             SET
                 cod_barras = '{self.dados['cod_barras']}',
                 descricao = '{self.dados['descricao']}',
-                fornecedorId = {self.dados['fornecedorId']},
+                fornecedorId = {int(self.dados['fornecedorId'])},
                 unidade = '{self.dados['unidade']}',
                 preco_compra = {self.dados['preco_compra']},
                 margem = {self.dados['margem']},
