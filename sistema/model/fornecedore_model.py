@@ -1,12 +1,21 @@
-from ..funcoes.genericos import celular, cpf_cnpj
+from sistema.funcoes.genericos import celular, cpf_cnpj
 from sistema.funcoes.tabela import Tabela
-from PySide2.QtWidgets import QTableWidgetItem, QHeaderView
+from sistema.database.banco import DataBase
+from PySide2.QtWidgets import QTableWidgetItem, QHeaderView, QTableWidget
+import pandas as pd
+
 
 class FornecedorModel:
 
-    def __init__(self, db, dados:object) -> None:
+    @property
+    def dados(self):
+        return self._dados
+
+    dados: pd.Series
+
+    def __init__(self, db, dados: pd.Series):
         self.__db = db
-        self.__dados = dados
+        self.dados = dados
 
     def salvar(self):
         insert = self.__db.inserir(
@@ -26,29 +35,57 @@ class FornecedorModel:
                 uf,
                 observacao)
                 VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
-                """, self.__dados.tolist())
+                """, self.dados.tolist())
         return insert
 
     def deletar(self):
-        insert = self.__db.deletar(f"DELETE FROM fornecedor WHERE id = {int(self.__dados['id'])}" )
+        insert = self.__db.deletar(f"DELETE FROM fornecedor WHERE id = {int(self.dados['id'])}")
         return insert
 
     def editar(self):
-        pass
-    
-    def adicionarEstoque(self, valor):
-        pass
+        update = self.__db.atualizar(
+            f"""
+            UPDATE fornecedor
+            SET
+                nome = '{self.dados['nome']}',
+                celular = '{self.dados['celular']}',
+                telefone = '{self.dados['telefone']}',
+                cpf_cnpj = '{self.dados['cpf_cnpj']}',
+                inscricao_estadual = '{self.dados['inscricao_estadual']}',
+                email = '{self.dados['email']}',
+                cep = '{self.dados['cep']}',
+                endereco = '{self.dados['endereco']}',
+                complemento = '{self.dados['complemento']}',
+                bairro = '{self.dados['bairro']}',
+                cidade = '{self.dados['cidade']}',
+                uf = '{self.dados['uf']}',
+                observacao = '{self.dados['observacao']}'
+            WHERE
+                id = {self.dados['id']}
+                """)
+        return update
 
-    @property
-    def dados(self):
-        return self.__dados
+    def atualizar_dados(self, dados: dict):
+        dados['id'] = self.dados['id']
+        self.dados = pd.Series(dados)
+
+    def __getitem__(self, item):
+        return self.dados[item]
+
+    def __setitem__(self, key, value):
+        self.dados[key] = value
 
     def __str__(self) -> str:
-        return self.__dados['nome']
+        return self.dados['nome']
+
+    @dados.setter
+    def dados(self, value):
+        self._dados = value
+
 
 class TabelaFornecedor(Tabela):
 
-    def __init__(self, obj: object, df, db):
+    def __init__(self, obj: QTableWidget, df, db: DataBase):
         super().__init__(obj, df, db)
 
         self.resize_colum(1, QHeaderView.Stretch)
@@ -57,9 +94,9 @@ class TabelaFornecedor(Tabela):
     def preencher_tabela(self): 
         self.limpar() 
 
-        nRows, nColumns = self.df.shape
-        self.tabela.setRowCount(nRows)
-        for row in range(nRows):
+        nrows, ncolumns = self.df.shape
+        self.tabela.setRowCount(nrows)
+        for row in range(nrows):
             self.tabela.setItem(row, 0, QTableWidgetItem(str(self.df.iloc[row, 0])))
             self.tabela.setItem(row, 1, QTableWidgetItem(str(self.df.iloc[row, 1])))
             self.tabela.setItem(row, 2, QTableWidgetItem(cpf_cnpj(self.df.iloc[row, 4])))

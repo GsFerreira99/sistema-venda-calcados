@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'fornecedor_editarcAEOaI.ui'
+## Form generated from reading UI file 'fornecedor_editarmJvqOC.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -12,23 +12,23 @@ from PySide2.QtCore import *
 from PySide2.QtGui import *
 from PySide2.QtWidgets import *
 
-import resource_rc
+import interface.ui.resource_rc
 
-class Ui_EstoqueEdit(object):
-    def setupUi(self, EstoqueEdit):
-        if not EstoqueEdit.objectName():
-            EstoqueEdit.setObjectName(u"EstoqueEdit")
-        EstoqueEdit.resize(900, 700)
-        EstoqueEdit.setMinimumSize(QSize(900, 700))
-        EstoqueEdit.setStyleSheet(u"QWidget{\n"
+class Ui_FornecedorEdit(object):
+    def setupUi(self, FornecedorEdit):
+        if not FornecedorEdit.objectName():
+            FornecedorEdit.setObjectName(u"FornecedorEdit")
+        FornecedorEdit.resize(900, 700)
+        FornecedorEdit.setMinimumSize(QSize(900, 700))
+        FornecedorEdit.setStyleSheet(u"QWidget{\n"
 "	background-color: rgb(236, 242, 248);\n"
 "}\n"
 "")
-        self.gridLayout = QGridLayout(EstoqueEdit)
+        self.gridLayout = QGridLayout(FornecedorEdit)
         self.gridLayout.setSpacing(0)
         self.gridLayout.setObjectName(u"gridLayout")
         self.gridLayout.setContentsMargins(30, 30, 30, 30)
-        self.frame_5 = QFrame(EstoqueEdit)
+        self.frame_5 = QFrame(FornecedorEdit)
         self.frame_5.setObjectName(u"frame_5")
         sizePolicy = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(0)
@@ -65,7 +65,7 @@ class Ui_EstoqueEdit(object):
 
         self.gridLayout.addWidget(self.frame_5, 0, 0, 1, 1)
 
-        self.frame_8 = QFrame(EstoqueEdit)
+        self.frame_8 = QFrame(FornecedorEdit)
         self.frame_8.setObjectName(u"frame_8")
         self.frame_8.setStyleSheet(u"")
         self.frame_8.setFrameShape(QFrame.StyledPanel)
@@ -682,32 +682,32 @@ class Ui_EstoqueEdit(object):
         self.gridLayout.addWidget(self.frame_8, 1, 0, 1, 1)
 
 
-        self.retranslateUi(EstoqueEdit)
+        self.retranslateUi(FornecedorEdit)
 
-        QMetaObject.connectSlotsByName(EstoqueEdit)
+        QMetaObject.connectSlotsByName(FornecedorEdit)
     # setupUi
 
-    def retranslateUi(self, EstoqueEdit):
-        EstoqueEdit.setWindowTitle(QCoreApplication.translate("EstoqueEdit", u"Form", None))
-        self.label_3.setText(QCoreApplication.translate("EstoqueEdit", u"Editar Fornecedor", None))
-        self.btn_salvar.setText(QCoreApplication.translate("EstoqueEdit", u"Salvar", None))
-        self.label_25.setText(QCoreApplication.translate("EstoqueEdit", u"Inscri\u00e7\u00e3o Estadual", None))
+    def retranslateUi(self, FornecedorEdit):
+        FornecedorEdit.setWindowTitle(QCoreApplication.translate("FornecedorEdit", u"Form", None))
+        self.label_3.setText(QCoreApplication.translate("FornecedorEdit", u"Editar Fornecedor", None))
+        self.btn_salvar.setText(QCoreApplication.translate("FornecedorEdit", u"Salvar", None))
+        self.label_25.setText(QCoreApplication.translate("FornecedorEdit", u"Inscri\u00e7\u00e3o Estadual", None))
         self.input_inscricaoEstadual.setPlaceholderText("")
-        self.label_26.setText(QCoreApplication.translate("EstoqueEdit", u"Email", None))
-        self.label_24.setText(QCoreApplication.translate("EstoqueEdit", u"CPF/CNPJ", None))
+        self.label_26.setText(QCoreApplication.translate("FornecedorEdit", u"Email", None))
+        self.label_24.setText(QCoreApplication.translate("FornecedorEdit", u"CPF/CNPJ", None))
         self.input_cpf.setPlaceholderText("")
-        self.label_38.setText(QCoreApplication.translate("EstoqueEdit", u"Endere\u00e7o", None))
-        self.label_28.setText(QCoreApplication.translate("EstoqueEdit", u"Complemento", None))
-        self.label_40.setText(QCoreApplication.translate("EstoqueEdit", u"CEP", None))
-        self.label_41.setText(QCoreApplication.translate("EstoqueEdit", u"Cidade", None))
-        self.label_37.setText(QCoreApplication.translate("EstoqueEdit", u"UF", None))
-        self.label_42.setText(QCoreApplication.translate("EstoqueEdit", u"Bairro", None))
-        self.label_33.setText(QCoreApplication.translate("EstoqueEdit", u"Observa\u00e7\u00e3o", None))
-        self.label_32.setText(QCoreApplication.translate("EstoqueEdit", u"Nome", None))
+        self.label_38.setText(QCoreApplication.translate("FornecedorEdit", u"Endere\u00e7o", None))
+        self.label_28.setText(QCoreApplication.translate("FornecedorEdit", u"Complemento", None))
+        self.label_40.setText(QCoreApplication.translate("FornecedorEdit", u"CEP", None))
+        self.label_41.setText(QCoreApplication.translate("FornecedorEdit", u"Cidade", None))
+        self.label_37.setText(QCoreApplication.translate("FornecedorEdit", u"UF", None))
+        self.label_42.setText(QCoreApplication.translate("FornecedorEdit", u"Bairro", None))
+        self.label_33.setText(QCoreApplication.translate("FornecedorEdit", u"Observa\u00e7\u00e3o", None))
+        self.label_32.setText(QCoreApplication.translate("FornecedorEdit", u"Nome", None))
         self.input_nome.setPlaceholderText("")
-        self.label_31.setText(QCoreApplication.translate("EstoqueEdit", u"Celular", None))
+        self.label_31.setText(QCoreApplication.translate("FornecedorEdit", u"Celular", None))
         self.input_celular.setText("")
-        self.label_30.setText(QCoreApplication.translate("EstoqueEdit", u"Telefone", None))
+        self.label_30.setText(QCoreApplication.translate("FornecedorEdit", u"Telefone", None))
         self.input_telefone.setText("")
         self.input_telefone.setPlaceholderText("")
     # retranslateUi

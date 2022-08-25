@@ -5,6 +5,8 @@ from sistema.controller.vendas_controller import VendasController
 from sistema.controller.cliente_controller import ClienteController
 from sistema.controller.fornecedor_controller import FornecedorController
 
+from sistema.view import vendas_view
+
 from sistema.database.banco import DataBase
 
 from PySide2.QtWidgets import QWidget
@@ -21,7 +23,7 @@ class MainController:
         self.conectar_db()
 
         self.login = LoginController(self.__db)
-        self.vendas = VendasController()
+        self.vendas = VendasController(self.__db, vendas_view.VendasView())
         self.estoque = EstoqueController(self.__db)
         self.clientes = ClienteController(self.__db)
         self.fornecedor = FornecedorController(self.__db)
@@ -68,7 +70,7 @@ class MainController:
 
     def acessar_sistema(self):
         self.__usuario = self.login.acessar_sistema()
-        if self.__usuario.empty == False:
+        if self.__usuario.empty is False:
             self.parent.setCurrentIndex(1)
             self.parent.setMinimumSize(1200, 700)
             self.parent.showMaximized()

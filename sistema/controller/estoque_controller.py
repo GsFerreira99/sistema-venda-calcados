@@ -61,9 +61,16 @@ class EstoqueController:
         self.busca()
 
     def busca(self):
-        self.view.btn_busca.text()
-        self.table = TabelaEstoque(self.view.table_produtos, self.__db.select("SELECT * FROM estoque"), self.__db)
-
+        campo = self.view.input_pesquisa.text()
+        if campo == '':
+            select = self.__db.select("SELECT * FROM estoque")
+        else:
+            select = self.__db.select(f"""SELECT * FROM estoque WHERE descricao LIKE '%{campo}%' 
+            OR cod_barras = '{campo}' OR cor = '{campo}' OR tamanho = '{campo}'""")
+        if select.empty is True:
+            fornecedor = self.__db.select(f"SELECT id FROM fornecedor WHERE nome LIKE '%{campo}%'").iloc[0, 0]
+            select = self.__db.select(f"SELECT * FROM estoque WHERE fornecedorId = {fornecedor}")
+        self.table = TabelaEstoque(self.view.table_produtos, select, self.__db)
         self.table.preencher_tabela()
 
     def editar(self):

@@ -1,12 +1,14 @@
 from sistema.funcoes.genericos import moeda
 from sistema.funcoes.tabela import Tabela
-from PySide2.QtWidgets import QTableWidgetItem, QHeaderView
+from sistema.database.banco import DataBase
+from PySide2.QtWidgets import QTableWidgetItem, QHeaderView, QTableWidget
 
 import pandas as pd
 
+
 class EstoqueModel:
 
-    def __init__(self, db, dados:object) -> None:
+    def __init__(self, db, dados: pd.Series):
         self.__db = db
         self.dados = dados
 
@@ -32,7 +34,7 @@ class EstoqueModel:
         return insert
 
     def deletar(self):
-        insert = self.__db.deletar(f"DELETE FROM estoque WHERE id = {int(self.dados['id'])}" )
+        insert = self.__db.deletar(f"DELETE FROM estoque WHERE id = {int(self.dados['id'])}")
         return insert
 
     def __getitem__(self, item):
@@ -75,16 +77,17 @@ class EstoqueModel:
     def atualizar_estoque(self, val):
         self.dados['estoque_atual'] = val + int(self.dados['estoque_atual'])
 
-    def atualizar_dados(self, dados:dict):
+    def atualizar_dados(self, dados: dict):
         dados['id'] = self.dados['id']
         self.dados = pd.Series(dados)
 
     def __str__(self) -> str:
         return self.dados['descricao']
 
+
 class TabelaEstoque(Tabela):
 
-    def __init__(self, obj: object, df, db):
+    def __init__(self, obj: QTableWidget, df, db: DataBase):
         super().__init__(obj, df, db)
 
         self.resize_colum(1, QHeaderView.Stretch)
@@ -103,4 +106,5 @@ class TabelaEstoque(Tabela):
             self.tabela.setItem(row, 5, QTableWidgetItem(str(self.df.iloc[row, 12])))
             self.tabela.setItem(row, 6, QTableWidgetItem(moeda(self.df.iloc[row, 5])))
             self.tabela.setItem(row, 7, QTableWidgetItem(moeda(self.df.iloc[row, 8])))
-            self.tabela.setItem(row, 8, QTableWidgetItem(str(self.db.select(f"SELECT nome from fornecedor WHERE id = {self.df.iloc[row, 3]}").iloc[0,0])))
+            self.tabela.setItem(row, 8, QTableWidgetItem(str(
+                self.db.select(f"SELECT nome from fornecedor WHERE id = {self.df.iloc[row, 3]}").iloc[0, 0])))

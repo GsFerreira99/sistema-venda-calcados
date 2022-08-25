@@ -1,12 +1,16 @@
-from ..funcoes.genericos import celular, cpf_cnpj
+from sistema.funcoes.genericos import celular, cpf_cnpj
 from sistema.funcoes.tabela import Tabela
-from PySide2.QtWidgets import QTableWidgetItem, QHeaderView
+from sistema.database.banco import DataBase
+from PySide2.QtWidgets import QTableWidgetItem, QHeaderView, QTableWidget
 
 import pandas as pd
 
+
 class ClienteModel:
 
-    def __init__(self, db, dados:object) -> None:
+    dados: pd.Series
+
+    def __init__(self, db, dados: pd.Series):
         self.__db = db
         self.dados = dados
 
@@ -34,7 +38,7 @@ class ClienteModel:
         return insert
 
     def deletar(self):
-        insert = self.__db.deletar(f"DELETE FROM cliente WHERE id = {int(self.dados['id'])}" )
+        insert = self.__db.deletar(f"DELETE FROM cliente WHERE id = {int(self.dados['id'])}")
         return insert
 
     def editar(self):
@@ -68,22 +72,27 @@ class ClienteModel:
     def __getitem__(self, item):
         return self.dados[item]
 
+    def __setitem__(self, key, value):
+        self.dados[key] = value
+
     def __str__(self) -> str:
         return self.dados['nome']
 
+
 class TabelaCliente(Tabela):
 
-    def __init__(self, obj: object, df, db):
-        super().__init__(obj, df, db)
+    tabela: QTableWidget
 
+    def __init__(self, obj: QTableWidget, df, db: DataBase):
+        super().__init__(obj, df, db)
         self.resize_colum(1, QHeaderView.Stretch)
 
     def preencher_tabela(self): 
         self.limpar() 
 
-        nRows, nColumns = self.df.shape
-        self.tabela.setRowCount(nRows)
-        for row in range(nRows):
+        nrows, ncolums = self.df.shape
+        self.tabela.setRowCount(nrows)
+        for row in range(nrows):
             self.tabela.setItem(row, 0, QTableWidgetItem(str(self.df.iloc[row, 0])))
             self.tabela.setItem(row, 1, QTableWidgetItem(str(self.df.iloc[row, 2])))
             self.tabela.setItem(row, 2, QTableWidgetItem(celular(self.df.iloc[row, 3])))

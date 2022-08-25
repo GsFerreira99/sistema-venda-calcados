@@ -1,13 +1,13 @@
-from PySide2.QtWidgets import QTableWidgetItem
+from PySide2.QtWidgets import QTableWidgetItem, QTableWidget
+from sistema.database.banco import DataBase
 
 
 class Tabela:
 
-    def __init__(self, obj:object, df, db):
+    def __init__(self, obj: QTableWidget, df, db: DataBase):
         self.df = df
         self.tabela = obj
         self.db = db
-
 
     def df_table(self):
         pass
@@ -23,20 +23,15 @@ class Tabela:
     def preencher_tabela(self):
         self.limpar()
     
-        nRows, nColumns = self.df.shape
-        self.tabela.setRowCount(nRows)
-        for row in range(nRows):
-            for column in range(nColumns):
+        nrows, ncolumns = self.df.shape
+        self.tabela.setRowCount(nrows)
+        for row in range(nrows):
+            for column in range(ncolumns):
                 self.tabela.setItem(row, column, QTableWidgetItem(str(self.df.iloc[row, column])))
 
     def limpar(self):
         for i in range(self.tabela.rowCount()):
-             self.tabela.removeRow(i)
+            self.tabela.removeRow(i)
 
     def atualizar_df(self, df):
         self.df = df
-
-    
-    
-
-    

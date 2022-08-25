@@ -8,7 +8,11 @@ from PySide2.QtWidgets import QMessageBox
 
 import pandas as pd
 
+
 class ClienteController:
+
+    table: TabelaCliente
+    modelEdit: ClienteModel
 
     def __init__(self, db) -> None:
         self.__db = db
@@ -28,8 +32,8 @@ class ClienteController:
     def deletar(self):
         model = ClienteModel(self.__db, self.table.retorna_objeto(self.view.linha_selecionada()))
         status = confirma(f"Deseja deletar o produto '{model.dados['nome']}'?", QMessageBox.Information, 'Confirmação')
-        if status == True:
-            status = model.deletar()
+        if status is True:
+            model.deletar()
             mensagem(f"Cliente '{model.dados['nome']}' deletado com sucesso.", QMessageBox.Information, 'Info')
             self.busca()
 
@@ -54,7 +58,7 @@ class ClienteController:
     def cadastrar_fornecedor(self):
         cliente = ClienteModel(self.__db, pd.Series(self.view.receber_dados()))
         cliente.dados['criado_em'] = datetime.now().strftime('%Y-%m-%d')
-        if cliente.salvar() == True:
+        if cliente.salvar() is True:
             texto = "Cliente Adicionado com sucesso!"
             self.limpar_tela()
         else:
@@ -65,7 +69,11 @@ class ClienteController:
         self.view.limpar()
 
     def busca(self):
-        campo = self.view.btn_busca.text()
-        self.table = TabelaCliente(self.view.table_clientes, self.__db.select("SELECT * FROM cliente"), self.__db)
-
+        campo = self.view.input_pesquisa.text()
+        if campo == '':
+            select = self.__db.select("SELECT * FROM cliente")
+        else:
+            select = self.__db.select(f"""SELECT * FROM cliente WHERE nome LIKE '%{campo}%' 
+            OR cpf_cnpj = '{campo}' OR celular = '{campo}' OR inscricao_estadual = '{campo}' OR email = '{campo}'""")
+        self.table = TabelaCliente(self.view.table_clientes, select, self.__db)
         self.table.preencher_tabela()

@@ -1,6 +1,6 @@
 class Estoque:
 
-    def __init__(self, dados:object) -> None:
+    def __init__(self, dados: object) -> None:
         self.__dados = dados
 
     def salvar(self):
@@ -12,10 +12,10 @@ class Estoque:
     def editar(self):
         pass
     
-    def adicionarEstoque(self, valor):
+    def adicionar_estoque(self, valor):
         pass
 
-    def dadosTabela(self):
+    def dados_tabela(self):
         pass
 
     

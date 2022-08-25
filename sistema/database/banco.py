@@ -1,9 +1,13 @@
-from sqlalchemy import create_engine
+from sqlalchemy import create_engine, text
 import pandas as pd
 import mysql.connector
 
 
 class DataBase:
+
+    _db: mysql.connector.connect
+    _engine: create_engine
+    _cursor: None
 
     def __init__(self, host, user, password, porta) -> None:
         self._host = host
@@ -52,6 +56,8 @@ class DataBase:
             self.tabela_estoque()
             self.tabela_usuario()
             self.tabela_cliente()
+            self.tabela_vendas()
+            self.tabela_item_venda()
         except mysql.connector.errors.ProgrammingError as e:
             return e
         return "Tabelas criadas com sucesso."
@@ -114,6 +120,35 @@ class DataBase:
                 observacao VARCHAR(255)
                 )""")
 
+    def tabela_vendas(self):
+        self._cursor.execute("""CREATE TABLE vendas (
+                        id INT AUTO_INCREMENT PRIMARY KEY,
+                        data_venda DATE NOT NULL,
+                        cliente INT,
+                        CONSTRAINT FK_Cliente FOREIGN KEY (cliente)
+                        REFERENCES cliente(id),
+                        total_bruto FLOAT,
+                        desconto FLOAT,
+                        total_liquido FLOAT,
+                        total_items INT,
+                        total_pago FLOAT,
+                        troco FLOAT
+                        )""")
+
+    def tabela_item_venda(self):
+        self._cursor.execute("""CREATE TABLE item_venda (
+                                id INT AUTO_INCREMENT PRIMARY KEY,
+                                venda INT,
+                                CONSTRAINT FK_Venda FOREIGN KEY (venda)
+                                REFERENCES vendas(id),
+                                preco FLOAT,
+                                quantidade FLOAT,
+                                percent_desconto FLOAT,
+                                valor_desconto FLOAT,
+                                total_bruto FLOAT,
+                                total_liquido FLOAT
+                                )""")
+
     def tabela_usuario(self):
         self._cursor.execute("""CREATE TABLE usuarios (
                 id INT AUTO_INCREMENT PRIMARY KEY,
@@ -133,7 +168,7 @@ class DataBase:
             return False
 
     def select(self, sql):
-        return pd.read_sql(sql, con=self._engine)
+        return pd.read_sql(text(sql), con=self._engine)
 
     def deletar(self, sql):
         try:
@@ -143,6 +178,14 @@ class DataBase:
         except mysql.connector.Error as e:
             print(e)
             return False
+
+    def pesquisar(self, campo: str, tabela: str, sql: str):
+        """ exemplo: campo='Gabriel', tabela='clientes', sql='SELECT * FROM clientes WHERE nome LIKE '%Gabriel%' """
+        if campo == '':
+            select = pd.read_sql(text(f"SELECT * FROM {tabela}"), con=self._engine)
+        else:
+            select = pd.read_sql(text(sql), con=self._engine)
+        return select
 
     def atualizar(self, sql):
         try:
