@@ -14,11 +14,8 @@ class LoginController:
     def acessar_sistema(self):
         self.model.definir_credenciais(self.view.receber_credenciais_login())
         autenticacao = self.model.autenticar()
-        try:
-            if autenticacao.empty is False:
-                self.view.mensagem_erro(False)
-                return autenticacao
-            else:
-                self.view.mensagem_erro(True)
-        except AttributeError:
+        if autenticacao is not False:
             self.view.mensagem_erro(True)
+            return autenticacao
+        else:
+            self.view.mensagem_erro(False)

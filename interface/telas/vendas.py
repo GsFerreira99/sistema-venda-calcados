@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'vendasYcpUvH.ui'
+## Form generated from reading UI file 'vendasMARHBX.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -161,7 +161,10 @@ class Ui_Vendas(object):
 "	border-radius: 10px;\n"
 "	border: 1px solid black;\n"
 "}")
+        self.table_vendas.setEditTriggers(QAbstractItemView.NoEditTriggers)
+        self.table_vendas.setSelectionBehavior(QAbstractItemView.SelectRows)
         self.table_vendas.horizontalHeader().setStretchLastSection(True)
+        self.table_vendas.verticalHeader().setVisible(False)
 
         self.verticalLayout.addWidget(self.table_vendas)
 
@@ -1057,7 +1060,7 @@ class Ui_Vendas(object):
 
         self.retranslateUi(Vendas)
 
-        self.stackedWidget.setCurrentIndex(2)
+        self.stackedWidget.setCurrentIndex(1)
 
 
         QMetaObject.connectSlotsByName(Vendas)
@@ -1079,7 +1082,7 @@ class Ui_Vendas(object):
         ___qtablewidgetitem4 = self.table_vendas.horizontalHeaderItem(4)
         ___qtablewidgetitem4.setText(QCoreApplication.translate("Vendas", u"Qnt. Produtos", None));
         self.btn_deletar.setText(QCoreApplication.translate("Vendas", u"Deletar", None))
-        self.btn_editar.setText(QCoreApplication.translate("Vendas", u"Editar", None))
+        self.btn_editar.setText(QCoreApplication.translate("Vendas", u"Consultar", None))
         self.label_3.setText(QCoreApplication.translate("Vendas", u"Nova Venda", None))
         self.label_4.setText(QCoreApplication.translate("Vendas", u"Cliente", None))
         self.input_cliente.setItemText(0, "")

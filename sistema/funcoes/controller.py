@@ -37,6 +37,7 @@ class Controller:
     def busca(self, campo: str, tabela_db: str, sql: str, tabela_class: Tabela):
         """ex: campo='Gabriel', tabela_db='cliente', sql='SELECT * FROM cliente WHERE nome LIKE '%Gabriel%',
         tabela_class=Tabela()"""
-        self.db.pesquisar(campo, tabela_db, sql)
+        dados = self.db.pesquisar(campo, tabela_db, sql)
         self.table = tabela_class
+        self.table.atualizar_df(dados)
         self.table.preencher_tabela()

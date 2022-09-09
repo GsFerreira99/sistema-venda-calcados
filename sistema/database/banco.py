@@ -143,6 +143,8 @@ class DataBase:
                                 REFERENCES estoque(id),
                                 preco FLOAT,
                                 quantidade FLOAT,
+                                tamanho INT,
+                                cor VARCHAR(100),
                                 percent_desconto FLOAT,
                                 valor_desconto FLOAT,
                                 total_bruto FLOAT,

@@ -70,7 +70,10 @@ class MainController:
 
     def acessar_sistema(self):
         self.__usuario = self.login.acessar_sistema()
-        if self.__usuario.empty is False:
-            self.parent.setCurrentIndex(1)
-            self.parent.setMinimumSize(1200, 700)
-            self.parent.showMaximized()
+        try:
+            if self.__usuario.empty is False:
+                self.parent.setCurrentIndex(1)
+                self.parent.setMinimumSize(1200, 700)
+                self.parent.showMaximized()
+        except AttributeError:
+            return

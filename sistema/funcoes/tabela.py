@@ -1,3 +1,4 @@
+import pandas as pd
 from PySide2.QtWidgets import QTableWidgetItem, QTableWidget
 from sistema.database.banco import DataBase
 

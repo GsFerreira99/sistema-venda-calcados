@@ -7,7 +7,8 @@ from PySide2.QtWidgets import QMessageBox
 from sistema.database.banco import DataBase
 from sistema.funcoes.controller import Controller
 from sistema.view.vendas_view import VendasView
-from sistema.model.vendas_model import VendasModel, TabelaVenda
+from sistema.view.vendas_edit_view import VendasEditView
+from sistema.model.vendas_model import VendasModel, TabelaVenda, TabelaVendas, TabelaVendaEdit
 from sistema.funcoes.genericos import preencher_combo_box, converter_string_int, mascara_porcento, \
     limpar_dinheiro, limpar_porcento
 
@@ -18,9 +19,12 @@ class VendasController(Controller):
 
     view: VendasView
     model: VendasModel
+    modelEdit: VendasModel
 
     def __init__(self, db: DataBase, view):
         super().__init__(db, view)
+
+        self.edit = VendasEditView()
 
         self.view.btn_novo.clicked.connect(lambda: self.criar_venda())
         self.view.btn_add.clicked.connect(lambda: self.adicionar_item())
@@ -31,6 +35,14 @@ class VendasController(Controller):
         self.view.input_percDesc.editingFinished.connect(lambda: self.desconto())
         self.view.input_quantidade.editingFinished.connect(lambda: self.definir_total())
         self.view.input_totalPago.editingFinished.connect(lambda: self.mascara_total_pago())
+
+        self.view.btn_busca.clicked.connect(lambda: self.buscar())
+        self.view.btn_editar.clicked.connect(lambda: self.editar())
+
+    def buscar(self):
+        select = "SELECT * FROM vendas"
+        tabela = TabelaVendas(self.view.table_vendas, {}, self.db)
+        self.busca(self.view.input_pesquisa.text(), 'vendas', select, tabela)
 
     def criar_venda(self):
         dados = self.criar_df()
@@ -61,6 +73,8 @@ class VendasController(Controller):
         if self.view.input_cliente.currentText() != '':
             self.model.dados['cliente'] = int(self.db.select(
                 f"SELECT id FROM cliente WHERE nome = '{self.view.input_cliente.currentText()}'").iloc[0, 0])
+            self.model.dados['total_pago'] = limpar_dinheiro(self.view.input_totalPago.text())
+            self.model.dados['troco'] = limpar_dinheiro(self.view.input_troco.text())
             if confirma('Finalizar e salvar venda?', QMessageBox.Information, 'Confirmação') is True:
                 self.model.salvar("""
                 INSERT INTO vendas (
@@ -191,3 +205,14 @@ class VendasController(Controller):
         else:
             nr = nr.iloc[0, 0] + 1
         return nr
+
+    def editar(self):
+        objeto = self.table.retorna_objeto(self.view.linha_selecionada())
+        self.modelEdit = VendasModel(self.db, objeto, 'vendas')
+        self.modelEdit.carregar_items_venda()
+        self.modelEdit.nome_cliente()
+        table = TabelaVendaEdit(self.edit.table, self.modelEdit.items_venda, self.db)
+        table.preencher_tabela()
+        self.edit.limpar()
+        self.edit.preencher_campos(self.modelEdit.dados)
+        self.edit.show()

@@ -67,3 +67,17 @@ class VendasView(Ui_Vendas, QWidget, View):
     @property
     def campo_total(self):
         return self.input_total.text()
+
+    def linha_selecionada(self):
+        return self.table_vendas.currentRow()
+
+    def limpar(self):
+        self.input_nrVenda.setText("")
+        self.input_cliente.setText("")
+
+        self.input_totalBruto.setText("")
+        self.input_desconto.setText("")
+        self.input_totalLiquido.setText("")
+        self.input_totalItem.setText("")
+        self.input_totalPago.setText("")
+        self.input_troco.setText("")

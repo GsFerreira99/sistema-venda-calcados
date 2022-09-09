@@ -61,3 +61,5 @@ class View:
                         background-color: rgb(42, 68, 103)
                     }
                 """)
+
+
