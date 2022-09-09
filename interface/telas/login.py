@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'loginECWyus.ui'
+## Form generated from reading UI file 'loginQXhWjN.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -19,7 +19,6 @@ class Ui_Login(object):
             Login.setObjectName(u"Login")
         Login.resize(450, 600)
         Login.setMinimumSize(QSize(450, 600))
-        Login.setMaximumSize(QSize(450, 600))
         Login.setStyleSheet(u"QWidget{\n"
 "background-color: rgb(236, 242, 248);\n"
 "}\n"
@@ -70,11 +69,7 @@ class Ui_Login(object):
         self.lb_login.setFont(font)
         self.lb_login.setAlignment(Qt.AlignCenter)
 
-        self.gridLayout.addWidget(self.lb_login, 0, 1, 1, 1)
-
-        self.horizontalSpacer_2 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
-
-        self.gridLayout.addItem(self.horizontalSpacer_2, 2, 2, 1, 1)
+        self.gridLayout.addWidget(self.lb_login, 0, 0, 1, 1)
 
         self.frame = QFrame(Login)
         self.frame.setObjectName(u"frame")
@@ -111,54 +106,39 @@ class Ui_Login(object):
 
         self.verticalLayout.addWidget(self.input_senha)
 
-        self.check_lembrarSenha = QRadioButton(self.frame)
-        self.check_lembrarSenha.setObjectName(u"check_lembrarSenha")
-        font2 = QFont()
-        font2.setFamily(u"Raleway")
-        font2.setPointSize(10)
-        font2.setBold(False)
-        font2.setWeight(50)
-        self.check_lembrarSenha.setFont(font2)
-
-        self.verticalLayout.addWidget(self.check_lembrarSenha)
-
         self.btn_acessar = QPushButton(self.frame)
         self.btn_acessar.setObjectName(u"btn_acessar")
         self.btn_acessar.setMinimumSize(QSize(0, 30))
         self.btn_acessar.setMaximumSize(QSize(16777215, 35))
-        font3 = QFont()
-        font3.setFamily(u"Raleway")
-        font3.setPointSize(11)
-        font3.setBold(True)
-        font3.setWeight(75)
-        self.btn_acessar.setFont(font3)
+        font2 = QFont()
+        font2.setFamily(u"Raleway")
+        font2.setPointSize(11)
+        font2.setBold(True)
+        font2.setWeight(75)
+        self.btn_acessar.setFont(font2)
 
         self.verticalLayout.addWidget(self.btn_acessar)
 
 
-        self.gridLayout.addWidget(self.frame, 2, 1, 1, 1)
-
-        self.horizontalSpacer = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
-
-        self.gridLayout.addItem(self.horizontalSpacer, 2, 0, 1, 1)
+        self.gridLayout.addWidget(self.frame, 2, 0, 1, 1)
 
         self.lb_mensagem = QLabel(Login)
         self.lb_mensagem.setObjectName(u"lb_mensagem")
         self.lb_mensagem.setMinimumSize(QSize(0, 0))
         self.lb_mensagem.setMaximumSize(QSize(16777215, 0))
-        font4 = QFont()
-        font4.setFamily(u"Raleway")
-        font4.setPointSize(10)
-        font4.setBold(True)
-        font4.setWeight(75)
-        self.lb_mensagem.setFont(font4)
+        font3 = QFont()
+        font3.setFamily(u"Raleway")
+        font3.setPointSize(10)
+        font3.setBold(True)
+        font3.setWeight(75)
+        self.lb_mensagem.setFont(font3)
         self.lb_mensagem.setStyleSheet(u"color: rgb(255, 255, 255);\n"
 "border-radius: 10px;\n"
 "\n"
 "background-color: rgb(255, 164, 164)")
         self.lb_mensagem.setAlignment(Qt.AlignCenter)
 
-        self.gridLayout.addWidget(self.lb_mensagem, 1, 1, 1, 1)
+        self.gridLayout.addWidget(self.lb_mensagem, 1, 0, 1, 1)
 
 
         self.retranslateUi(Login)
@@ -167,11 +147,10 @@ class Ui_Login(object):
     # setupUi
 
     def retranslateUi(self, Login):
-        Login.setWindowTitle(QCoreApplication.translate("Login", u"Sistema", None))
+        Login.setWindowTitle(QCoreApplication.translate("Login", u"Form", None))
         self.lb_login.setText(QCoreApplication.translate("Login", u"LOGIN", None))
         self.input_usuario.setPlaceholderText(QCoreApplication.translate("Login", u"USUARIO", None))
         self.input_senha.setPlaceholderText(QCoreApplication.translate("Login", u"SENHA", None))
-        self.check_lembrarSenha.setText(QCoreApplication.translate("Login", u"Lembrar Senha", None))
         self.btn_acessar.setText(QCoreApplication.translate("Login", u"ACESSAR", None))
         self.lb_mensagem.setText(QCoreApplication.translate("Login", u"Usuario ou senha incorretos", None))
     # retranslateUi

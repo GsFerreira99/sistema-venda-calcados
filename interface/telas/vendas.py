@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'vendasBKwLPd.ui'
+## Form generated from reading UI file 'vendasYcpUvH.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -18,7 +18,7 @@ class Ui_Vendas(object):
     def setupUi(self, Vendas):
         if not Vendas.objectName():
             Vendas.setObjectName(u"Vendas")
-        Vendas.resize(1147, 700)
+        Vendas.resize(1094, 813)
         Vendas.setMinimumSize(QSize(900, 700))
         Vendas.setStyleSheet(u"QWidget{\n"
 "	background-color: rgb(236, 242, 248);\n"
@@ -364,8 +364,53 @@ class Ui_Vendas(object):
         self.gridLayout_8 = QGridLayout(self.frame_8)
         self.gridLayout_8.setObjectName(u"gridLayout_8")
         self.gridLayout_8.setHorizontalSpacing(9)
-        self.gridLayout_8.setVerticalSpacing(20)
+        self.gridLayout_8.setVerticalSpacing(8)
         self.gridLayout_8.setContentsMargins(0, -1, 0, -1)
+        self.table = QTableWidget(self.frame_8)
+        if (self.table.columnCount() < 11):
+            self.table.setColumnCount(11)
+        __qtablewidgetitem5 = QTableWidgetItem()
+        self.table.setHorizontalHeaderItem(0, __qtablewidgetitem5)
+        __qtablewidgetitem6 = QTableWidgetItem()
+        self.table.setHorizontalHeaderItem(1, __qtablewidgetitem6)
+        __qtablewidgetitem7 = QTableWidgetItem()
+        self.table.setHorizontalHeaderItem(2, __qtablewidgetitem7)
+        __qtablewidgetitem8 = QTableWidgetItem()
+        self.table.setHorizontalHeaderItem(3, __qtablewidgetitem8)
+        __qtablewidgetitem9 = QTableWidgetItem()
+        self.table.setHorizontalHeaderItem(4, __qtablewidgetitem9)
+        __qtablewidgetitem10 = QTableWidgetItem()
+        self.table.setHorizontalHeaderItem(5, __qtablewidgetitem10)
+        __qtablewidgetitem11 = QTableWidgetItem()
+        self.table.setHorizontalHeaderItem(6, __qtablewidgetitem11)
+        __qtablewidgetitem12 = QTableWidgetItem()
+        self.table.setHorizontalHeaderItem(7, __qtablewidgetitem12)
+        __qtablewidgetitem13 = QTableWidgetItem()
+        self.table.setHorizontalHeaderItem(8, __qtablewidgetitem13)
+        __qtablewidgetitem14 = QTableWidgetItem()
+        self.table.setHorizontalHeaderItem(9, __qtablewidgetitem14)
+        __qtablewidgetitem15 = QTableWidgetItem()
+        self.table.setHorizontalHeaderItem(10, __qtablewidgetitem15)
+        self.table.setObjectName(u"table")
+        sizePolicy4 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Maximum)
+        sizePolicy4.setHorizontalStretch(0)
+        sizePolicy4.setVerticalStretch(0)
+        sizePolicy4.setHeightForWidth(self.table.sizePolicy().hasHeightForWidth())
+        self.table.setSizePolicy(sizePolicy4)
+        self.table.setMinimumSize(QSize(0, 100))
+        self.table.setFont(font3)
+        self.table.setStyleSheet(u"QTableWidget{\n"
+"	background-color: rgb(255, 255, 255);\n"
+"	border-radius: 10px;\n"
+"	border: 1px solid black;\n"
+"}")
+        self.table.setEditTriggers(QAbstractItemView.DoubleClicked)
+        self.table.horizontalHeader().setCascadingSectionResizes(False)
+        self.table.horizontalHeader().setStretchLastSection(True)
+        self.table.verticalHeader().setVisible(False)
+
+        self.gridLayout_8.addWidget(self.table, 2, 0, 1, 8)
+
         self.frame_13 = QFrame(self.frame_8)
         self.frame_13.setObjectName(u"frame_13")
         self.frame_13.setMinimumSize(QSize(75, 70))
@@ -375,17 +420,19 @@ class Ui_Vendas(object):
         self.gridLayout_11 = QGridLayout(self.frame_13)
         self.gridLayout_11.setObjectName(u"gridLayout_11")
         self.gridLayout_11.setContentsMargins(0, -1, 0, -1)
-        self.input_tamanho = QComboBox(self.frame_13)
-        self.input_tamanho.addItem("")
-        self.input_tamanho.addItem("")
-        self.input_tamanho.addItem("")
-        self.input_tamanho.addItem("")
-        self.input_tamanho.addItem("")
+        self.label_9 = QLabel(self.frame_13)
+        self.label_9.setObjectName(u"label_9")
+        self.label_9.setFont(font2)
+
+        self.gridLayout_11.addWidget(self.label_9, 0, 0, 1, 1)
+
+        self.input_tamanho = QLineEdit(self.frame_13)
         self.input_tamanho.setObjectName(u"input_tamanho")
-        sizePolicy.setHeightForWidth(self.input_tamanho.sizePolicy().hasHeightForWidth())
-        self.input_tamanho.setSizePolicy(sizePolicy)
+        sizePolicy2.setHeightForWidth(self.input_tamanho.sizePolicy().hasHeightForWidth())
+        self.input_tamanho.setSizePolicy(sizePolicy2)
         self.input_tamanho.setMaximumSize(QSize(16777215, 30))
-        self.input_tamanho.setStyleSheet(u"QComboBox {\n"
+        self.input_tamanho.setFont(font1)
+        self.input_tamanho.setStyleSheet(u"QLineEdit {\n"
 "	background-color:white;\n"
 "	border-radius: 10px;\n"
 "	border: 1px solid rgb(158, 162, 166);\n"
@@ -394,85 +441,8 @@ class Ui_Vendas(object):
 
         self.gridLayout_11.addWidget(self.input_tamanho, 1, 0, 1, 1)
 
-        self.label_9 = QLabel(self.frame_13)
-        self.label_9.setObjectName(u"label_9")
-        self.label_9.setFont(font2)
-
-        self.gridLayout_11.addWidget(self.label_9, 0, 0, 1, 1)
-
 
         self.gridLayout_8.addWidget(self.frame_13, 0, 4, 1, 1)
-
-        self.frame_12 = QFrame(self.frame_8)
-        self.frame_12.setObjectName(u"frame_12")
-        self.frame_12.setMinimumSize(QSize(100, 70))
-        self.frame_12.setMaximumSize(QSize(100, 70))
-        self.frame_12.setFrameShape(QFrame.StyledPanel)
-        self.frame_12.setFrameShadow(QFrame.Raised)
-        self.gridLayout_10 = QGridLayout(self.frame_12)
-        self.gridLayout_10.setObjectName(u"gridLayout_10")
-        self.gridLayout_10.setContentsMargins(0, -1, 0, -1)
-        self.label_8 = QLabel(self.frame_12)
-        self.label_8.setObjectName(u"label_8")
-        self.label_8.setFont(font2)
-
-        self.gridLayout_10.addWidget(self.label_8, 0, 0, 1, 1)
-
-        self.input_preco = QLineEdit(self.frame_12)
-        self.input_preco.setObjectName(u"input_preco")
-        sizePolicy2.setHeightForWidth(self.input_preco.sizePolicy().hasHeightForWidth())
-        self.input_preco.setSizePolicy(sizePolicy2)
-        self.input_preco.setMaximumSize(QSize(16777215, 30))
-        self.input_preco.setFont(font1)
-        self.input_preco.setStyleSheet(u"QLineEdit {\n"
-"	background-color:white;\n"
-"	border-radius: 10px;\n"
-"	border: 1px solid rgb(158, 162, 166);\n"
-"	padding-left: 20px;\n"
-"}")
-
-        self.gridLayout_10.addWidget(self.input_preco, 1, 0, 1, 1)
-
-
-        self.gridLayout_8.addWidget(self.frame_12, 0, 5, 1, 1)
-
-        self.frame_14 = QFrame(self.frame_8)
-        self.frame_14.setObjectName(u"frame_14")
-        self.frame_14.setMinimumSize(QSize(400, 70))
-        self.frame_14.setMaximumSize(QSize(500, 70))
-        self.frame_14.setFrameShape(QFrame.StyledPanel)
-        self.frame_14.setFrameShadow(QFrame.Raised)
-        self.gridLayout_12 = QGridLayout(self.frame_14)
-        self.gridLayout_12.setObjectName(u"gridLayout_12")
-        self.gridLayout_12.setContentsMargins(0, -1, 0, -1)
-        self.label_10 = QLabel(self.frame_14)
-        self.label_10.setObjectName(u"label_10")
-        self.label_10.setFont(font2)
-
-        self.gridLayout_12.addWidget(self.label_10, 0, 0, 1, 1)
-
-        self.input_descricao = QComboBox(self.frame_14)
-        self.input_descricao.addItem("")
-        self.input_descricao.addItem("")
-        self.input_descricao.addItem("")
-        self.input_descricao.addItem("")
-        self.input_descricao.addItem("")
-        self.input_descricao.setObjectName(u"input_descricao")
-        sizePolicy.setHeightForWidth(self.input_descricao.sizePolicy().hasHeightForWidth())
-        self.input_descricao.setSizePolicy(sizePolicy)
-        self.input_descricao.setMaximumSize(QSize(16777215, 30))
-        self.input_descricao.setStyleSheet(u"QComboBox {\n"
-"	background-color:white;\n"
-"	border-radius: 10px;\n"
-"	border: 1px solid rgb(158, 162, 166);\n"
-"	padding-left: 20px;\n"
-"}")
-        self.input_descricao.setEditable(True)
-
-        self.gridLayout_12.addWidget(self.input_descricao, 1, 0, 1, 1)
-
-
-        self.gridLayout_8.addWidget(self.frame_14, 0, 1, 1, 2)
 
         self.frame_22 = QFrame(self.frame_8)
         self.frame_22.setObjectName(u"frame_22")
@@ -511,6 +481,7 @@ class Ui_Vendas(object):
 "	border: 1px solid rgb(158, 162, 166);\n"
 "	padding-left: 20px;\n"
 "}")
+        self.input_troco.setReadOnly(True)
 
         self.gridLayout_18.addWidget(self.input_troco, 1, 0, 1, 1)
 
@@ -543,6 +514,7 @@ class Ui_Vendas(object):
 "	border: 1px solid rgb(158, 162, 166);\n"
 "	padding-left: 20px;\n"
 "}")
+        self.input_totalItem.setReadOnly(True)
 
         self.gridLayout_16.addWidget(self.input_totalItem, 1, 0, 1, 1)
 
@@ -575,6 +547,7 @@ class Ui_Vendas(object):
 "	border: 1px solid rgb(158, 162, 166);\n"
 "	padding-left: 20px;\n"
 "}")
+        self.input_totalBruto.setReadOnly(True)
 
         self.gridLayout_13.addWidget(self.input_totalBruto, 1, 0, 1, 1)
 
@@ -607,6 +580,7 @@ class Ui_Vendas(object):
 "	border: 1px solid rgb(158, 162, 166);\n"
 "	padding-left: 20px;\n"
 "}")
+        self.input_desconto.setReadOnly(True)
 
         self.gridLayout_14.addWidget(self.input_desconto, 1, 0, 1, 1)
 
@@ -639,6 +613,7 @@ class Ui_Vendas(object):
 "	border: 1px solid rgb(158, 162, 166);\n"
 "	padding-left: 20px;\n"
 "}")
+        self.input_totalLiquido.setReadOnly(True)
 
         self.gridLayout_15.addWidget(self.input_totalLiquido, 1, 0, 1, 1)
 
@@ -682,80 +657,40 @@ class Ui_Vendas(object):
         self.gridLayout_19.addItem(self.horizontalSpacer_5, 0, 6, 1, 1)
 
 
-        self.gridLayout_8.addWidget(self.frame_22, 2, 0, 1, 8)
+        self.gridLayout_8.addWidget(self.frame_22, 3, 0, 1, 8)
 
-        self.frame_15 = QFrame(self.frame_8)
-        self.frame_15.setObjectName(u"frame_15")
-        self.frame_15.setFrameShape(QFrame.StyledPanel)
-        self.frame_15.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_3 = QVBoxLayout(self.frame_15)
-        self.verticalLayout_3.setSpacing(0)
-        self.verticalLayout_3.setObjectName(u"verticalLayout_3")
-        self.verticalLayout_3.setContentsMargins(0, 20, 0, 0)
-        self.btn_add = QPushButton(self.frame_15)
-        self.btn_add.setObjectName(u"btn_add")
-        self.btn_add.setMaximumSize(QSize(40, 40))
-        self.btn_add.setStyleSheet(u"QPushButton{\n"
-"	border: none;\n"
-"	padding: 3px;\n"
-"	image: url(:/icons/adicionar.png);\n"
-"}\n"
-"\n"
-"QPushButton:hover{\n"
-"	padding: 1px;\n"
-"}\n"
-"\n"
-"QPushButton:pressed{\n"
-"	padding: 2px;\n"
-"}")
+        self.frame_12 = QFrame(self.frame_8)
+        self.frame_12.setObjectName(u"frame_12")
+        self.frame_12.setMinimumSize(QSize(100, 70))
+        self.frame_12.setMaximumSize(QSize(100, 70))
+        self.frame_12.setFrameShape(QFrame.StyledPanel)
+        self.frame_12.setFrameShadow(QFrame.Raised)
+        self.gridLayout_10 = QGridLayout(self.frame_12)
+        self.gridLayout_10.setObjectName(u"gridLayout_10")
+        self.gridLayout_10.setContentsMargins(0, -1, 0, -1)
+        self.label_8 = QLabel(self.frame_12)
+        self.label_8.setObjectName(u"label_8")
+        self.label_8.setFont(font2)
 
-        self.verticalLayout_3.addWidget(self.btn_add)
+        self.gridLayout_10.addWidget(self.label_8, 0, 0, 1, 1)
 
-
-        self.gridLayout_8.addWidget(self.frame_15, 0, 6, 1, 1)
-
-        self.table = QTableWidget(self.frame_8)
-        if (self.table.columnCount() < 11):
-            self.table.setColumnCount(11)
-        __qtablewidgetitem5 = QTableWidgetItem()
-        self.table.setHorizontalHeaderItem(0, __qtablewidgetitem5)
-        __qtablewidgetitem6 = QTableWidgetItem()
-        self.table.setHorizontalHeaderItem(1, __qtablewidgetitem6)
-        __qtablewidgetitem7 = QTableWidgetItem()
-        self.table.setHorizontalHeaderItem(2, __qtablewidgetitem7)
-        __qtablewidgetitem8 = QTableWidgetItem()
-        self.table.setHorizontalHeaderItem(3, __qtablewidgetitem8)
-        __qtablewidgetitem9 = QTableWidgetItem()
-        self.table.setHorizontalHeaderItem(4, __qtablewidgetitem9)
-        __qtablewidgetitem10 = QTableWidgetItem()
-        self.table.setHorizontalHeaderItem(5, __qtablewidgetitem10)
-        __qtablewidgetitem11 = QTableWidgetItem()
-        self.table.setHorizontalHeaderItem(6, __qtablewidgetitem11)
-        __qtablewidgetitem12 = QTableWidgetItem()
-        self.table.setHorizontalHeaderItem(7, __qtablewidgetitem12)
-        __qtablewidgetitem13 = QTableWidgetItem()
-        self.table.setHorizontalHeaderItem(8, __qtablewidgetitem13)
-        __qtablewidgetitem14 = QTableWidgetItem()
-        self.table.setHorizontalHeaderItem(9, __qtablewidgetitem14)
-        __qtablewidgetitem15 = QTableWidgetItem()
-        self.table.setHorizontalHeaderItem(10, __qtablewidgetitem15)
-        self.table.setObjectName(u"table")
-        sizePolicy4 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Maximum)
-        sizePolicy4.setHorizontalStretch(0)
-        sizePolicy4.setVerticalStretch(0)
-        sizePolicy4.setHeightForWidth(self.table.sizePolicy().hasHeightForWidth())
-        self.table.setSizePolicy(sizePolicy4)
-        self.table.setMinimumSize(QSize(0, 200))
-        self.table.setFont(font3)
-        self.table.setStyleSheet(u"QTableWidget{\n"
-"	background-color: rgb(255, 255, 255);\n"
+        self.input_preco = QLineEdit(self.frame_12)
+        self.input_preco.setObjectName(u"input_preco")
+        sizePolicy2.setHeightForWidth(self.input_preco.sizePolicy().hasHeightForWidth())
+        self.input_preco.setSizePolicy(sizePolicy2)
+        self.input_preco.setMaximumSize(QSize(16777215, 30))
+        self.input_preco.setFont(font1)
+        self.input_preco.setStyleSheet(u"QLineEdit {\n"
+"	background-color:white;\n"
 "	border-radius: 10px;\n"
-"	border: 1px solid black;\n"
+"	border: 1px solid rgb(158, 162, 166);\n"
+"	padding-left: 20px;\n"
 "}")
-        self.table.horizontalHeader().setCascadingSectionResizes(False)
-        self.table.horizontalHeader().setStretchLastSection(True)
 
-        self.gridLayout_8.addWidget(self.table, 1, 0, 1, 8)
+        self.gridLayout_10.addWidget(self.input_preco, 1, 0, 1, 1)
+
+
+        self.gridLayout_8.addWidget(self.frame_12, 0, 5, 1, 1)
 
         self.frame_11 = QFrame(self.frame_8)
         self.frame_11.setObjectName(u"frame_11")
@@ -790,6 +725,55 @@ class Ui_Vendas(object):
 
         self.gridLayout_8.addWidget(self.frame_11, 0, 0, 1, 1)
 
+        self.frame_14 = QFrame(self.frame_8)
+        self.frame_14.setObjectName(u"frame_14")
+        self.frame_14.setMinimumSize(QSize(400, 70))
+        self.frame_14.setMaximumSize(QSize(500, 70))
+        self.frame_14.setFrameShape(QFrame.StyledPanel)
+        self.frame_14.setFrameShadow(QFrame.Raised)
+        self.gridLayout_12 = QGridLayout(self.frame_14)
+        self.gridLayout_12.setObjectName(u"gridLayout_12")
+        self.gridLayout_12.setContentsMargins(0, -1, 0, -1)
+        self.label_10 = QLabel(self.frame_14)
+        self.label_10.setObjectName(u"label_10")
+        self.label_10.setFont(font2)
+
+        self.gridLayout_12.addWidget(self.label_10, 0, 0, 1, 1)
+
+        self.input_descricao = QComboBox(self.frame_14)
+        self.input_descricao.addItem("")
+        self.input_descricao.addItem("")
+        self.input_descricao.addItem("")
+        self.input_descricao.addItem("")
+        self.input_descricao.addItem("")
+        self.input_descricao.setObjectName(u"input_descricao")
+        sizePolicy.setHeightForWidth(self.input_descricao.sizePolicy().hasHeightForWidth())
+        self.input_descricao.setSizePolicy(sizePolicy)
+        self.input_descricao.setMaximumSize(QSize(16777215, 30))
+        self.input_descricao.setStyleSheet(u"QComboBox {\n"
+"	background-color:white;\n"
+"	border-radius: 10px;\n"
+"	border: 1px solid rgb(158, 162, 166);\n"
+"	padding-left: 20px;\n"
+"}")
+        self.input_descricao.setEditable(True)
+
+        self.gridLayout_12.addWidget(self.input_descricao, 1, 0, 1, 1)
+
+
+        self.gridLayout_8.addWidget(self.frame_14, 0, 1, 1, 2)
+
+        self.frame_15 = QFrame(self.frame_8)
+        self.frame_15.setObjectName(u"frame_15")
+        self.frame_15.setFrameShape(QFrame.StyledPanel)
+        self.frame_15.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_3 = QVBoxLayout(self.frame_15)
+        self.verticalLayout_3.setSpacing(0)
+        self.verticalLayout_3.setObjectName(u"verticalLayout_3")
+        self.verticalLayout_3.setContentsMargins(0, 20, 0, 0)
+
+        self.gridLayout_8.addWidget(self.frame_15, 0, 6, 1, 1)
+
         self.frame_23 = QFrame(self.frame_8)
         self.frame_23.setObjectName(u"frame_23")
         self.frame_23.setMinimumSize(QSize(125, 70))
@@ -805,17 +789,13 @@ class Ui_Vendas(object):
 
         self.gridLayout_20.addWidget(self.label_17, 0, 0, 1, 1)
 
-        self.input_cor = QComboBox(self.frame_23)
-        self.input_cor.addItem("")
-        self.input_cor.addItem("")
-        self.input_cor.addItem("")
-        self.input_cor.addItem("")
-        self.input_cor.addItem("")
+        self.input_cor = QLineEdit(self.frame_23)
         self.input_cor.setObjectName(u"input_cor")
-        sizePolicy.setHeightForWidth(self.input_cor.sizePolicy().hasHeightForWidth())
-        self.input_cor.setSizePolicy(sizePolicy)
+        sizePolicy2.setHeightForWidth(self.input_cor.sizePolicy().hasHeightForWidth())
+        self.input_cor.setSizePolicy(sizePolicy2)
         self.input_cor.setMaximumSize(QSize(16777215, 30))
-        self.input_cor.setStyleSheet(u"QComboBox {\n"
+        self.input_cor.setFont(font1)
+        self.input_cor.setStyleSheet(u"QLineEdit {\n"
 "	background-color:white;\n"
 "	border-radius: 10px;\n"
 "	border: 1px solid rgb(158, 162, 166);\n"
@@ -826,6 +806,130 @@ class Ui_Vendas(object):
 
 
         self.gridLayout_8.addWidget(self.frame_23, 0, 3, 1, 1)
+
+        self.frame_24 = QFrame(self.frame_8)
+        self.frame_24.setObjectName(u"frame_24")
+        sizePolicy.setHeightForWidth(self.frame_24.sizePolicy().hasHeightForWidth())
+        self.frame_24.setSizePolicy(sizePolicy)
+        self.frame_24.setMinimumSize(QSize(100, 70))
+        self.frame_24.setMaximumSize(QSize(100, 70))
+        self.frame_24.setFrameShape(QFrame.StyledPanel)
+        self.frame_24.setFrameShadow(QFrame.Raised)
+        self.gridLayout_21 = QGridLayout(self.frame_24)
+        self.gridLayout_21.setObjectName(u"gridLayout_21")
+        self.gridLayout_21.setContentsMargins(0, -1, 0, -1)
+        self.label_18 = QLabel(self.frame_24)
+        self.label_18.setObjectName(u"label_18")
+        self.label_18.setFont(font2)
+
+        self.gridLayout_21.addWidget(self.label_18, 0, 0, 1, 1)
+
+        self.input_total = QLineEdit(self.frame_24)
+        self.input_total.setObjectName(u"input_total")
+        sizePolicy2.setHeightForWidth(self.input_total.sizePolicy().hasHeightForWidth())
+        self.input_total.setSizePolicy(sizePolicy2)
+        self.input_total.setMaximumSize(QSize(16777215, 30))
+        self.input_total.setFont(font1)
+        self.input_total.setStyleSheet(u"QLineEdit {\n"
+"	background-color:white;\n"
+"	border-radius: 10px;\n"
+"	border: 1px solid rgb(158, 162, 166);\n"
+"	padding-left: 20px;\n"
+"}")
+
+        self.gridLayout_21.addWidget(self.input_total, 1, 0, 1, 1)
+
+
+        self.gridLayout_8.addWidget(self.frame_24, 1, 5, 1, 1)
+
+        self.frame_25 = QFrame(self.frame_8)
+        self.frame_25.setObjectName(u"frame_25")
+        sizePolicy.setHeightForWidth(self.frame_25.sizePolicy().hasHeightForWidth())
+        self.frame_25.setSizePolicy(sizePolicy)
+        self.frame_25.setMinimumSize(QSize(100, 70))
+        self.frame_25.setMaximumSize(QSize(100, 70))
+        self.frame_25.setFrameShape(QFrame.StyledPanel)
+        self.frame_25.setFrameShadow(QFrame.Raised)
+        self.gridLayout_22 = QGridLayout(self.frame_25)
+        self.gridLayout_22.setObjectName(u"gridLayout_22")
+        self.gridLayout_22.setContentsMargins(0, -1, 0, -1)
+        self.label_19 = QLabel(self.frame_25)
+        self.label_19.setObjectName(u"label_19")
+        self.label_19.setFont(font2)
+
+        self.gridLayout_22.addWidget(self.label_19, 0, 0, 1, 1)
+
+        self.input_valDesc = QLineEdit(self.frame_25)
+        self.input_valDesc.setObjectName(u"input_valDesc")
+        sizePolicy2.setHeightForWidth(self.input_valDesc.sizePolicy().hasHeightForWidth())
+        self.input_valDesc.setSizePolicy(sizePolicy2)
+        self.input_valDesc.setMaximumSize(QSize(16777215, 30))
+        self.input_valDesc.setFont(font1)
+        self.input_valDesc.setStyleSheet(u"QLineEdit {\n"
+"	background-color:white;\n"
+"	border-radius: 10px;\n"
+"	border: 1px solid rgb(158, 162, 166);\n"
+"	padding-left: 20px;\n"
+"}")
+
+        self.gridLayout_22.addWidget(self.input_valDesc, 1, 0, 1, 1)
+
+
+        self.gridLayout_8.addWidget(self.frame_25, 1, 4, 1, 1)
+
+        self.frame_26 = QFrame(self.frame_8)
+        self.frame_26.setObjectName(u"frame_26")
+        sizePolicy.setHeightForWidth(self.frame_26.sizePolicy().hasHeightForWidth())
+        self.frame_26.setSizePolicy(sizePolicy)
+        self.frame_26.setMinimumSize(QSize(100, 70))
+        self.frame_26.setMaximumSize(QSize(100, 70))
+        self.frame_26.setFrameShape(QFrame.StyledPanel)
+        self.frame_26.setFrameShadow(QFrame.Raised)
+        self.gridLayout_23 = QGridLayout(self.frame_26)
+        self.gridLayout_23.setObjectName(u"gridLayout_23")
+        self.gridLayout_23.setContentsMargins(0, -1, 0, -1)
+        self.label_20 = QLabel(self.frame_26)
+        self.label_20.setObjectName(u"label_20")
+        self.label_20.setFont(font2)
+
+        self.gridLayout_23.addWidget(self.label_20, 0, 0, 1, 1)
+
+        self.input_percDesc = QLineEdit(self.frame_26)
+        self.input_percDesc.setObjectName(u"input_percDesc")
+        sizePolicy2.setHeightForWidth(self.input_percDesc.sizePolicy().hasHeightForWidth())
+        self.input_percDesc.setSizePolicy(sizePolicy2)
+        self.input_percDesc.setMaximumSize(QSize(16777215, 30))
+        self.input_percDesc.setFont(font1)
+        self.input_percDesc.setStyleSheet(u"QLineEdit {\n"
+"	background-color:white;\n"
+"	border-radius: 10px;\n"
+"	border: 1px solid rgb(158, 162, 166);\n"
+"	padding-left: 20px;\n"
+"}")
+
+        self.gridLayout_23.addWidget(self.input_percDesc, 1, 0, 1, 1)
+
+
+        self.gridLayout_8.addWidget(self.frame_26, 1, 3, 1, 1)
+
+        self.btn_add = QPushButton(self.frame_8)
+        self.btn_add.setObjectName(u"btn_add")
+        self.btn_add.setMaximumSize(QSize(40, 40))
+        self.btn_add.setStyleSheet(u"QPushButton{\n"
+"	border: none;\n"
+"	padding: 3px;\n"
+"	image: url(:/icons/adicionar.png);\n"
+"}\n"
+"\n"
+"QPushButton:hover{\n"
+"	padding: 1px;\n"
+"}\n"
+"\n"
+"QPushButton:pressed{\n"
+"	padding: 2px;\n"
+"}")
+
+        self.gridLayout_8.addWidget(self.btn_add, 1, 6, 1, 1)
 
 
         self.verticalLayout_2.addWidget(self.frame_8)
@@ -986,28 +1090,6 @@ class Ui_Vendas(object):
 
         self.label_5.setText(QCoreApplication.translate("Vendas", u"Data", None))
         self.label_6.setText(QCoreApplication.translate("Vendas", u"Nr. Venda", None))
-        self.input_tamanho.setItemText(0, "")
-        self.input_tamanho.setItemText(1, QCoreApplication.translate("Vendas", u"UNI", None))
-        self.input_tamanho.setItemText(2, QCoreApplication.translate("Vendas", u"CX", None))
-        self.input_tamanho.setItemText(3, QCoreApplication.translate("Vendas", u"KG", None))
-        self.input_tamanho.setItemText(4, QCoreApplication.translate("Vendas", u"PC", None))
-
-        self.label_9.setText(QCoreApplication.translate("Vendas", u"Tamanho", None))
-        self.label_8.setText(QCoreApplication.translate("Vendas", u"Pre\u00e7o", None))
-        self.label_10.setText(QCoreApplication.translate("Vendas", u"Descri\u00e7\u00e3o/C\u00f3digo", None))
-        self.input_descricao.setItemText(0, "")
-        self.input_descricao.setItemText(1, QCoreApplication.translate("Vendas", u"UNI", None))
-        self.input_descricao.setItemText(2, QCoreApplication.translate("Vendas", u"CX", None))
-        self.input_descricao.setItemText(3, QCoreApplication.translate("Vendas", u"KG", None))
-        self.input_descricao.setItemText(4, QCoreApplication.translate("Vendas", u"PC", None))
-
-        self.label_16.setText(QCoreApplication.translate("Vendas", u"TROCO", None))
-        self.label_14.setText(QCoreApplication.translate("Vendas", u"TOTAL DE ITENS", None))
-        self.label_11.setText(QCoreApplication.translate("Vendas", u"TOTAL BRUTO", None))
-        self.label_12.setText(QCoreApplication.translate("Vendas", u"DESCONTO", None))
-        self.label_13.setText(QCoreApplication.translate("Vendas", u"TOTAL L\u00cdQUIDO", None))
-        self.label_15.setText(QCoreApplication.translate("Vendas", u"TOTAL PAGO", None))
-        self.btn_add.setText("")
         ___qtablewidgetitem5 = self.table.horizontalHeaderItem(0)
         ___qtablewidgetitem5.setText(QCoreApplication.translate("Vendas", u"C\u00f3digo", None));
         ___qtablewidgetitem6 = self.table.horizontalHeaderItem(1)
@@ -1023,21 +1105,34 @@ class Ui_Vendas(object):
         ___qtablewidgetitem11 = self.table.horizontalHeaderItem(6)
         ___qtablewidgetitem11.setText(QCoreApplication.translate("Vendas", u"Pc. Unit\u00e1rio", None));
         ___qtablewidgetitem12 = self.table.horizontalHeaderItem(7)
-        ___qtablewidgetitem12.setText(QCoreApplication.translate("Vendas", u"% Desc", None));
+        ___qtablewidgetitem12.setText(QCoreApplication.translate("Vendas", u"Total Bruto", None));
         ___qtablewidgetitem13 = self.table.horizontalHeaderItem(8)
-        ___qtablewidgetitem13.setText(QCoreApplication.translate("Vendas", u"R$ Desc", None));
+        ___qtablewidgetitem13.setText(QCoreApplication.translate("Vendas", u"% Desc", None));
         ___qtablewidgetitem14 = self.table.horizontalHeaderItem(9)
-        ___qtablewidgetitem14.setText(QCoreApplication.translate("Vendas", u"Total Bruto", None));
+        ___qtablewidgetitem14.setText(QCoreApplication.translate("Vendas", u"R$ Desc", None));
         ___qtablewidgetitem15 = self.table.horizontalHeaderItem(10)
         ___qtablewidgetitem15.setText(QCoreApplication.translate("Vendas", u"Total L\u00edquido", None));
+        self.label_9.setText(QCoreApplication.translate("Vendas", u"Tamanho", None))
+        self.label_16.setText(QCoreApplication.translate("Vendas", u"TROCO", None))
+        self.label_14.setText(QCoreApplication.translate("Vendas", u"TOTAL DE ITENS", None))
+        self.label_11.setText(QCoreApplication.translate("Vendas", u"TOTAL BRUTO", None))
+        self.label_12.setText(QCoreApplication.translate("Vendas", u"DESCONTO", None))
+        self.label_13.setText(QCoreApplication.translate("Vendas", u"TOTAL L\u00cdQUIDO", None))
+        self.label_15.setText(QCoreApplication.translate("Vendas", u"TOTAL PAGO", None))
+        self.label_8.setText(QCoreApplication.translate("Vendas", u"Pre\u00e7o Uni.", None))
         self.label_7.setText(QCoreApplication.translate("Vendas", u"Quantidade", None))
-        self.label_17.setText(QCoreApplication.translate("Vendas", u"Cor", None))
-        self.input_cor.setItemText(0, "")
-        self.input_cor.setItemText(1, QCoreApplication.translate("Vendas", u"UNI", None))
-        self.input_cor.setItemText(2, QCoreApplication.translate("Vendas", u"CX", None))
-        self.input_cor.setItemText(3, QCoreApplication.translate("Vendas", u"KG", None))
-        self.input_cor.setItemText(4, QCoreApplication.translate("Vendas", u"PC", None))
+        self.label_10.setText(QCoreApplication.translate("Vendas", u"Descri\u00e7\u00e3o/C\u00f3digo", None))
+        self.input_descricao.setItemText(0, "")
+        self.input_descricao.setItemText(1, QCoreApplication.translate("Vendas", u"UNI", None))
+        self.input_descricao.setItemText(2, QCoreApplication.translate("Vendas", u"CX", None))
+        self.input_descricao.setItemText(3, QCoreApplication.translate("Vendas", u"KG", None))
+        self.input_descricao.setItemText(4, QCoreApplication.translate("Vendas", u"PC", None))
 
+        self.label_17.setText(QCoreApplication.translate("Vendas", u"Cor", None))
+        self.label_18.setText(QCoreApplication.translate("Vendas", u"Total", None))
+        self.label_19.setText(QCoreApplication.translate("Vendas", u"R$ Desconto", None))
+        self.label_20.setText(QCoreApplication.translate("Vendas", u"% Desconto", None))
+        self.btn_add.setText("")
         self.btn_salvar.setText(QCoreApplication.translate("Vendas", u"Salvar", None))
         self.btn_consulta.setText(QCoreApplication.translate("Vendas", u"Consultar", None))
         self.btn_novo.setText(QCoreApplication.translate("Vendas", u"Novo", None))

@@ -10,9 +10,15 @@ class Model:
         self.dados = dados
         self.tabela_sql = tabela_sql
 
+    @property
+    def db(self):
+        return self.__db
+
     def salvar(self, sql: str):
         """Implementar INSERT ex.: INSERT INTO cliente (criado_em, nome, celular) VALUES (%s, %s, %s)"""
-        insert = self.__db.inserir(sql, self.dados.tolist())
+        dados = self.dados.tolist()
+        dados.pop(0)
+        insert = self.__db.inserir(sql, dados)
         return insert
 
     def deletar(self, sql: str):

@@ -31,11 +31,6 @@ class EstoqueView(Ui_Estoque, QWidget):
         self.input_fornecedor.addItem('')
         self.input_fornecedor.addItems(dados)
 
-    def preencher_cor(self, cores):
-        self.input_cor.clear()
-        self.input_cor.addItem('')
-        self.input_cor.addItems(cores)
-
     def limpar(self, cores, fornecedor):
         self.input_codBarras.setText('')
         self.input_descricao.setText('')
@@ -46,9 +41,6 @@ class EstoqueView(Ui_Estoque, QWidget):
         self.input_lucro.setText('')
         self.input_precoVenda.setText('')
         self.input_precoAtacado.setText('')
-        self.preencher_cor(cores)
-        self.input_tamanho.setText('')
-        self.input_estoqueAtual.setText('')
         self.input_observacao.setText('')
 
     def navegacao(self, index:int):
@@ -113,8 +105,5 @@ class EstoqueView(Ui_Estoque, QWidget):
             "lucro": limpar_dinheiro(self.input_lucro.text()),
             "preco_venda": limpar_dinheiro(self.input_precoVenda.text()),
             "preco_atacado": limpar_dinheiro(self.input_precoAtacado.text()),
-            "cor": self.input_cor.currentText(),
-            "tamanho": converter_string_int(self.input_tamanho.text()),
-            "estoque_atual": converter_string_int(self.input_estoqueAtual.text()),
             "observacao": self.input_observacao.toPlainText(),
         }

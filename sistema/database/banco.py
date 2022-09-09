@@ -76,9 +76,6 @@ class DataBase:
                 lucro FLOAT,
                 preco_venda FLOAT,
                 preco_atacado FLOAT,
-                cor VARCHAR(255),
-                tamanho INT,
-                estoque_atual INT,
                 observacao VARCHAR(255)
                 )""")
 
@@ -141,6 +138,9 @@ class DataBase:
                                 venda INT,
                                 CONSTRAINT FK_Venda FOREIGN KEY (venda)
                                 REFERENCES vendas(id),
+                                produto INT,
+                                CONSTRAINT FK_Produto FOREIGN KEY (produto)
+                                REFERENCES estoque(id),
                                 preco FLOAT,
                                 quantidade FLOAT,
                                 percent_desconto FLOAT,

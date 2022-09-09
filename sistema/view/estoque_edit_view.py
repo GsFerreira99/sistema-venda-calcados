@@ -27,11 +27,6 @@ class EstoqueEditView(Ui_EstoqueEdit, QDialog):
         self.input_fornecedor.addItem('')
         self.input_fornecedor.addItems(dados)
 
-    def preencher_cor(self, cores):
-        self.input_cor.clear()
-        self.input_cor.addItem('')
-        self.input_cor.addItems(cores)
-
     def limpar(self, cores, fornecedor):
         self.input_codBarras.setText('')
         self.input_descricao.setText('')
@@ -42,9 +37,6 @@ class EstoqueEditView(Ui_EstoqueEdit, QDialog):
         self.input_lucro.setText('')
         self.input_precoVenda.setText('')
         self.input_precoAtacado.setText('')
-        self.preencher_cor(cores)
-        self.input_tamanho.setText('')
-        self.input_estoqueAtual.setText('')
         self.input_observacao.setText('')
 
     def calculo_margem(self):
@@ -65,9 +57,6 @@ class EstoqueEditView(Ui_EstoqueEdit, QDialog):
         self.input_lucro.setText(moeda(dados['lucro']))
         self.input_precoVenda.setText(moeda(dados['preco_venda']))
         self.input_precoAtacado.setText(moeda(dados['preco_atacado']))
-        self.input_cor.setCurrentText(dados['cor'])
-        self.input_tamanho.setText(str(dados['tamanho']))
-        self.input_estoqueAtual.setText(str(dados['estoque_atual']))
         self.input_observacao.setText(dados['observacao'])
 
     def receber_dados(self):
@@ -82,8 +71,5 @@ class EstoqueEditView(Ui_EstoqueEdit, QDialog):
             "lucro": limpar_dinheiro(self.input_lucro.text()),
             "preco_venda": limpar_dinheiro(self.input_precoVenda.text()),
             "preco_atacado": limpar_dinheiro(self.input_precoAtacado.text()),
-            "cor": self.input_cor.currentText(),
-            "tamanho": converter_string_int(self.input_tamanho.text()),
-            "estoque_atual": converter_string_int(self.input_estoqueAtual.text()),
             "observacao": self.input_observacao.toPlainText(),
         }

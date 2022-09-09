@@ -4,7 +4,6 @@ from PySide2.QtWidgets import QWidget
 
 from sistema.funcoes.genericos import data
 
-
 class VendasView(Ui_Vendas, QWidget, View):
 
     def __init__(self, parent=None):
@@ -42,21 +41,29 @@ class VendasView(Ui_Vendas, QWidget, View):
         return self.input_descricao.currentText()
 
     @property
-    def campo_cor(self):
-        return self.input_cor.currentText()
-
-    @property
     def campo_quantidade(self):
         return self.input_quantidade.text()
+
+    @property
+    def campo_perc_desconto(self):
+        return self.input_percDesc.text()
+
+    @property
+    def campo_val_desconto(self):
+        return self.input_valDesc.text()
 
     @property
     def campo_preco(self):
         return self.input_preco.text()
 
     @property
+    def campo_cor(self):
+        return self.input_cor.text()
+
+    @property
     def campo_tamanho(self):
-        campo = self.input_tamanho.currentText()
-        if campo != '':
-            return int(self.input_tamanho.currentText())
-        else:
-            return 0
+        return self.input_tamanho.text()
+
+    @property
+    def campo_total(self):
+        return self.input_total.text()

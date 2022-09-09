@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'estoqueqeBfFf.ui'
+## Form generated from reading UI file 'estoqueBOdXVA.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -138,8 +138,8 @@ class Ui_Estoque(object):
         self.verticalLayout.addWidget(self.frame)
 
         self.table_produtos = QTableWidget(self.consulta)
-        if (self.table_produtos.columnCount() < 9):
-            self.table_produtos.setColumnCount(9)
+        if (self.table_produtos.columnCount() < 6):
+            self.table_produtos.setColumnCount(6)
         __qtablewidgetitem = QTableWidgetItem()
         self.table_produtos.setHorizontalHeaderItem(0, __qtablewidgetitem)
         __qtablewidgetitem1 = QTableWidgetItem()
@@ -152,12 +152,6 @@ class Ui_Estoque(object):
         self.table_produtos.setHorizontalHeaderItem(4, __qtablewidgetitem4)
         __qtablewidgetitem5 = QTableWidgetItem()
         self.table_produtos.setHorizontalHeaderItem(5, __qtablewidgetitem5)
-        __qtablewidgetitem6 = QTableWidgetItem()
-        self.table_produtos.setHorizontalHeaderItem(6, __qtablewidgetitem6)
-        __qtablewidgetitem7 = QTableWidgetItem()
-        self.table_produtos.setHorizontalHeaderItem(7, __qtablewidgetitem7)
-        __qtablewidgetitem8 = QTableWidgetItem()
-        self.table_produtos.setHorizontalHeaderItem(8, __qtablewidgetitem8)
         self.table_produtos.setObjectName(u"table_produtos")
         font3 = QFont()
         font3.setFamily(u"Raleway")
@@ -172,6 +166,7 @@ class Ui_Estoque(object):
         self.table_produtos.setEditTriggers(QAbstractItemView.NoEditTriggers)
         self.table_produtos.setSelectionBehavior(QAbstractItemView.SelectRows)
         self.table_produtos.horizontalHeader().setStretchLastSection(True)
+        self.table_produtos.verticalHeader().setVisible(False)
 
         self.verticalLayout.addWidget(self.table_produtos)
 
@@ -203,29 +198,19 @@ class Ui_Estoque(object):
 
         self.horizontalLayout_2.addItem(self.horizontalSpacer_2)
 
-        self.btn_adcEstoque = QPushButton(self.frame_4)
-        self.btn_adcEstoque.setObjectName(u"btn_adcEstoque")
+        self.btn_deletar = QPushButton(self.frame_4)
+        self.btn_deletar.setObjectName(u"btn_deletar")
         sizePolicy3 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Fixed)
         sizePolicy3.setHorizontalStretch(0)
         sizePolicy3.setVerticalStretch(0)
-        sizePolicy3.setHeightForWidth(self.btn_adcEstoque.sizePolicy().hasHeightForWidth())
-        self.btn_adcEstoque.setSizePolicy(sizePolicy3)
-        self.btn_adcEstoque.setMaximumSize(QSize(150, 35))
+        sizePolicy3.setHeightForWidth(self.btn_deletar.sizePolicy().hasHeightForWidth())
+        self.btn_deletar.setSizePolicy(sizePolicy3)
+        self.btn_deletar.setMaximumSize(QSize(100, 35))
         font4 = QFont()
         font4.setFamily(u"Raleway")
         font4.setPointSize(9)
         font4.setBold(True)
         font4.setWeight(75)
-        self.btn_adcEstoque.setFont(font4)
-        self.btn_adcEstoque.setStyleSheet(u"")
-
-        self.horizontalLayout_2.addWidget(self.btn_adcEstoque)
-
-        self.btn_deletar = QPushButton(self.frame_4)
-        self.btn_deletar.setObjectName(u"btn_deletar")
-        sizePolicy3.setHeightForWidth(self.btn_deletar.sizePolicy().hasHeightForWidth())
-        self.btn_deletar.setSizePolicy(sizePolicy3)
-        self.btn_deletar.setMaximumSize(QSize(100, 35))
         self.btn_deletar.setFont(font4)
         self.btn_deletar.setStyleSheet(u"")
 
@@ -334,106 +319,6 @@ class Ui_Estoque(object):
 
 
         self.gridLayout_32.addWidget(self.frame_39, 0, 0, 2, 1)
-
-        self.frame_43 = QFrame(self.frame_35)
-        self.frame_43.setObjectName(u"frame_43")
-        self.frame_43.setMaximumSize(QSize(100, 70))
-        self.frame_43.setFrameShape(QFrame.StyledPanel)
-        self.frame_43.setFrameShadow(QFrame.Raised)
-        self.gridLayout_40 = QGridLayout(self.frame_43)
-        self.gridLayout_40.setObjectName(u"gridLayout_40")
-        self.gridLayout_40.setContentsMargins(0, 9, 0, -1)
-        self.label_34 = QLabel(self.frame_43)
-        self.label_34.setObjectName(u"label_34")
-        self.label_34.setFont(font2)
-
-        self.gridLayout_40.addWidget(self.label_34, 0, 0, 1, 1)
-
-        self.input_estoqueAtual = QLineEdit(self.frame_43)
-        self.input_estoqueAtual.setObjectName(u"input_estoqueAtual")
-        sizePolicy2.setHeightForWidth(self.input_estoqueAtual.sizePolicy().hasHeightForWidth())
-        self.input_estoqueAtual.setSizePolicy(sizePolicy2)
-        self.input_estoqueAtual.setMaximumSize(QSize(16777215, 30))
-        self.input_estoqueAtual.setFont(font1)
-        self.input_estoqueAtual.setStyleSheet(u"QLineEdit {\n"
-"	background-color:white;\n"
-"	border-radius: 10px;\n"
-"	border: 1px solid rgb(158, 162, 166);\n"
-"	padding-left: 20px;\n"
-"}")
-
-        self.gridLayout_40.addWidget(self.input_estoqueAtual, 1, 0, 1, 1)
-
-
-        self.gridLayout_32.addWidget(self.frame_43, 0, 3, 1, 1)
-
-        self.frame_36 = QFrame(self.frame_35)
-        self.frame_36.setObjectName(u"frame_36")
-        self.frame_36.setMaximumSize(QSize(100, 70))
-        self.frame_36.setFrameShape(QFrame.StyledPanel)
-        self.frame_36.setFrameShadow(QFrame.Raised)
-        self.gridLayout_33 = QGridLayout(self.frame_36)
-        self.gridLayout_33.setObjectName(u"gridLayout_33")
-        self.gridLayout_33.setContentsMargins(0, 9, 0, -1)
-        self.label_27 = QLabel(self.frame_36)
-        self.label_27.setObjectName(u"label_27")
-        self.label_27.setFont(font2)
-
-        self.gridLayout_33.addWidget(self.label_27, 0, 0, 1, 1)
-
-        self.input_cor = QComboBox(self.frame_36)
-        self.input_cor.addItem("")
-        self.input_cor.setObjectName(u"input_cor")
-        sizePolicy2.setHeightForWidth(self.input_cor.sizePolicy().hasHeightForWidth())
-        self.input_cor.setSizePolicy(sizePolicy2)
-        self.input_cor.setMinimumSize(QSize(100, 0))
-        self.input_cor.setMaximumSize(QSize(100, 30))
-        self.input_cor.setStyleSheet(u"QComboBox {\n"
-"	background-color:white;\n"
-"	border-radius: 10px;\n"
-"	border: 1px solid rgb(158, 162, 166);\n"
-"	padding-left: 20px;\n"
-"}")
-        self.input_cor.setEditable(True)
-
-        self.gridLayout_33.addWidget(self.input_cor, 1, 0, 1, 1)
-
-
-        self.gridLayout_32.addWidget(self.frame_36, 0, 1, 1, 1)
-
-        self.frame_45 = QFrame(self.frame_35)
-        self.frame_45.setObjectName(u"frame_45")
-        sizePolicy1.setHeightForWidth(self.frame_45.sizePolicy().hasHeightForWidth())
-        self.frame_45.setSizePolicy(sizePolicy1)
-        self.frame_45.setMaximumSize(QSize(100, 70))
-        self.frame_45.setFrameShape(QFrame.StyledPanel)
-        self.frame_45.setFrameShadow(QFrame.Raised)
-        self.gridLayout_46 = QGridLayout(self.frame_45)
-        self.gridLayout_46.setObjectName(u"gridLayout_46")
-        self.gridLayout_46.setContentsMargins(0, 9, 0, -1)
-        self.label_39 = QLabel(self.frame_45)
-        self.label_39.setObjectName(u"label_39")
-        self.label_39.setFont(font2)
-
-        self.gridLayout_46.addWidget(self.label_39, 0, 0, 1, 1)
-
-        self.input_tamanho = QLineEdit(self.frame_45)
-        self.input_tamanho.setObjectName(u"input_tamanho")
-        sizePolicy2.setHeightForWidth(self.input_tamanho.sizePolicy().hasHeightForWidth())
-        self.input_tamanho.setSizePolicy(sizePolicy2)
-        self.input_tamanho.setMaximumSize(QSize(16777215, 30))
-        self.input_tamanho.setFont(font1)
-        self.input_tamanho.setStyleSheet(u"QLineEdit {\n"
-"	background-color:white;\n"
-"	border-radius: 10px;\n"
-"	border: 1px solid rgb(158, 162, 166);\n"
-"	padding-left: 20px;\n"
-"}")
-
-        self.gridLayout_46.addWidget(self.input_tamanho, 1, 0, 1, 1)
-
-
-        self.gridLayout_32.addWidget(self.frame_45, 0, 2, 1, 1)
 
 
         self.gridLayout_8.addWidget(self.frame_35, 2, 0, 1, 1)
@@ -903,8 +788,7 @@ class Ui_Estoque(object):
         QWidget.setTabOrder(self.btn_novo, self.input_pesquisa)
         QWidget.setTabOrder(self.input_pesquisa, self.btn_busca)
         QWidget.setTabOrder(self.btn_busca, self.table_produtos)
-        QWidget.setTabOrder(self.table_produtos, self.btn_adcEstoque)
-        QWidget.setTabOrder(self.btn_adcEstoque, self.btn_deletar)
+        QWidget.setTabOrder(self.table_produtos, self.btn_deletar)
         QWidget.setTabOrder(self.btn_deletar, self.btn_editar)
         QWidget.setTabOrder(self.btn_editar, self.input_codBarras)
         QWidget.setTabOrder(self.input_codBarras, self.input_descricao)
@@ -914,8 +798,7 @@ class Ui_Estoque(object):
         QWidget.setTabOrder(self.inputMargem, self.input_lucro)
         QWidget.setTabOrder(self.input_lucro, self.input_precoVenda)
         QWidget.setTabOrder(self.input_precoVenda, self.input_precoAtacado)
-        QWidget.setTabOrder(self.input_precoAtacado, self.input_estoqueAtual)
-        QWidget.setTabOrder(self.input_estoqueAtual, self.input_observacao)
+        QWidget.setTabOrder(self.input_precoAtacado, self.input_observacao)
         QWidget.setTabOrder(self.input_observacao, self.btn_salvar)
 
         self.retranslateUi(Estoque)
@@ -936,31 +819,17 @@ class Ui_Estoque(object):
         ___qtablewidgetitem1 = self.table_produtos.horizontalHeaderItem(1)
         ___qtablewidgetitem1.setText(QCoreApplication.translate("Estoque", u"Descri\u00e7\u00e3o", None));
         ___qtablewidgetitem2 = self.table_produtos.horizontalHeaderItem(2)
-        ___qtablewidgetitem2.setText(QCoreApplication.translate("Estoque", u"Cor", None));
+        ___qtablewidgetitem2.setText(QCoreApplication.translate("Estoque", u"Uni.", None));
         ___qtablewidgetitem3 = self.table_produtos.horizontalHeaderItem(3)
-        ___qtablewidgetitem3.setText(QCoreApplication.translate("Estoque", u"Tamanho", None));
+        ___qtablewidgetitem3.setText(QCoreApplication.translate("Estoque", u"Pre\u00e7o Compra", None));
         ___qtablewidgetitem4 = self.table_produtos.horizontalHeaderItem(4)
-        ___qtablewidgetitem4.setText(QCoreApplication.translate("Estoque", u"Uni.", None));
+        ___qtablewidgetitem4.setText(QCoreApplication.translate("Estoque", u"Pre\u00e7o Venda", None));
         ___qtablewidgetitem5 = self.table_produtos.horizontalHeaderItem(5)
-        ___qtablewidgetitem5.setText(QCoreApplication.translate("Estoque", u"Qnt", None));
-        ___qtablewidgetitem6 = self.table_produtos.horizontalHeaderItem(6)
-        ___qtablewidgetitem6.setText(QCoreApplication.translate("Estoque", u"Pre\u00e7o Compra", None));
-        ___qtablewidgetitem7 = self.table_produtos.horizontalHeaderItem(7)
-        ___qtablewidgetitem7.setText(QCoreApplication.translate("Estoque", u"Pre\u00e7o Venda", None));
-        ___qtablewidgetitem8 = self.table_produtos.horizontalHeaderItem(8)
-        ___qtablewidgetitem8.setText(QCoreApplication.translate("Estoque", u"Fornecedor", None));
-        self.btn_adcEstoque.setText(QCoreApplication.translate("Estoque", u"Adicionar Estoque", None))
+        ___qtablewidgetitem5.setText(QCoreApplication.translate("Estoque", u"Fornecedor", None));
         self.btn_deletar.setText(QCoreApplication.translate("Estoque", u"Deletar", None))
         self.btn_editar.setText(QCoreApplication.translate("Estoque", u"Editar", None))
         self.label_3.setText(QCoreApplication.translate("Estoque", u"Cadastrar Novo Produto", None))
         self.label_33.setText(QCoreApplication.translate("Estoque", u"Observa\u00e7\u00e3o", None))
-        self.label_34.setText(QCoreApplication.translate("Estoque", u"Estoque Atual", None))
-        self.input_estoqueAtual.setPlaceholderText(QCoreApplication.translate("Estoque", u"Ex.: 50", None))
-        self.label_27.setText(QCoreApplication.translate("Estoque", u"Cor", None))
-        self.input_cor.setItemText(0, "")
-
-        self.label_39.setText(QCoreApplication.translate("Estoque", u"Tamanho", None))
-        self.input_tamanho.setPlaceholderText(QCoreApplication.translate("Estoque", u"Ex.: VERDE", None))
         self.label_30.setText(QCoreApplication.translate("Estoque", u"Descri\u00e7\u00e3o", None))
         self.input_descricao.setPlaceholderText(QCoreApplication.translate("Estoque", u"Ex.: T\u00caNIS", None))
         self.label_29.setText(QCoreApplication.translate("Estoque", u"C\u00f3digo/C\u00f3d Barras", None))

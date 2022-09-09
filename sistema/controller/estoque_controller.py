@@ -33,7 +33,6 @@ class EstoqueController:
         self.view.btn_busca.clicked.connect(lambda: self.busca())
         self.view.btn_deletar.clicked.connect(lambda: self.deletar())
 
-        self.view.btn_adcEstoque.clicked.connect(lambda: self.adicionar_estoque())
         self.adicionar.btn_salvar.clicked.connect(lambda: self.salvar_adc_estoque())
 
     def deletar(self):
