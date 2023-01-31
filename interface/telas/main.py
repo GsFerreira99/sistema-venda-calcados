@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'homejZoPvD.ui'
+## Form generated from reading UI file 'homejxBeyp.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -18,7 +18,7 @@ class Ui_Home(object):
     def setupUi(self, Home):
         if not Home.objectName():
             Home.setObjectName(u"Home")
-        Home.resize(1034, 661)
+        Home.resize(1100, 740)
         Home.setStyleSheet(u"QWidget{\n"
 "background-color: rgb(236, 242, 248);\n"
 "}\n"
@@ -56,7 +56,7 @@ class Ui_Home(object):
         self.gridLayout.setContentsMargins(0, 0, 0, 0)
         self.left_bar = QFrame(Home)
         self.left_bar.setObjectName(u"left_bar")
-        sizePolicy = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Preferred)
+        sizePolicy = QSizePolicy(QSizePolicy.MinimumExpanding, QSizePolicy.Preferred)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.left_bar.sizePolicy().hasHeightForWidth())
@@ -164,12 +164,16 @@ class Ui_Home(object):
 
         self.verticalLayout.addWidget(self.btn_fornecedores)
 
-        self.btn_relatorios = QPushButton(self.left_bar)
-        self.btn_relatorios.setObjectName(u"btn_relatorios")
-        self.btn_relatorios.setMinimumSize(QSize(0, 40))
-        self.btn_relatorios.setMaximumSize(QSize(16777215, 40))
-        self.btn_relatorios.setFont(font)
-        self.btn_relatorios.setStyleSheet(u"QPushButton{\n"
+        self.verticalSpacer = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.verticalLayout.addItem(self.verticalSpacer)
+
+        self.btn_usuarios = QPushButton(self.left_bar)
+        self.btn_usuarios.setObjectName(u"btn_usuarios")
+        self.btn_usuarios.setMinimumSize(QSize(0, 40))
+        self.btn_usuarios.setMaximumSize(QSize(16777215, 40))
+        self.btn_usuarios.setFont(font)
+        self.btn_usuarios.setStyleSheet(u"QPushButton{\n"
 "	border: none;\n"
 "	border-radius: none;\n"
 "	border-bottom: 1px solid rgb(42, 68, 103)\n"
@@ -184,11 +188,7 @@ class Ui_Home(object):
 "	background-color:rgb(124, 143, 177)\n"
 "}")
 
-        self.verticalLayout.addWidget(self.btn_relatorios)
-
-        self.verticalSpacer = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
-
-        self.verticalLayout.addItem(self.verticalSpacer)
+        self.verticalLayout.addWidget(self.btn_usuarios)
 
 
         self.gridLayout.addWidget(self.left_bar, 1, 0, 2, 1)
@@ -243,8 +243,12 @@ class Ui_Home(object):
 
         self.content = QStackedWidget(Home)
         self.content.setObjectName(u"content")
-        sizePolicy.setHeightForWidth(self.content.sizePolicy().hasHeightForWidth())
-        self.content.setSizePolicy(sizePolicy)
+        sizePolicy1 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Preferred)
+        sizePolicy1.setHorizontalStretch(0)
+        sizePolicy1.setVerticalStretch(0)
+        sizePolicy1.setHeightForWidth(self.content.sizePolicy().hasHeightForWidth())
+        self.content.setSizePolicy(sizePolicy1)
+        self.content.setMinimumSize(QSize(900, 700))
 
         self.gridLayout.addWidget(self.content, 1, 1, 1, 1)
 
@@ -260,7 +264,7 @@ class Ui_Home(object):
         self.btn_estoque.setText(QCoreApplication.translate("Home", u"Estoque", None))
         self.btn_clientes.setText(QCoreApplication.translate("Home", u"Clientes", None))
         self.btn_fornecedores.setText(QCoreApplication.translate("Home", u"Fornecedores", None))
-        self.btn_relatorios.setText(QCoreApplication.translate("Home", u"Relat\u00f3rios", None))
+        self.btn_usuarios.setText(QCoreApplication.translate("Home", u"Usuarios", None))
         self.btn_menu.setText("")
         self.lb_titulo.setText(QCoreApplication.translate("Home", u"HOME", None))
     # retranslateUi

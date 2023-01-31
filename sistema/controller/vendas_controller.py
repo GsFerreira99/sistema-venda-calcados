@@ -3,7 +3,7 @@ import datetime
 import pandas as pd
 
 from sistema.funcoes.poupup import confirma, mensagem
-from PySide2.QtWidgets import QMessageBox
+from PySide2.QtWidgets import QMessageBox, QFileDialog
 from sistema.database.banco import DataBase
 from sistema.funcoes.controller import Controller
 from sistema.view.vendas_view import VendasView
@@ -12,7 +12,11 @@ from sistema.model.vendas_model import VendasModel, TabelaVenda, TabelaVendas, T
 from sistema.funcoes.genericos import preencher_combo_box, converter_string_int, mascara_porcento, \
     limpar_dinheiro, limpar_porcento
 
+from sistema.view.edit_valor_view import EditValorView
+
 from sistema.funcoes.genericos import moeda
+from sistema.view.relatorio_geral_vendas_view import RelatorioGeralVendasView
+from sistema.relatorios.venda import RelatorioVenda
 
 
 class VendasController(Controller):
@@ -25,6 +29,8 @@ class VendasController(Controller):
         super().__init__(db, view)
 
         self.edit = VendasEditView()
+        self.view_edit_item = EditValorView()
+        self.relatorioGeralVendas = RelatorioGeralVendasView()
 
         self.view.btn_novo.clicked.connect(lambda: self.criar_venda())
         self.view.btn_add.clicked.connect(lambda: self.adicionar_item())
@@ -36,29 +42,264 @@ class VendasController(Controller):
         self.view.input_quantidade.editingFinished.connect(lambda: self.definir_total())
         self.view.input_totalPago.editingFinished.connect(lambda: self.mascara_total_pago())
 
+        self.view.btn_deletar.clicked.connect(lambda: self.deletar())
+
+        self.view.input_descricao.lineEdit().editingFinished.connect(lambda: self.pesquisa_cod_barras())
+
         self.view.btn_busca.clicked.connect(lambda: self.buscar())
         self.view.btn_editar.clicked.connect(lambda: self.editar())
+        self.view.btn_relatorio_geral.clicked.connect(lambda: self.relatorio_geral())
+
+        self.relatorioGeralVendas.btn_gerar.clicked.connect(lambda: self.gerar_relatorio_geral_vendas())
+
+        self.view.btn_remover.clicked.connect(lambda: self.remover_item())
+
+        self.edit.btn_relatorio.clicked.connect(lambda: self.relatorio_resumido())
+        self.edit.btn_relatorio_full.clicked.connect(lambda: self.relatorio_completo())
+        self.edit.btn_relatorioFornecedores.clicked.connect(lambda: self.relatorio_fornecedores())
+
+        self.view.table.cellClicked.connect(lambda: self.editar_item_venda())
+        self.view_edit_item.btn_salvar.clicked.connect(lambda: self.editar_item(self.view.table.currentRow()))
+
+    def editar_item(self, row):
+        valor = self.view_edit_item.receber_dados()
+        tipo = self.view_edit_item.receber_tipo().lower()
+        if tipo == 'quantidade':
+            try:
+                valor = int(valor)
+            except ValueError:
+                self.view_edit_item.limpar()
+                self.view_edit_item.close()
+
+        if row != -1:
+            dados = {
+                    'id': row,
+                    'tipo': tipo,
+                    'valor': valor
+                                 }
+            self.model.atualizar_item(dados)
+            self.table.preencher_tabela()
+            self.view_edit_item.limpar()
+            self.view_edit_item.close()
+            self.definir_totais()
+
+    def editar_item_venda(self):
+        row = self.view.table.currentRow() if  self.view.table.currentRow() >= 0 else 0
+        item = self.model.items_venda[row + 1]
+        try:
+            if 3 == self.view.table.currentItem().column():
+                self.view_edit_item.editar_titulo('quantidade')
+                self.view_edit_item.editar_valor(item['quantidade'])
+            elif 4 == self.view.table.currentItem().column():
+                self.view_edit_item.editar_titulo('tamanho')
+                self.view_edit_item.editar_valor(item['tamanho'])
+            elif 5 == self.view.table.currentItem().column():
+                self.view_edit_item.editar_titulo('cor')
+                self.view_edit_item.editar_valor(item['cor'])
+            self.view_edit_item.show()
+        except AttributeError:
+            pass
+
+
+    def definir_user(self, user):
+        self.user = user
+
+    def deletar(self):
+        model = VendasModel(self.db, self.table.retorna_objeto(self.view.linha_selecionada()), 'vendas')
+        status = confirma(f"Deseja deletar a venda '{model['codigo']}'?", QMessageBox.Information,
+                          'Confirmação')
+        if status:
+            model.deletar()
+            mensagem(f"Venda '{model['codigo']}' deletada com sucesso.", QMessageBox.Information, 'Info')
+            self.buscar()
 
     def buscar(self):
-        select = "SELECT * FROM vendas"
+        campo = self.view.input_pesquisa.text()
+        periodo_status = self.view.radio_periodo.isChecked()
+        select = []
+        ini = self.view.input_data_ini.date().toPython()
+        fim = self.view.input_data_fim.date().toPython()
+        if periodo_status is False:
+            periodo = ''
+        else:
+            periodo = f"data_venda BETWEEN '{ini}' AND '{fim}' AND ativado = TRUE"
+
+        if campo == '':
+            if periodo_status is True:
+                periodo = 'WHERE ' + periodo
+            else:
+                periodo = 'WHERE ativado = TRUE'
+            select = [f"SELECT * FROM vendas {periodo}"]
+        else:
+            if periodo_status is True:
+                periodo = 'AND ' + periodo
+            try:
+                clientes = int(campo)
+            except:
+                clientes = self.db.select(f"""SELECT * FROM cliente WHERE nome LIKE '%{campo}%' AND ativado = TRUE""")
+
+            if type(clientes) != int:
+                for index, cliente in clientes.iterrows():
+                    select.append(
+                        f"""SELECT * FROM vendas WHERE cliente = {cliente['id']} {periodo}""")
+            else:
+                select.append(
+                    f"""SELECT * FROM vendas WHERE codigo = {campo} {periodo}""")
+
         tabela = TabelaVendas(self.view.table_vendas, {}, self.db)
         self.busca(self.view.input_pesquisa.text(), 'vendas', select, tabela)
+
+    def busca(self, campo: str, tabela_db: str, sql: list, tabela_class):
+        campo = '0'
+        for j, i in enumerate(sql):
+            if j == 0:
+                df = self.db.pesquisar(campo, tabela_db, i)
+            else:
+                dados = self.db.pesquisar(campo, tabela_db, i)
+                df = pd.concat([dados, df])
+
+        self.table = tabela_class
+        self.table.atualizar_df(df)
+        self.table.preencher_tabela()
+
+    def relatorio_geral(self):
+        self.relatorioGeralVendas.definir_data()
+        self.relatorioGeralVendas.show()
+
+    def relatorio_resumido(self):
+        rel, items = self.relatorio()
+
+        rel.vendas(items, self.db)
+        rel.pdf.salvar()
+        mensagem('Relatório gerado com sucesso!.', QMessageBox.Information, 'Sucesso')
+
+    def gerar_relatorio_geral_vendas(self):
+        caminho = self.caminho_relatorio()
+        if type(caminho) != str or caminho == '':
+            return
+
+        data_inicio, data_fim = self.relatorioGeralVendas.get_periodo()
+
+        vendas = self.db.select(f"SELECT * FROM vendas WHERE data_venda BETWEEN '{data_inicio}' AND '{data_fim}'")
+
+        vendas['cliente'] = vendas['cliente'].astype(str)
+        for index, venda in vendas.iterrows():
+            vendas.loc[index, 'cliente'] = self.db.select(f'SELECT nome FROM cliente WHERE id = {venda["cliente"]}')['nome'][0]
+
+        rel = RelatorioVenda(caminho)
+        rel.cabecalho_vendas_geral([data_inicio, data_fim])
+        rel.vendas_geral(vendas)
+        rel.pdf.salvar()
+
+        mensagem('Relatório gerado com sucesso!.', QMessageBox.Information, 'Sucesso')
+
+    def relatorio(self):
+        caminho = self.caminho_relatorio()
+        if type(caminho) != str or caminho == '':
+            return
+
+        rel = RelatorioVenda(caminho)
+        venda = self.db.select(f"SELECT * FROM vendas WHERE codigo = {self.edit.input_nrVenda_2.text()}")
+        cliente = self.db.select(f"SELECT * FROM cliente WHERE nome = '{self.edit.input_cliente.text()}'")
+        items = self.db.select(f"SELECT * FROM item_venda WHERE venda = {venda['id'][0]}")
+
+        if len(items) == 1:
+            items = pd.DataFrame(items)
+
+        rel.cabecalho()
+        rel.dados_venda({'data': venda['data_venda'][0].strftime('%d/%m/%Y'), 'venda': venda['id'][0]})
+        rel.endereco_entrega(cliente)
+
+        return rel, items
+
+    def relatorio_completo(self):
+        rel, items = self.relatorio()
+
+        rel.vendas_detalhado(items, self.db)
+        rel.pdf.salvar()
+        mensagem('Relatório gerado com sucesso!.', QMessageBox.Information, 'Sucesso')
+
+    def relatorio_fornecedores(self):
+        caminho = self.caminho_relatorio_pasta()
+        if type(caminho) != str or caminho == '':
+            return
+
+        venda = self.db.select(f"SELECT * FROM vendas WHERE codigo = {self.edit.input_nrVenda_2.text()}")
+        cliente = self.db.select(f"SELECT * FROM cliente WHERE nome = '{self.edit.input_cliente.text()}'")
+        items = self.db.select(f"SELECT * FROM item_venda WHERE venda = {venda['id'][0]}")
+
+        vendas = {}
+        fornecedores = set([])
+        for index, linha in items.iterrows():
+            produto = self.db.select(f"SELECT * FROM estoque WHERE id = {linha['produto']}")
+            fornecedor = self.db.select(f"SELECT * FROM fornecedor WHERE id = {produto['fornecedorId'][0]}")
+            vendas[index] = [fornecedor['nome'][0], linha]
+            fornecedores.add(fornecedor['nome'][0])
+
+        dados = {}
+        for fornecedor in fornecedores:
+            dados[fornecedor] = []
+            for index, item in enumerate(vendas.values()):
+                if fornecedor == item[0]:
+                    dados[fornecedor].append(item[1])
+
+        for fornecedor, vend in dados.items():
+            rel = RelatorioVenda(f'{caminho}/{venda["codigo"][0]}_{fornecedor}_{cliente["nome"][0]}.pdf')
+            rel.cabecalho()
+            rel.dados_venda({'data': venda['data_venda'][0].strftime('%d/%m/%Y'), 'venda': venda['id'][0]})
+            rel.endereco_entrega(cliente)
+            rel.vendas_fornecedor(vend, fornecedor, self.db)
+            rel.pdf.salvar()
+        mensagem('Relatório gerado com sucesso!.', QMessageBox.Information, 'Sucesso')
 
     def criar_venda(self):
         dados = self.criar_df()
         self.model = VendasModel(self.db, dados, 'vendas')
+        self.model.definir_usuario(self.user['id'])
         self.atualizar_tela()
         self.view.atualizar_tela(self.model.dados)
         self.cb_clientes()
         self.cb_produtos()
 
+    @staticmethod
+    def caminho_relatorio():
+        try:
+            arquivo = QFileDialog.getSaveFileName(caption="Exportar relatório em PDF",
+                                                  directory="", filter="PDF files (*.pdf)")[0]
+            return arquivo
+        except FileNotFoundError:
+            return None
+
+    @staticmethod
+    def caminho_relatorio_pasta():
+        try:
+            arquivo = QFileDialog.getExistingDirectory(caption="Exportar relatório em PDF",
+                                                  filter="PDF files (*.pdf)")
+            return arquivo
+        except FileNotFoundError:
+            return None
+
     def cb_clientes(self):
-        clientes = self.db.select("SELECT DISTINCT nome FROM cliente")['nome'].values.tolist()
+        clientes = self.db.select("SELECT DISTINCT nome FROM cliente WHERE ativado = TRUE")['nome'].values.tolist()
         preencher_combo_box(clientes, self.view.input_cliente)
 
     def cb_produtos(self):
-        produtos = self.db.select("SELECT DISTINCT descricao FROM estoque")['descricao'].values.tolist()
+        produtos = self.db.select(
+            "SELECT DISTINCT descricao FROM estoque WHERE ativado = TRUE ORDER BY descricao")['descricao'].values.tolist()
         preencher_combo_box(produtos, self.view.input_descricao)
+
+    def pesquisa_cod_barras(self):
+        try:
+            int(self.view.input_descricao.currentText())
+            cod = self.view.input_descricao.currentText()
+            produto = self.db.select(f"SELECT descricao FROM estoque WHERE cod_barras = '{cod}' AND ativado = TRUE").iloc[0, 0]
+            self.cb_produtos()
+            self.view.input_descricao.setCurrentText(produto)
+            self.cb_preco()
+
+        except:
+            return
+
 
     def cb_preco(self):
         preco = self.db.select(f"""SELECT preco_venda FROM estoque WHERE descricao = '{self.view.campo_produto}'""")
@@ -69,8 +310,25 @@ class VendasController(Controller):
         self.definir_desconto()
         self.definir_total()
 
+    def remover_item(self):
+        try:
+            row = self.view.table.currentRow()
+        except:
+            return
+        if type(row) == int:
+            self.model.remover(row)
+            self.table = TabelaVenda(self.view.table, self.model.get_items_venda(), self.db)
+            self.table.preencher_tabela()
+            self.definir_totais()
+
+
     def salvar_venda(self):
         if self.view.input_cliente.currentText() != '':
+            self.model['data_venda'] = self.view.input_data.date().toPython()
+            try:
+                self.model['codigo'] = int(self.view.input_nrVenda.text())
+            except:
+                mensagem('Informe um numero de venda válido!', QMessageBox.Warning, 'Error')
             self.model.dados['cliente'] = int(self.db.select(
                 f"SELECT id FROM cliente WHERE nome = '{self.view.input_cliente.currentText()}'").iloc[0, 0])
             self.model.dados['total_pago'] = limpar_dinheiro(self.view.input_totalPago.text())
@@ -78,6 +336,7 @@ class VendasController(Controller):
             if confirma('Finalizar e salvar venda?', QMessageBox.Information, 'Confirmação') is True:
                 self.model.salvar("""
                 INSERT INTO vendas (
+                    codigo,
                     data_venda,
                     cliente,
                     total_bruto,
@@ -85,8 +344,9 @@ class VendasController(Controller):
                     total_liquido,
                     total_items,
                     total_pago,
-                    troco)
-                    VALUES (%s, %s, %s, %s, %s, %s, %s, %s)
+                    troco,
+                    vendido_por)
+                    VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
                     """)
                 self.model.salvar_items()
                 mensagem('Venda cadastrada com sucesso.', QMessageBox.Information, 'Sucesso')
@@ -133,6 +393,7 @@ class VendasController(Controller):
     def criar_df(self):
         return pd.Series({
             'id': self.nr_venda(),
+            'codigo': int(self.nr_venda()),
             'data_venda': datetime.datetime.now(),
             'cliente': 0,
             'total_bruto': 0.0,
@@ -199,11 +460,11 @@ class VendasController(Controller):
         self.view.input_troco.setText(moeda(0))
 
     def nr_venda(self):
-        nr = self.db.select('SELECT * FROM vendas ORDER BY ID DESC LIMIT 1')
+        nr = self.db.select('SELECT * FROM vendas ORDER BY codigo DESC LIMIT 1')
         if nr.empty is True:
             nr = 1
         else:
-            nr = nr.iloc[0, 0] + 1
+            nr = nr.iloc[0, 1] + 1
         return nr
 
     def editar(self):
@@ -214,5 +475,5 @@ class VendasController(Controller):
         table = TabelaVendaEdit(self.edit.table, self.modelEdit.items_venda, self.db)
         table.preencher_tabela()
         self.edit.limpar()
-        self.edit.preencher_campos(self.modelEdit.dados)
+        self.edit.preencher_campos(self.modelEdit.dados, self.db)
         self.edit.show()

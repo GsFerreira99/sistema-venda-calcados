@@ -56,10 +56,11 @@ class FornecedorController:
     def busca(self):
         campo = self.view.input_pesquisa.text()
         if campo == '':
-            select = self.__db.select("SELECT * FROM fornecedor")
+            select = self.__db.select("SELECT * FROM fornecedor WHERE ativado = TRUE")
         else:
             select = self.__db.select(f"""SELECT * FROM fornecedor WHERE nome LIKE '%{campo}%' 
-            OR cpf_cnpj = '{campo}' OR inscricao_estadual = '{campo}' OR email = '{campo}' OR celular = '{campo}'""")
+            OR cpf_cnpj = '{campo}' OR inscricao_estadual = '{campo}' OR email = '{campo}' OR celular = '{campo}' 
+            AND ativado = TRUE""")
 
         self.table = TabelaFornecedor(self.view.table_fornecedores, select, self.__db)
         self.table.preencher_tabela()

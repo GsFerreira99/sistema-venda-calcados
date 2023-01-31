@@ -13,13 +13,11 @@ class EstoqueEditView(Ui_EstoqueEdit, QDialog):
         super().setupUi(self)
         self.setModal(True)
 
-        self.inputMargem.editingFinished.connect(lambda: self.calculo_margem())
-        self.input_precoCompra.editingFinished.connect(lambda: self.calculo_margem())
+        self.input_precoVenda.editingFinished.connect(lambda: self.calculo_margem())
 
         self.input_precoCompra.editingFinished.connect(lambda: self.input_precoCompra.setText(moeda(self.input_precoCompra.text())))
         self.input_precoVenda.editingFinished.connect(lambda: self.input_precoVenda.setText(moeda(self.input_precoVenda.text())))
         self.input_lucro.editingFinished.connect(lambda: self.input_lucro.setText(moeda(self.input_lucro.text())))
-        self.input_precoAtacado.editingFinished.connect(lambda: self.input_precoAtacado.setText(moeda(self.input_precoAtacado.text())))
         self.inputMargem.editingFinished.connect(lambda: self.inputMargem.setText(mascara_porcento(self.inputMargem.text())))
 
     def preencher_fornecedor(self, dados):
@@ -36,16 +34,16 @@ class EstoqueEditView(Ui_EstoqueEdit, QDialog):
         self.inputMargem.setText('')
         self.input_lucro.setText('')
         self.input_precoVenda.setText('')
-        self.input_precoAtacado.setText('')
         self.input_observacao.setText('')
 
     def calculo_margem(self):
-        margem = limpar_porcento(self.inputMargem.text())
-        compra =  limpar_dinheiro(self.input_precoCompra.text())
-        valLucro =  compra * (margem/100)
+        compra = limpar_dinheiro(self.input_precoCompra.text())
+        venda = limpar_dinheiro(self.input_precoVenda.text())
+        valLucro = venda - compra
+        percLucro = (valLucro * 100) / venda
+
         self.input_lucro.setText(moeda(valLucro))
-        self.input_precoVenda.setText(moeda((compra + valLucro)))
-        self.input_precoAtacado.setText(moeda((compra + valLucro)))
+        self.inputMargem.setText(mascara_porcento(percLucro))
 
     def preencher_campos(self, dados):
         self.input_codBarras.setText(dados['cod_barras'])
@@ -56,7 +54,6 @@ class EstoqueEditView(Ui_EstoqueEdit, QDialog):
         self.inputMargem.setText(mascara_porcento(dados['margem']))
         self.input_lucro.setText(moeda(dados['lucro']))
         self.input_precoVenda.setText(moeda(dados['preco_venda']))
-        self.input_precoAtacado.setText(moeda(dados['preco_atacado']))
         self.input_observacao.setText(dados['observacao'])
 
     def receber_dados(self):
@@ -70,6 +67,6 @@ class EstoqueEditView(Ui_EstoqueEdit, QDialog):
             "margem": limpar_porcento(self.inputMargem.text()),
             "lucro": limpar_dinheiro(self.input_lucro.text()),
             "preco_venda": limpar_dinheiro(self.input_precoVenda.text()),
-            "preco_atacado": limpar_dinheiro(self.input_precoAtacado.text()),
+            "preco_atacado": 0,
             "observacao": self.input_observacao.toPlainText(),
         }

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'estoque_editarnPwvdC.ui'
+## Form generated from reading UI file 'estoque_editargUmdFz.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -88,6 +88,81 @@ class Ui_EstoqueEdit(object):
         self.gridLayout_24.setHorizontalSpacing(30)
         self.gridLayout_24.setVerticalSpacing(9)
         self.gridLayout_24.setContentsMargins(10, 0, 0, 0)
+        self.frame_32 = QFrame(self.frame_27)
+        self.frame_32.setObjectName(u"frame_32")
+        self.frame_32.setMaximumSize(QSize(110, 70))
+        self.frame_32.setFrameShape(QFrame.StyledPanel)
+        self.frame_32.setFrameShadow(QFrame.Raised)
+        self.gridLayout_29 = QGridLayout(self.frame_32)
+        self.gridLayout_29.setObjectName(u"gridLayout_29")
+        self.gridLayout_29.setContentsMargins(0, 9, 0, -1)
+        self.label_25 = QLabel(self.frame_32)
+        self.label_25.setObjectName(u"label_25")
+        font1 = QFont()
+        font1.setFamily(u"Raleway")
+        font1.setPointSize(8)
+        font1.setBold(True)
+        font1.setWeight(75)
+        self.label_25.setFont(font1)
+
+        self.gridLayout_29.addWidget(self.label_25, 0, 0, 1, 1)
+
+        self.inputMargem = QLineEdit(self.frame_32)
+        self.inputMargem.setObjectName(u"inputMargem")
+        sizePolicy2 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
+        sizePolicy2.setHorizontalStretch(0)
+        sizePolicy2.setVerticalStretch(0)
+        sizePolicy2.setHeightForWidth(self.inputMargem.sizePolicy().hasHeightForWidth())
+        self.inputMargem.setSizePolicy(sizePolicy2)
+        self.inputMargem.setMaximumSize(QSize(16777215, 30))
+        font2 = QFont()
+        font2.setFamily(u"Raleway")
+        self.inputMargem.setFont(font2)
+        self.inputMargem.setStyleSheet(u"QLineEdit {\n"
+"	background-color:white;\n"
+"	border-radius: 10px;\n"
+"	border: 1px solid rgb(158, 162, 166);\n"
+"	padding-left: 20px;\n"
+"}")
+
+        self.gridLayout_29.addWidget(self.inputMargem, 1, 0, 1, 1)
+
+
+        self.gridLayout_24.addWidget(self.frame_32, 0, 3, 1, 1)
+
+        self.frame_29 = QFrame(self.frame_27)
+        self.frame_29.setObjectName(u"frame_29")
+        self.frame_29.setMaximumSize(QSize(100, 70))
+        self.frame_29.setFrameShape(QFrame.StyledPanel)
+        self.frame_29.setFrameShadow(QFrame.Raised)
+        self.gridLayout_26 = QGridLayout(self.frame_29)
+        self.gridLayout_26.setObjectName(u"gridLayout_26")
+        self.gridLayout_26.setContentsMargins(0, 9, 0, -1)
+        self.label_22 = QLabel(self.frame_29)
+        self.label_22.setObjectName(u"label_22")
+        self.label_22.setFont(font1)
+
+        self.gridLayout_26.addWidget(self.label_22, 0, 0, 1, 1)
+
+        self.input_lucro = QLineEdit(self.frame_29)
+        self.input_lucro.setObjectName(u"input_lucro")
+        sizePolicy2.setHeightForWidth(self.input_lucro.sizePolicy().hasHeightForWidth())
+        self.input_lucro.setSizePolicy(sizePolicy2)
+        self.input_lucro.setMaximumSize(QSize(16777215, 30))
+        self.input_lucro.setFont(font2)
+        self.input_lucro.setStyleSheet(u"QLineEdit {\n"
+"	background-color:white;\n"
+"	border-radius: 10px;\n"
+"	border: 1px solid rgb(158, 162, 166);\n"
+"	padding-left: 20px;\n"
+"}")
+        self.input_lucro.setReadOnly(True)
+
+        self.gridLayout_26.addWidget(self.input_lucro, 1, 0, 1, 1)
+
+
+        self.gridLayout_24.addWidget(self.frame_29, 0, 4, 1, 1)
+
         self.frame_30 = QFrame(self.frame_27)
         self.frame_30.setObjectName(u"frame_30")
         self.frame_30.setMaximumSize(QSize(100, 70))
@@ -117,17 +192,16 @@ class Ui_EstoqueEdit(object):
 
         self.label_23 = QLabel(self.frame_30)
         self.label_23.setObjectName(u"label_23")
-        font1 = QFont()
-        font1.setFamily(u"Raleway")
-        font1.setPointSize(8)
-        font1.setBold(True)
-        font1.setWeight(75)
         self.label_23.setFont(font1)
 
         self.gridLayout_27.addWidget(self.label_23, 0, 0, 1, 1)
 
 
         self.gridLayout_24.addWidget(self.frame_30, 0, 0, 1, 1)
+
+        self.horizontalSpacer_7 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.gridLayout_24.addItem(self.horizontalSpacer_7, 0, 6, 1, 1)
 
         self.frame_31 = QFrame(self.frame_27)
         self.frame_31.setObjectName(u"frame_31")
@@ -145,14 +219,9 @@ class Ui_EstoqueEdit(object):
 
         self.input_precoCompra = QLineEdit(self.frame_31)
         self.input_precoCompra.setObjectName(u"input_precoCompra")
-        sizePolicy2 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
-        sizePolicy2.setHorizontalStretch(0)
-        sizePolicy2.setVerticalStretch(0)
         sizePolicy2.setHeightForWidth(self.input_precoCompra.sizePolicy().hasHeightForWidth())
         self.input_precoCompra.setSizePolicy(sizePolicy2)
         self.input_precoCompra.setMaximumSize(QSize(16777215, 30))
-        font2 = QFont()
-        font2.setFamily(u"Raleway")
         self.input_precoCompra.setFont(font2)
         self.input_precoCompra.setStyleSheet(u"QLineEdit {\n"
 "	background-color:white;\n"
@@ -196,108 +265,7 @@ class Ui_EstoqueEdit(object):
         self.gridLayout_30.addWidget(self.input_precoVenda, 1, 0, 1, 1)
 
 
-        self.gridLayout_24.addWidget(self.frame_33, 0, 4, 1, 1)
-
-        self.frame_29 = QFrame(self.frame_27)
-        self.frame_29.setObjectName(u"frame_29")
-        self.frame_29.setMaximumSize(QSize(100, 70))
-        self.frame_29.setFrameShape(QFrame.StyledPanel)
-        self.frame_29.setFrameShadow(QFrame.Raised)
-        self.gridLayout_26 = QGridLayout(self.frame_29)
-        self.gridLayout_26.setObjectName(u"gridLayout_26")
-        self.gridLayout_26.setContentsMargins(0, 9, 0, -1)
-        self.label_22 = QLabel(self.frame_29)
-        self.label_22.setObjectName(u"label_22")
-        self.label_22.setFont(font1)
-
-        self.gridLayout_26.addWidget(self.label_22, 0, 0, 1, 1)
-
-        self.input_lucro = QLineEdit(self.frame_29)
-        self.input_lucro.setObjectName(u"input_lucro")
-        sizePolicy2.setHeightForWidth(self.input_lucro.sizePolicy().hasHeightForWidth())
-        self.input_lucro.setSizePolicy(sizePolicy2)
-        self.input_lucro.setMaximumSize(QSize(16777215, 30))
-        self.input_lucro.setFont(font2)
-        self.input_lucro.setStyleSheet(u"QLineEdit {\n"
-"	background-color:white;\n"
-"	border-radius: 10px;\n"
-"	border: 1px solid rgb(158, 162, 166);\n"
-"	padding-left: 20px;\n"
-"}")
-        self.input_lucro.setReadOnly(True)
-
-        self.gridLayout_26.addWidget(self.input_lucro, 1, 0, 1, 1)
-
-
-        self.gridLayout_24.addWidget(self.frame_29, 0, 3, 1, 1)
-
-        self.frame_32 = QFrame(self.frame_27)
-        self.frame_32.setObjectName(u"frame_32")
-        self.frame_32.setMaximumSize(QSize(110, 70))
-        self.frame_32.setFrameShape(QFrame.StyledPanel)
-        self.frame_32.setFrameShadow(QFrame.Raised)
-        self.gridLayout_29 = QGridLayout(self.frame_32)
-        self.gridLayout_29.setObjectName(u"gridLayout_29")
-        self.gridLayout_29.setContentsMargins(0, 9, 0, -1)
-        self.label_25 = QLabel(self.frame_32)
-        self.label_25.setObjectName(u"label_25")
-        self.label_25.setFont(font1)
-
-        self.gridLayout_29.addWidget(self.label_25, 0, 0, 1, 1)
-
-        self.inputMargem = QLineEdit(self.frame_32)
-        self.inputMargem.setObjectName(u"inputMargem")
-        sizePolicy2.setHeightForWidth(self.inputMargem.sizePolicy().hasHeightForWidth())
-        self.inputMargem.setSizePolicy(sizePolicy2)
-        self.inputMargem.setMaximumSize(QSize(16777215, 30))
-        self.inputMargem.setFont(font2)
-        self.inputMargem.setStyleSheet(u"QLineEdit {\n"
-"	background-color:white;\n"
-"	border-radius: 10px;\n"
-"	border: 1px solid rgb(158, 162, 166);\n"
-"	padding-left: 20px;\n"
-"}")
-
-        self.gridLayout_29.addWidget(self.inputMargem, 1, 0, 1, 1)
-
-
-        self.gridLayout_24.addWidget(self.frame_32, 0, 2, 1, 1)
-
-        self.frame_28 = QFrame(self.frame_27)
-        self.frame_28.setObjectName(u"frame_28")
-        self.frame_28.setMaximumSize(QSize(100, 70))
-        self.frame_28.setFrameShape(QFrame.StyledPanel)
-        self.frame_28.setFrameShadow(QFrame.Raised)
-        self.gridLayout_25 = QGridLayout(self.frame_28)
-        self.gridLayout_25.setObjectName(u"gridLayout_25")
-        self.gridLayout_25.setContentsMargins(0, 9, 0, -1)
-        self.label_21 = QLabel(self.frame_28)
-        self.label_21.setObjectName(u"label_21")
-        self.label_21.setFont(font1)
-
-        self.gridLayout_25.addWidget(self.label_21, 0, 0, 1, 1)
-
-        self.input_precoAtacado = QLineEdit(self.frame_28)
-        self.input_precoAtacado.setObjectName(u"input_precoAtacado")
-        sizePolicy2.setHeightForWidth(self.input_precoAtacado.sizePolicy().hasHeightForWidth())
-        self.input_precoAtacado.setSizePolicy(sizePolicy2)
-        self.input_precoAtacado.setMaximumSize(QSize(16777215, 30))
-        self.input_precoAtacado.setFont(font2)
-        self.input_precoAtacado.setStyleSheet(u"QLineEdit {\n"
-"	background-color:white;\n"
-"	border-radius: 10px;\n"
-"	border: 1px solid rgb(158, 162, 166);\n"
-"	padding-left: 20px;\n"
-"}")
-
-        self.gridLayout_25.addWidget(self.input_precoAtacado, 1, 0, 1, 1)
-
-
-        self.gridLayout_24.addWidget(self.frame_28, 0, 5, 1, 1)
-
-        self.horizontalSpacer_7 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
-
-        self.gridLayout_24.addItem(self.horizontalSpacer_7, 0, 6, 1, 1)
+        self.gridLayout_24.addWidget(self.frame_33, 0, 2, 1, 1)
 
 
         self.gridLayout_8.addWidget(self.frame_27, 1, 0, 1, 3)
@@ -538,8 +506,7 @@ class Ui_EstoqueEdit(object):
         QWidget.setTabOrder(self.input_precoCompra, self.inputMargem)
         QWidget.setTabOrder(self.inputMargem, self.input_lucro)
         QWidget.setTabOrder(self.input_lucro, self.input_precoVenda)
-        QWidget.setTabOrder(self.input_precoVenda, self.input_precoAtacado)
-        QWidget.setTabOrder(self.input_precoAtacado, self.input_observacao)
+        QWidget.setTabOrder(self.input_precoVenda, self.input_observacao)
         QWidget.setTabOrder(self.input_observacao, self.btn_salvar)
 
         self.retranslateUi(EstoqueEdit)
@@ -550,6 +517,11 @@ class Ui_EstoqueEdit(object):
     def retranslateUi(self, EstoqueEdit):
         EstoqueEdit.setWindowTitle(QCoreApplication.translate("EstoqueEdit", u"Form", None))
         self.label_3.setText(QCoreApplication.translate("EstoqueEdit", u"Editar Produto", None))
+        self.label_25.setText(QCoreApplication.translate("EstoqueEdit", u"Margem/Markup", None))
+        self.inputMargem.setPlaceholderText(QCoreApplication.translate("EstoqueEdit", u"Ex.: 13", None))
+        self.label_22.setText(QCoreApplication.translate("EstoqueEdit", u"Lucro", None))
+        self.input_lucro.setText("")
+        self.input_lucro.setPlaceholderText(QCoreApplication.translate("EstoqueEdit", u"Ex.: 45,99", None))
         self.input_unidade.setItemText(0, "")
         self.input_unidade.setItemText(1, QCoreApplication.translate("EstoqueEdit", u"UNI", None))
         self.input_unidade.setItemText(2, QCoreApplication.translate("EstoqueEdit", u"CX", None))
@@ -561,13 +533,6 @@ class Ui_EstoqueEdit(object):
         self.input_precoCompra.setPlaceholderText(QCoreApplication.translate("EstoqueEdit", u"Ex.: 45,99", None))
         self.label_26.setText(QCoreApplication.translate("EstoqueEdit", u"Pre\u00e7o Venda", None))
         self.input_precoVenda.setPlaceholderText(QCoreApplication.translate("EstoqueEdit", u"Ex.: 45,99", None))
-        self.label_22.setText(QCoreApplication.translate("EstoqueEdit", u"Lucro", None))
-        self.input_lucro.setText("")
-        self.input_lucro.setPlaceholderText(QCoreApplication.translate("EstoqueEdit", u"Ex.: 45,99", None))
-        self.label_25.setText(QCoreApplication.translate("EstoqueEdit", u"Margem/Markup", None))
-        self.inputMargem.setPlaceholderText(QCoreApplication.translate("EstoqueEdit", u"Ex.: 13", None))
-        self.label_21.setText(QCoreApplication.translate("EstoqueEdit", u"Pre\u00e7o Atacado", None))
-        self.input_precoAtacado.setPlaceholderText(QCoreApplication.translate("EstoqueEdit", u"Ex.: 45,99", None))
         self.btn_salvar.setText(QCoreApplication.translate("EstoqueEdit", u"Salvar", None))
         self.label_30.setText(QCoreApplication.translate("EstoqueEdit", u"Descri\u00e7\u00e3o", None))
         self.input_descricao.setPlaceholderText(QCoreApplication.translate("EstoqueEdit", u"Ex.: T\u00caNIS", None))

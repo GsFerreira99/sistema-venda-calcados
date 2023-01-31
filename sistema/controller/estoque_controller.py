@@ -62,13 +62,13 @@ class EstoqueController:
     def busca(self):
         campo = self.view.input_pesquisa.text()
         if campo == '':
-            select = self.__db.select("SELECT * FROM estoque")
+            select = self.__db.select("SELECT * FROM estoque WHERE ativado = TRUE")
         else:
             select = self.__db.select(f"""SELECT * FROM estoque WHERE descricao LIKE '%{campo}%' 
-            OR cod_barras = '{campo}' OR cor = '{campo}' OR tamanho = '{campo}'""")
+            OR cod_barras = '{campo}' AND ativado = TRUE""")
         if select.empty is True:
-            fornecedor = self.__db.select(f"SELECT id FROM fornecedor WHERE nome LIKE '%{campo}%'").iloc[0, 0]
-            select = self.__db.select(f"SELECT * FROM estoque WHERE fornecedorId = {fornecedor}")
+            fornecedor = self.__db.select(f"SELECT id FROM fornecedor WHERE nome LIKE '%{campo}%' AND ativado = TRUE").iloc[0, 0]
+            select = self.__db.select(f"SELECT * FROM estoque WHERE fornecedorId = {fornecedor} AND ativado = TRUE")
         self.table = TabelaEstoque(self.view.table_produtos, select, self.__db)
         self.table.preencher_tabela()
 
@@ -92,11 +92,11 @@ class EstoqueController:
             self.busca()
         else:
             texto = "Erro ao atualizar produto, verifique os campos."
-        mensagem(texto, QMessageBox.Information, 'Info')  
+        mensagem(texto, QMessageBox.Information, 'Info')
 
     def limpar_tela(self, view):
-        cor = self.__db.select("SELECT DISTINCT cor FROM estoque")['cor'].values.tolist()
-        fornecedor = self.__db.select("SELECT DISTINCT nome FROM fornecedor")['nome'].values.tolist()
+        cor = ''
+        fornecedor = self.__db.select("SELECT DISTINCT nome FROM fornecedor WHERE ativado = TRUE")['nome'].values.tolist()
         view.limpar(cor, fornecedor)
 
     def cadastrar_estoque(self):

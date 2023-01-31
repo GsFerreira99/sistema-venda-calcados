@@ -12,10 +12,12 @@ class VendasEditView(Ui_VendasEdit, QDialog, VendasView):
         super().setupUi(self)
         self.setModal(True)
 
-    def preencher_campos(self, dados):
-        self.input_nrVenda_2.setText(str(dados['id']))
+    def preencher_campos(self, dados, db):
+        self.input_nrVenda_2.setText(str(dados['codigo']))
         self.input_data_2.setDate(data(dados['data_venda']))
         self.input_cliente.setText(str(dados['cliente']))
+        vendedor = db.select(f"SELECT nome, sobrenome from usuarios WHERE id = {dados['vendido_por']}")
+        self.input_vendedor.setText(f"{vendedor.iloc[0, 0]} {vendedor.iloc[0, 1]}")
 
         self.input_totalBruto.setText(moeda(dados['total_bruto']))
         self.input_desconto.setText(moeda(dados['desconto']))

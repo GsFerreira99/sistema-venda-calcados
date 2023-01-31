@@ -39,8 +39,9 @@ class FornecedorModel:
         return insert
 
     def deletar(self):
-        insert = self.__db.deletar(f"DELETE FROM fornecedor WHERE id = {int(self.dados['id'])}")
-        return insert
+        self.__db.atualizar(f"""UPDATE fornecedor
+                            SET ativado = FALSE
+                            WHERE id = {self.dados['id']};""")
 
     def editar(self):
         update = self.__db.atualizar(

@@ -1,6 +1,7 @@
 from sistema.funcoes.view import View
 from interface.telas.vendas import Ui_Vendas
 from PySide2.QtWidgets import QWidget
+import datetime
 
 from sistema.funcoes.genericos import data
 
@@ -17,15 +18,28 @@ class VendasView(Ui_Vendas, QWidget, View):
 
         self.nav_widget = self.stackedWidget
 
-        self.config()
+        self.radio_periodo.toggled.connect(lambda: self.busca_periodo())
+
+    def busca_periodo(self):
+        if self.frame_periodo.width() == 0:
+            self.definir_data()
+            self.frame_periodo.setMaximumWidth(300)
+        else:
+            self.frame_periodo.setMaximumWidth(0)
+
+
+
+    def definir_data(self):
+        hoje = datetime.date.today()
+        self.input_data_ini.setDate(hoje)
+        self.input_data_fim.setDate(hoje)
 
     def config(self):
         self.input_nrVenda.setReadOnly(True)
 
     def atualizar_tela(self, dados):
-        self.config()
         self.preencher_data(dados["data_venda"])
-        self.preencher_nr_venda(dados["id"])
+        self.preencher_nr_venda(dados["codigo"])
 
     def preencher_nr_venda(self, val):
         self.input_nrVenda.setText(f'{val}')

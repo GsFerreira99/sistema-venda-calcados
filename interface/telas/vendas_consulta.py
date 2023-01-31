@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'vendas_editarVuUxUs.ui'
+## Form generated from reading UI file 'vendas_editarZViMJq.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -40,10 +40,6 @@ class Ui_VendasEdit(object):
         self.frame_5.setFrameShadow(QFrame.Raised)
         self.gridLayout_4 = QGridLayout(self.frame_5)
         self.gridLayout_4.setObjectName(u"gridLayout_4")
-        self.horizontalSpacer_4 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
-
-        self.gridLayout_4.addItem(self.horizontalSpacer_4, 0, 1, 1, 1)
-
         self.label_3 = QLabel(self.frame_5)
         self.label_3.setObjectName(u"label_3")
         sizePolicy1 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Preferred)
@@ -61,6 +57,10 @@ class Ui_VendasEdit(object):
         self.label_3.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
 
         self.gridLayout_4.addWidget(self.label_3, 0, 0, 1, 1)
+
+        self.horizontalSpacer_4 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.gridLayout_4.addItem(self.horizontalSpacer_4, 0, 1, 1, 1)
 
         self.frame_13 = QFrame(self.frame_5)
         self.frame_13.setObjectName(u"frame_13")
@@ -107,12 +107,6 @@ class Ui_VendasEdit(object):
         self.frame_12.setFrameShadow(QFrame.Raised)
         self.gridLayout_11 = QGridLayout(self.frame_12)
         self.gridLayout_11.setObjectName(u"gridLayout_11")
-        self.label_9 = QLabel(self.frame_12)
-        self.label_9.setObjectName(u"label_9")
-        self.label_9.setFont(font1)
-
-        self.gridLayout_11.addWidget(self.label_9, 0, 0, 1, 1)
-
         self.input_cliente = QLineEdit(self.frame_12)
         self.input_cliente.setObjectName(u"input_cliente")
         sizePolicy2 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
@@ -133,6 +127,12 @@ class Ui_VendasEdit(object):
         self.input_cliente.setReadOnly(True)
 
         self.gridLayout_11.addWidget(self.input_cliente, 1, 0, 1, 1)
+
+        self.label_9 = QLabel(self.frame_12)
+        self.label_9.setObjectName(u"label_9")
+        self.label_9.setFont(font1)
+
+        self.gridLayout_11.addWidget(self.label_9, 0, 0, 1, 1)
 
 
         self.gridLayout_4.addWidget(self.frame_12, 0, 5, 1, 1)
@@ -171,6 +171,39 @@ class Ui_VendasEdit(object):
 
 
         self.gridLayout_4.addWidget(self.frame_14, 0, 2, 1, 1)
+
+        self.frame_15 = QFrame(self.frame_5)
+        self.frame_15.setObjectName(u"frame_15")
+        self.frame_15.setMinimumSize(QSize(200, 70))
+        self.frame_15.setMaximumSize(QSize(200, 16777215))
+        self.frame_15.setFrameShape(QFrame.StyledPanel)
+        self.frame_15.setFrameShadow(QFrame.Raised)
+        self.gridLayout_22 = QGridLayout(self.frame_15)
+        self.gridLayout_22.setObjectName(u"gridLayout_22")
+        self.input_vendedor = QLineEdit(self.frame_15)
+        self.input_vendedor.setObjectName(u"input_vendedor")
+        sizePolicy2.setHeightForWidth(self.input_vendedor.sizePolicy().hasHeightForWidth())
+        self.input_vendedor.setSizePolicy(sizePolicy2)
+        self.input_vendedor.setMaximumSize(QSize(16777215, 30))
+        self.input_vendedor.setFont(font2)
+        self.input_vendedor.setStyleSheet(u"QLineEdit {\n"
+"	background-color:white;\n"
+"	border-radius: 10px;\n"
+"	border: 1px solid rgb(158, 162, 166);\n"
+"	padding-left: 20px;\n"
+"}")
+        self.input_vendedor.setReadOnly(True)
+
+        self.gridLayout_22.addWidget(self.input_vendedor, 1, 0, 1, 1)
+
+        self.label_19 = QLabel(self.frame_15)
+        self.label_19.setObjectName(u"label_19")
+        self.label_19.setFont(font1)
+
+        self.gridLayout_22.addWidget(self.label_19, 0, 0, 1, 1)
+
+
+        self.gridLayout_4.addWidget(self.frame_15, 0, 6, 1, 1)
 
 
         self.gridLayout.addWidget(self.frame_5, 0, 0, 1, 1)
@@ -481,7 +514,7 @@ class Ui_VendasEdit(object):
         sizePolicy4.setHeightForWidth(self.btn_relatorio.sizePolicy().hasHeightForWidth())
         self.btn_relatorio.setSizePolicy(sizePolicy4)
         self.btn_relatorio.setMinimumSize(QSize(0, 35))
-        self.btn_relatorio.setMaximumSize(QSize(200, 35))
+        self.btn_relatorio.setMaximumSize(QSize(150, 35))
         font4 = QFont()
         font4.setFamily(u"Raleway")
         font4.setPointSize(9)
@@ -491,6 +524,28 @@ class Ui_VendasEdit(object):
         self.btn_relatorio.setStyleSheet(u"")
 
         self.horizontalLayout_3.addWidget(self.btn_relatorio)
+
+        self.btn_relatorio_full = QPushButton(self.frame_7)
+        self.btn_relatorio_full.setObjectName(u"btn_relatorio_full")
+        sizePolicy4.setHeightForWidth(self.btn_relatorio_full.sizePolicy().hasHeightForWidth())
+        self.btn_relatorio_full.setSizePolicy(sizePolicy4)
+        self.btn_relatorio_full.setMinimumSize(QSize(0, 35))
+        self.btn_relatorio_full.setMaximumSize(QSize(150, 35))
+        self.btn_relatorio_full.setFont(font4)
+        self.btn_relatorio_full.setStyleSheet(u"")
+
+        self.horizontalLayout_3.addWidget(self.btn_relatorio_full)
+
+        self.btn_relatorioFornecedores = QPushButton(self.frame_7)
+        self.btn_relatorioFornecedores.setObjectName(u"btn_relatorioFornecedores")
+        sizePolicy4.setHeightForWidth(self.btn_relatorioFornecedores.sizePolicy().hasHeightForWidth())
+        self.btn_relatorioFornecedores.setSizePolicy(sizePolicy4)
+        self.btn_relatorioFornecedores.setMinimumSize(QSize(0, 35))
+        self.btn_relatorioFornecedores.setMaximumSize(QSize(180, 35))
+        self.btn_relatorioFornecedores.setFont(font4)
+        self.btn_relatorioFornecedores.setStyleSheet(u"")
+
+        self.horizontalLayout_3.addWidget(self.btn_relatorioFornecedores)
 
         self.horizontalSpacer_5 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
@@ -518,6 +573,7 @@ class Ui_VendasEdit(object):
         self.label_10.setText(QCoreApplication.translate("VendasEdit", u"Data", None))
         self.label_9.setText(QCoreApplication.translate("VendasEdit", u"Cliente", None))
         self.label_17.setText(QCoreApplication.translate("VendasEdit", u"Nr. Venda", None))
+        self.label_19.setText(QCoreApplication.translate("VendasEdit", u"Vendedor", None))
         ___qtablewidgetitem = self.table.horizontalHeaderItem(0)
         ___qtablewidgetitem.setText(QCoreApplication.translate("VendasEdit", u"C\u00f3digo", None));
         ___qtablewidgetitem1 = self.table.horizontalHeaderItem(1)
@@ -546,6 +602,8 @@ class Ui_VendasEdit(object):
         self.label_12.setText(QCoreApplication.translate("VendasEdit", u"DESCONTO", None))
         self.label_13.setText(QCoreApplication.translate("VendasEdit", u"TOTAL L\u00cdQUIDO", None))
         self.label_15.setText(QCoreApplication.translate("VendasEdit", u"TOTAL PAGO", None))
-        self.btn_relatorio.setText(QCoreApplication.translate("VendasEdit", u"Gerar PDF", None))
+        self.btn_relatorio.setText(QCoreApplication.translate("VendasEdit", u"Gerar PDF Resumido", None))
+        self.btn_relatorio_full.setText(QCoreApplication.translate("VendasEdit", u"Gerar PDF Detalhado", None))
+        self.btn_relatorioFornecedores.setText(QCoreApplication.translate("VendasEdit", u"Gerar PDF Fornecedores", None))
     # retranslateUi
 

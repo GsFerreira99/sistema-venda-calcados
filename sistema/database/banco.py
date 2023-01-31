@@ -27,12 +27,36 @@ class DataBase:
             self._cursor = self._db.cursor()
             self._engine = create_engine(f'mysql://{self._user}:{self._password}@{self._host}:{self._porta}/db_sapatos')
 
+            try:
+                self._cursor.execute('UPDATE usuarios SET tipo = 1 WHERE id = 1')
+                self._cursor.execute('ALTER TABLE vendas ADD COLUMN ativado BOOL DEFAULT TRUE')
+                self._cursor.execute('ALTER TABLE fornecedor ADD COLUMN ativado BOOL DEFAULT TRUE')
+                self._cursor.execute('ALTER TABLE estoque ADD COLUMN ativado BOOL DEFAULT TRUE')
+                self._cursor.execute('ALTER TABLE cliente ADD COLUMN ativado BOOL DEFAULT TRUE')
+                self._cursor.execute('ALTER TABLE usuarios ADD COLUMN ativado BOOL DEFAULT TRUE')
+                self._cursor.execute('ALTER TABLE usuarios ADD COLUMN tipo INT DEFAULT 2')
+                self._cursor.execute('ALTER TABLE vendas ADD COLUMN vendido_por INT DEFAULT 1, ADD CONSTRAINT FK_User FOREIGN KEY (vendido_por) REFERENCES usuarios(id)')
+
+            except:
+                print('ERROR')
+
             return "Conectado com sucesso."
         except mysql.connector.Error as e:
             if e.errno == 1049:
                 return self.criar_db()
             else:
                 return e
+
+        except AttributeError as e:
+            print(e)
+
+    def preencher_cod_venda(self):
+            vendas = self.select('SELECT id FROM vendas')
+            for index, venda in vendas.iterrows():
+                query = f"UPDATE vendas SET codigo = {int(venda['id'])} WHERE id = {int(venda['id'])}"
+                self._cursor.execute(query)
+                self._db.commit()
+
 
     def criar_db(self):
         db = mysql.connector.connect(
@@ -46,6 +70,7 @@ class DataBase:
             cursor.execute("CREATE DATABASE db_sapatos")
             self.conectar()
             self.criar_tabelas()
+            self.cadastrar_admin()
             return 'Banco de Dados criado com sucesso.'
         except mysql.connector.errors.DatabaseError as e:
             return e
@@ -76,7 +101,8 @@ class DataBase:
                 lucro FLOAT,
                 preco_venda FLOAT,
                 preco_atacado FLOAT,
-                observacao VARCHAR(255)
+                observacao VARCHAR(255),
+                ativado BOOL DEFAULT TRUE
                 )""")
 
     def tabela_fornecedor(self):
@@ -94,7 +120,8 @@ class DataBase:
                 bairro VARCHAR(255),
                 cidade VARCHAR(255),
                 uf VARCHAR(2),
-                observacao VARCHAR(255)
+                observacao VARCHAR(255),
+                ativado BOOL DEFAULT TRUE
                 )""")
     
     def tabela_cliente(self):
@@ -114,12 +141,14 @@ class DataBase:
                 bairro VARCHAR(255),
                 cidade VARCHAR(255),
                 uf VARCHAR(2),
-                observacao VARCHAR(255)
+                observacao VARCHAR(255),
+                ativado BOOL DEFAULT TRUE
                 )""")
 
     def tabela_vendas(self):
         self._cursor.execute("""CREATE TABLE vendas (
                         id INT AUTO_INCREMENT PRIMARY KEY,
+                        codigo INT UNIQUE,
                         data_venda DATE NOT NULL,
                         cliente INT,
                         CONSTRAINT FK_Cliente FOREIGN KEY (cliente)
@@ -129,7 +158,10 @@ class DataBase:
                         total_liquido FLOAT,
                         total_items INT,
                         total_pago FLOAT,
-                        troco FLOAT
+                        troco FLOAT,
+                        vendido_por INT,
+                        CONSTRAINT FK_User FOREIGN KEY (vendido_por)
+                        REFERENCES usuarios(id)
                         )""")
 
     def tabela_item_venda(self):
@@ -143,7 +175,7 @@ class DataBase:
                                 REFERENCES estoque(id),
                                 preco FLOAT,
                                 quantidade FLOAT,
-                                tamanho INT,
+                                tamanho VARCHAR(100),
                                 cor VARCHAR(100),
                                 percent_desconto FLOAT,
                                 valor_desconto FLOAT,
@@ -151,13 +183,29 @@ class DataBase:
                                 total_liquido FLOAT
                                 )""")
 
+    def cadastrar_admin(self):
+        self.inserir(
+            """
+                        INSERT INTO usuarios (
+                            usuario,
+                            senha,
+                            nome,
+                            sobrenome,
+                            tipo)
+                            VALUES (%s, %s, %s, %s, %s)
+                            """, ['admin', 'admin', '', '', 1]
+        )
+
     def tabela_usuario(self):
         self._cursor.execute("""CREATE TABLE usuarios (
                 id INT AUTO_INCREMENT PRIMARY KEY,
-                usuario VARCHAR(100),
+                usuario VARCHAR(100) UNIQUE,
                 senha VARCHAR(100),
                 nome VARCHAR(100),
-                sobrenome VARCHAR(100)
+                sobrenome VARCHAR(100),
+                tipo INT DEFAULT 2,
+                UNIQUE (usuario),
+                ativado BOOL DEFAULT TRUE
                 )""")
 
     def inserir(self, sql, val):

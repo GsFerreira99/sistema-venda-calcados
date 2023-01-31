@@ -31,8 +31,9 @@ class EstoqueModel:
         return insert
 
     def deletar(self):
-        insert = self.__db.deletar(f"DELETE FROM estoque WHERE id = {int(self.dados['id'])}")
-        return insert
+        self.__db.atualizar(f"""UPDATE estoque
+                            SET ativado = FALSE
+                            WHERE id = {self.dados['id']};""")
 
     def __getitem__(self, item):
         return self.dados[item]

@@ -38,8 +38,9 @@ class ClienteModel:
         return insert
 
     def deletar(self):
-        insert = self.__db.deletar(f"DELETE FROM cliente WHERE id = {int(self.dados['id'])}")
-        return insert
+        self.__db.atualizar(f"""UPDATE cliente
+                            SET ativado = FALSE
+                            WHERE id = {self.dados['id']};""")
 
     def editar(self):
         update = self.__db.atualizar(

@@ -1,7 +1,7 @@
 #PySide2
 from PySide2.QtWidgets import QWidget
 
-from sistema.funcoes.genericos import converter_string_int, limpar_dinheiro, limpar_porcento, moeda, mascara_porcento
+from sistema.funcoes.genericos import gerar_cod_barras, limpar_dinheiro, limpar_porcento, moeda, mascara_porcento
 
 from sistema.funcoes.tabela import Tabela
 #Telas
@@ -13,15 +13,14 @@ class EstoqueView(Ui_Estoque, QWidget):
         super().__init__(parent)
         super().setupUi(self)
 
-        self.inputMargem.editingFinished.connect(lambda: self.calculo_margem())
-        self.input_precoCompra.editingFinished.connect(lambda: self.calculo_margem())
+        self.input_precoVenda.editingFinished.connect(lambda: self.calculo_margem())
 
         self.input_precoCompra.editingFinished.connect(lambda: self.input_precoCompra.setText(moeda(self.input_precoCompra.text())))
         self.input_precoVenda.editingFinished.connect(lambda: self.input_precoVenda.setText(moeda(self.input_precoVenda.text())))
         self.input_lucro.editingFinished.connect(lambda: self.input_lucro.setText(moeda(self.input_lucro.text())))
-        self.input_precoAtacado.editingFinished.connect(lambda: self.input_precoAtacado.setText(moeda(self.input_precoAtacado.text())))
         self.inputMargem.editingFinished.connect(lambda: self.inputMargem.setText(mascara_porcento(self.inputMargem.text())))
 
+        self.btn_salvar_2.clicked.connect(lambda: self.input_codBarras.setText(f"{gerar_cod_barras()}"))
 
     def preencher_tabela(self):
         pass
@@ -40,7 +39,6 @@ class EstoqueView(Ui_Estoque, QWidget):
         self.inputMargem.setText('')
         self.input_lucro.setText('')
         self.input_precoVenda.setText('')
-        self.input_precoAtacado.setText('')
         self.input_observacao.setText('')
 
     def navegacao(self, index:int):
@@ -84,12 +82,13 @@ class EstoqueView(Ui_Estoque, QWidget):
                 """)
 
     def calculo_margem(self):
-        margem = limpar_porcento(self.inputMargem.text())
-        compra =  limpar_dinheiro(self.input_precoCompra.text())
-        valLucro =  compra * (margem/100)
+        compra = limpar_dinheiro(self.input_precoCompra.text())
+        venda = limpar_dinheiro(self.input_precoVenda.text())
+        valLucro = venda - compra
+        percLucro = (valLucro*100)/venda
+
         self.input_lucro.setText(moeda(valLucro))
-        self.input_precoVenda.setText(moeda((compra + valLucro)))
-        self.input_precoAtacado.setText(moeda((compra + valLucro)))
+        self.inputMargem.setText(mascara_porcento(percLucro))
 
     def linha_selecionada(self):
         return self.table_produtos.currentRow()
@@ -104,6 +103,6 @@ class EstoqueView(Ui_Estoque, QWidget):
             "margem": limpar_porcento(self.inputMargem.text()),
             "lucro": limpar_dinheiro(self.input_lucro.text()),
             "preco_venda": limpar_dinheiro(self.input_precoVenda.text()),
-            "preco_atacado": limpar_dinheiro(self.input_precoAtacado.text()),
+            "preco_atacado": 0,
             "observacao": self.input_observacao.toPlainText(),
         }

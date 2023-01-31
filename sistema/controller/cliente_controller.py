@@ -71,9 +71,10 @@ class ClienteController:
     def busca(self):
         campo = self.view.input_pesquisa.text()
         if campo == '':
-            select = self.__db.select("SELECT * FROM cliente")
+            select = self.__db.select("SELECT * FROM cliente WHERE ativado = TRUE")
         else:
             select = self.__db.select(f"""SELECT * FROM cliente WHERE nome LIKE '%{campo}%' 
-            OR cpf_cnpj = '{campo}' OR celular = '{campo}' OR inscricao_estadual = '{campo}' OR email = '{campo}'""")
+            OR cpf_cnpj = '{campo}' OR celular = '{campo}' OR inscricao_estadual = '{campo}' OR email = '{campo}' AND
+             ativado = TRUE""")
         self.table = TabelaCliente(self.view.table_clientes, select, self.__db)
         self.table.preencher_tabela()
