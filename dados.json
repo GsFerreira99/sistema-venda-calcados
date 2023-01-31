@@ -1,7 +1,7 @@
 [
   {
     "ip": "localhost",
-    "usuario": "gabriel",
+    "usuario": "root",
     "senha": "Gabriel151299",
     "porta": "3306"
   }

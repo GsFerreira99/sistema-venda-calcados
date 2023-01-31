@@ -16,8 +16,7 @@ setup(
     version = "1.0",
     description = "Interface",
     options = {"build_exe": build_exe_options},
-    data_files = [ 'logo.ico', 'dados.json', 'dados_exemplo.json', 'sistema/relatorios/fonts', 'sistema/relatorios/fonts/Cambria.ttf','sistema/relatorios/fonts/Cambria-Bold.ttf',
-                   'sistema/relatorios/fonts/Franklin Gothic Book Regular.ttf'],
+
     executables = [Executable(
     script="main.py",
     icon="logo.ico",

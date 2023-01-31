@@ -3,6 +3,8 @@ from sistema.model.estoque_model import EstoqueModel, TabelaEstoque
 from sistema.funcoes.poupup import mensagem, confirma
 from sistema.view.estoque_edit_view import EstoqueEditView
 from sistema.view.estoque_adicionar_view import EstoqueAdicionarView
+from sistema.relatorios.estoque import RelatorioEstoque
+from PySide2.QtWidgets import QMessageBox, QFileDialog
 
 from PySide2.QtWidgets import QMessageBox
 
@@ -29,11 +31,37 @@ class EstoqueController:
         self.view.btn_salvar.clicked.connect(lambda: self.cadastrar_estoque())
         self.edit.btn_salvar.clicked.connect(lambda: self.salvar_edicao())
 
+        self.view.btn_relatorio.clicked.connect(lambda: self.relatorio())
+
         self.view.btn_editar.clicked.connect(lambda: self.editar())
         self.view.btn_busca.clicked.connect(lambda: self.busca())
         self.view.btn_deletar.clicked.connect(lambda: self.deletar())
 
         self.adicionar.btn_salvar.clicked.connect(lambda: self.salvar_adc_estoque())
+
+    @staticmethod
+    def caminho_relatorio():
+        try:
+            arquivo = QFileDialog.getSaveFileName(caption="Exportar relatório em PDF",
+                                                  directory="", filter="PDF files (*.pdf)")[0]
+            return arquivo
+        except FileNotFoundError:
+            return None
+
+    def relatorio(self):
+        caminho = self.caminho_relatorio()
+        if type(caminho) != str or caminho == '':
+            return
+
+        forcedores = self.__db.select("SELECT id, nome FROM fornecedor")
+        dados = {}
+        for index, fornecedor in forcedores.iterrows():
+            id = fornecedor['id']
+            dados[fornecedor['nome']] = self.__db.select(f"SELECT * FROM estoque WHERE fornecedorId = {id}")
+
+        rel = RelatorioEstoque(caminho).escrever(dados)
+
+        mensagem('Relatório gerado com sucesso!.', QMessageBox.Information, 'Sucesso')
 
     def deletar(self):
         model = EstoqueModel(self.__db, self.table.retorna_objeto(self.view.linha_selecionada()))

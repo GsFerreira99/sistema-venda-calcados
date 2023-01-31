@@ -192,8 +192,28 @@ class Ui_Estoque(object):
 "}")
         self.frame_4.setFrameShape(QFrame.StyledPanel)
         self.frame_4.setFrameShadow(QFrame.Raised)
+
         self.horizontalLayout_2 = QHBoxLayout(self.frame_4)
         self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
+
+        self.btn_relatorio = QPushButton(self.frame_4)
+        self.btn_relatorio.setObjectName(u"btn_deletar")
+        sizePolicy3 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Fixed)
+        sizePolicy3.setHorizontalStretch(0)
+        sizePolicy3.setVerticalStretch(0)
+        sizePolicy3.setHeightForWidth(self.btn_relatorio.sizePolicy().hasHeightForWidth())
+        self.btn_relatorio.setSizePolicy(sizePolicy3)
+        self.btn_relatorio.setMaximumSize(QSize(100, 35))
+        font4 = QFont()
+        font4.setFamily(u"Raleway")
+        font4.setPointSize(9)
+        font4.setBold(True)
+        font4.setWeight(75)
+        self.btn_relatorio.setFont(font4)
+        self.btn_relatorio.setStyleSheet(u"")
+
+        self.horizontalLayout_2.addWidget(self.btn_relatorio)
+
         self.horizontalSpacer_2 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
         self.horizontalLayout_2.addItem(self.horizontalSpacer_2)
@@ -819,6 +839,7 @@ class Ui_Estoque(object):
         ___qtablewidgetitem5 = self.table_produtos.horizontalHeaderItem(5)
         ___qtablewidgetitem5.setText(QCoreApplication.translate("Estoque", u"Fornecedor", None));
         self.btn_deletar.setText(QCoreApplication.translate("Estoque", u"Deletar", None))
+        self.btn_relatorio.setText(QCoreApplication.translate("Relatório", u"Relatório", None))
         self.btn_editar.setText(QCoreApplication.translate("Estoque", u"Editar", None))
         self.label_3.setText(QCoreApplication.translate("Estoque", u"Cadastrar Novo Produto", None))
         self.label_33.setText(QCoreApplication.translate("Estoque", u"Observa\u00e7\u00e3o", None))

@@ -23,6 +23,7 @@ class App:
         self.StackedWidget.show()
 
 
+
 if __name__ == "__main__":
     root = QApplication(sys.argv)
     app = App()
