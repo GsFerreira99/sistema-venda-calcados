@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "Sistema"
-#define MyAppVersion "1.0"
+#define MyAppVersion "1.0.2"
 #define MyAppPublisher "Gabriel Ferreira"
 #define MyAppExeName "main.exe"
 #define MyAppAssocName MyAppName + " Sapatos"
@@ -33,8 +33,8 @@ WizardStyle=modern
 Name: "brazilianportuguese"; MessagesFile: "compiler:Languages\BrazilianPortuguese.isl"
 
 [Files]
-Source: "E:\PycharmProjects\Sistema-Sapatos\build\exe.win-amd64-3.8\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
-Source: "E:\PycharmProjects\Sistema-Sapatos\build\exe.win-amd64-3.8\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "C:\Users\kaimy\PycharmProjects\sistema-sapataria\build\exe.win-amd64-3.8\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\Users\kaimy\PycharmProjects\sistema-sapataria\build\exe.win-amd64-3.8\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Registry]

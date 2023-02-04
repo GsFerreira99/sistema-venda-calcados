@@ -112,6 +112,3 @@ class RelatorioEstoque:
                 self.pdf.can.showPage()
                 y = 775
             y -= 30
-
-#seed()
-#RelatorioVenda('relatorio_estoque.pdf').escrever()

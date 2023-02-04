@@ -1,6 +1,7 @@
 from sistema.funcoes.view import View
 from interface.telas.vendas import Ui_Vendas
 from PySide2.QtWidgets import QWidget
+from PySide2.QtCore import Qt
 import datetime
 
 from sistema.funcoes.genericos import data
@@ -11,6 +12,8 @@ class VendasView(Ui_Vendas, QWidget, View):
         super().__init__(parent)
         super().setupUi(self)
 
+        self.table.setVerticalScrollBarPolicy(Qt.ScrollBarAlwaysOn)
+        self.table.setVerticalScrollBarPolicy(Qt.ScrollBarAlwaysOn)
         self.botoes = {
             1: self.btn_consulta,
             2: self.btn_novo
