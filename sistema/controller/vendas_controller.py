@@ -350,6 +350,8 @@ class VendasController(Controller):
                     """)
                 self.model.salvar_items()
                 mensagem('Venda cadastrada com sucesso.', QMessageBox.Information, 'Sucesso')
+                self.view.limpar()
+                self.table.limpar()
                 self.view.navegacao(1)
         else:
             mensagem('Selecione um Cliente.', QMessageBox.Information, 'Erro')

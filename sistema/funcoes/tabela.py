@@ -32,7 +32,7 @@ class Tabela:
 
     def limpar(self):
         for i in range(self.tabela.rowCount()):
-            self.tabela.removeRow(i)
+            self.tabela.removeRow(0)
 
     def atualizar_df(self, df):
         self.df = df

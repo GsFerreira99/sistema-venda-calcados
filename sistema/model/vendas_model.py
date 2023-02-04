@@ -26,10 +26,13 @@ class VendasModel(Model):
         return pd.Series(self.items_venda)
 
     def remover(self, index):
-        index +=1
-        item = self.items_venda.pop(index)
-        self.atualizar_index_items()
-        self.subtrair_totais(item)
+        try:
+            index +=1
+            item = self.items_venda.pop(index)
+            self.atualizar_index_items()
+            self.subtrair_totais(item)
+        except:
+            pass
 
     def atualizar_item(self, dados: dict):
         item = self.items_venda[int(dados['id']) + 1]

@@ -27,8 +27,6 @@ class VendasView(Ui_Vendas, QWidget, View):
         else:
             self.frame_periodo.setMaximumWidth(0)
 
-
-
     def definir_data(self):
         hoje = datetime.date.today()
         self.input_data_ini.setDate(hoje)
@@ -87,7 +85,7 @@ class VendasView(Ui_Vendas, QWidget, View):
 
     def limpar(self):
         self.input_nrVenda.setText("")
-        self.input_cliente.setText("")
+        #self.input_cliente.setText("")
 
         self.input_totalBruto.setText("")
         self.input_desconto.setText("")
