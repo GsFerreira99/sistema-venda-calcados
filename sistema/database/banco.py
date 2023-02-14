@@ -39,7 +39,7 @@ class DataBase:
 
             except:
                 print('ERROR')
-
+            print("Conectado com sucesso.")
             return "Conectado com sucesso."
         except mysql.connector.Error as e:
             if e.errno == 1049:

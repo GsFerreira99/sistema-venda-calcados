@@ -127,6 +127,7 @@ class EstoqueController:
         fornecedor = self.__db.select("SELECT DISTINCT nome FROM fornecedor WHERE ativado = TRUE")['nome'].values.tolist()
         view.limpar(cor, fornecedor)
 
+
     def cadastrar_estoque(self):
         dados = pd.Series(self.view.receber_dados())
         dados['fornecedorId'] = int(self.__db.select(

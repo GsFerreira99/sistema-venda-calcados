@@ -120,6 +120,11 @@ class VendasModel(Model):
         dados = self.dados.tolist()
         dados.pop(0)
         dados.append(int(self.user[0]))
+        codigo = self.db.select("SELECT MAX(codigo) FROM vendas")
+        codigo = codigo.iloc[0][0]
+        if dados[0] <= codigo:
+            codigo+= 1
+            dados[0] = int(codigo)
         insert = self.db.inserir(sql, dados)
         return insert
 
