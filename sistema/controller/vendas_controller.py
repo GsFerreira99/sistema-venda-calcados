@@ -207,7 +207,7 @@ class VendasController(Controller):
             items = pd.DataFrame(items)
 
         rel.cabecalho()
-        rel.dados_venda({'data': venda['data_venda'][0].strftime('%d/%m/%Y'), 'venda': venda['id'][0]})
+        rel.dados_venda({'data': venda['data_venda'][0].strftime('%d/%m/%Y'), 'venda': venda['codigo'][0]})
         rel.endereco_entrega(cliente)
 
         return rel, items
@@ -246,7 +246,7 @@ class VendasController(Controller):
         for fornecedor, vend in dados.items():
             rel = RelatorioVenda(f'{caminho}/{venda["codigo"][0]}_{fornecedor}_{cliente["nome"][0]}.pdf')
             rel.cabecalho()
-            rel.dados_venda({'data': venda['data_venda'][0].strftime('%d/%m/%Y'), 'venda': venda['id'][0]})
+            rel.dados_venda({'data': venda['data_venda'][0].strftime('%d/%m/%Y'), 'venda': venda['codigo'][0]})
             rel.endereco_entrega(cliente)
             rel.vendas_fornecedor(vend, fornecedor, self.db)
             rel.pdf.salvar()

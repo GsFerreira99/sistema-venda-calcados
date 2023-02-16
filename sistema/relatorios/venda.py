@@ -57,19 +57,20 @@ class RelatorioVenda:
         self.pdf.set_font(font='Cambria-Bold', tamanho=10)
         self.pdf.string(25, 710, "CLIENTE:")
         self.pdf.string(25, 698, "CPF/CNPJ:")
+        self.pdf.string(200, 698, "INSC. ESTADUAL:")
         self.pdf.string(25, 686, "END:")
         self.pdf.string(25, 674, "COMPL.:")
         self.pdf.string(25, 662, "BAIRRO:")
-        self.pdf.string(25, 650, "FONE:")
+
         self.pdf.string(170, 662, "CIDADE:")
 
         self.pdf.set_font(font='Cambria', tamanho=10)
         self.pdf.string(90, 710, f"{dados['nome'][0]}")
         self.pdf.string(100, 698, f"{cpf_cnpj(dados['cpf_cnpj'][0])}")
+        self.pdf.string(290, 698, f"{dados['inscricao_estadual'][0]}")
         self.pdf.string(70, 686, f"{dados['endereco'][0]}")
         self.pdf.string(70, 674, f"{dados['complemento'][0]}")
         self.pdf.string(70, 662, f"{dados['bairro'][0]}")
-        self.pdf.string(70, 650, f"{celular(dados['celular'][0])}")
         self.pdf.string(230, 662, f"{dados['cidade'][0]}-{dados['uf'][0]}")
 
     def items_fornecedor(self):

@@ -303,11 +303,13 @@ class Ui_Vendas(object):
         self.frame_5.setObjectName(u"frame_5")
         sizePolicy.setHeightForWidth(self.frame_5.sizePolicy().hasHeightForWidth())
         self.frame_5.setSizePolicy(sizePolicy)
-        self.frame_5.setMaximumSize(QSize(16777215, 100))
+        self.frame_5.setMaximumSize(QSize(16777215, 75))
         self.frame_5.setFrameShape(QFrame.StyledPanel)
         self.frame_5.setFrameShadow(QFrame.Raised)
+        self.frame_5.setContentsMargins(9, 0, 9, 0)
         self.gridLayout_4 = QGridLayout(self.frame_5)
         self.gridLayout_4.setObjectName(u"gridLayout_4")
+        self.gridLayout_4.setContentsMargins(0, 0, 0, 0)
         self.label_3 = QLabel(self.frame_5)
         self.label_3.setObjectName(u"label_3")
         sizePolicy1.setHeightForWidth(self.label_3.sizePolicy().hasHeightForWidth())
@@ -320,8 +322,8 @@ class Ui_Vendas(object):
 
         self.frame_6 = QFrame(self.frame_5)
         self.frame_6.setObjectName(u"frame_6")
-        self.frame_6.setMinimumSize(QSize(200, 70))
-        self.frame_6.setMaximumSize(QSize(200, 16777215))
+        self.frame_6.setMinimumSize(QSize(0, 70))
+        self.frame_6.setMaximumSize(QSize(250, 16777215))
         self.frame_6.setFrameShape(QFrame.StyledPanel)
         self.frame_6.setFrameShadow(QFrame.Raised)
         self.gridLayout_5 = QGridLayout(self.frame_6)
@@ -341,6 +343,7 @@ class Ui_Vendas(object):
         self.input_cliente.setObjectName(u"input_cliente")
         sizePolicy.setHeightForWidth(self.input_cliente.sizePolicy().hasHeightForWidth())
         self.input_cliente.setSizePolicy(sizePolicy)
+        self.input_cliente.setMinimumSize(QSize(200, 30))
         self.input_cliente.setMaximumSize(QSize(16777215, 30))
         self.input_cliente.setStyleSheet(u"QComboBox {\n"
 "	background-color:white;\n"
@@ -389,8 +392,8 @@ class Ui_Vendas(object):
         self.frame_10.setObjectName(u"frame_10")
         sizePolicy1.setHeightForWidth(self.frame_10.sizePolicy().hasHeightForWidth())
         self.frame_10.setSizePolicy(sizePolicy1)
-        self.frame_10.setMinimumSize(QSize(75, 70))
-        self.frame_10.setMaximumSize(QSize(75, 16777215))
+        self.frame_10.setMinimumSize(QSize(0, 70))
+        self.frame_10.setMaximumSize(QSize(150, 16777215))
         self.frame_10.setFrameShape(QFrame.StyledPanel)
         self.frame_10.setFrameShadow(QFrame.Raised)
         self.gridLayout_7 = QGridLayout(self.frame_10)
@@ -428,13 +431,17 @@ class Ui_Vendas(object):
 
         self.frame_8 = QFrame(self.venda)
         self.frame_8.setObjectName(u"frame_8")
+        sizePolicy.setHeightForWidth(self.frame_8.sizePolicy().hasHeightForWidth())
+        self.frame_8.setSizePolicy(sizePolicy)
         self.frame_8.setFrameShape(QFrame.StyledPanel)
         self.frame_8.setFrameShadow(QFrame.Raised)
+        self.frame_8.setContentsMargins(0, 0, 0, 9)
+
         self.gridLayout_8 = QGridLayout(self.frame_8)
         self.gridLayout_8.setObjectName(u"gridLayout_8")
         self.gridLayout_8.setHorizontalSpacing(9)
-        self.gridLayout_8.setVerticalSpacing(8)
-        self.gridLayout_8.setContentsMargins(0, -1, 0, -1)
+        self.gridLayout_8.setVerticalSpacing(0)
+        self.gridLayout_8.setContentsMargins(0, 0, 0, 0)
         self.frame_11 = QFrame(self.frame_8)
         self.frame_11.setObjectName(u"frame_11")
         self.frame_11.setMinimumSize(QSize(0, 70))
@@ -443,7 +450,8 @@ class Ui_Vendas(object):
         self.frame_11.setFrameShadow(QFrame.Raised)
         self.gridLayout_9 = QGridLayout(self.frame_11)
         self.gridLayout_9.setObjectName(u"gridLayout_9")
-        self.gridLayout_9.setContentsMargins(0, 9, 0, -1)
+        self.gridLayout_9.setVerticalSpacing(0)
+        self.gridLayout_9.setContentsMargins(0, 0, 0, 0)
         self.label_7 = QLabel(self.frame_11)
         self.label_7.setObjectName(u"label_7")
         self.label_7.setFont(font1)
@@ -470,8 +478,8 @@ class Ui_Vendas(object):
 
         self.frame_12 = QFrame(self.frame_8)
         self.frame_12.setObjectName(u"frame_12")
-        self.frame_12.setMinimumSize(QSize(100, 70))
-        self.frame_12.setMaximumSize(QSize(100, 70))
+        self.frame_12.setMinimumSize(QSize(0, 70))
+        self.frame_12.setMaximumSize(QSize(75, 65))
         self.frame_12.setFrameShape(QFrame.StyledPanel)
         self.frame_12.setFrameShadow(QFrame.Raised)
         self.gridLayout_10 = QGridLayout(self.frame_12)
@@ -499,7 +507,7 @@ class Ui_Vendas(object):
         self.gridLayout_10.addWidget(self.input_preco, 1, 0, 1, 1)
 
 
-        self.gridLayout_8.addWidget(self.frame_12, 0, 5, 1, 1)
+        self.gridLayout_8.addWidget(self.frame_12, 0, 4, 1, 1)
 
         self.btn_add = QPushButton(self.frame_8)
         self.btn_add.setObjectName(u"btn_add")
@@ -947,12 +955,13 @@ class Ui_Vendas(object):
         __qtablewidgetitem16 = QTableWidgetItem()
         self.table.setHorizontalHeaderItem(10, __qtablewidgetitem16)
         self.table.setObjectName(u"table")
-        sizePolicy4 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Maximum)
+        sizePolicy4 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
         sizePolicy4.setHorizontalStretch(0)
         sizePolicy4.setVerticalStretch(0)
         sizePolicy4.setHeightForWidth(self.table.sizePolicy().hasHeightForWidth())
         self.table.setSizePolicy(sizePolicy4)
-        self.table.setMinimumSize(QSize(0, 100))
+        self.table.setMinimumSize(QSize(0, 0))
+        self.table.setMaximumSize(QSize(16777215, 16777215))
         self.table.setFont(font3)
         self.table.setStyleSheet(u"QTableWidget{\n"
 "	background-color: rgb(255, 255, 255);\n"
@@ -1000,51 +1009,7 @@ class Ui_Vendas(object):
 
         self.gridLayout_21.addWidget(self.input_total, 1, 0, 1, 1)
 
-
         self.gridLayout_8.addWidget(self.frame_24, 1, 5, 1, 1)
-
-        self.frame_27 = QFrame(self.frame_8)
-        self.frame_27.setObjectName(u"frame_27")
-        sizePolicy.setHeightForWidth(self.frame_27.sizePolicy().hasHeightForWidth())
-        self.frame_27.setSizePolicy(sizePolicy)
-        self.frame_27.setMaximumSize(QSize(16777215, 60))
-        self.frame_27.setStyleSheet(u"\n"
-"QPushButton {\n"
-"	border-radius: 10px;\n"
-"	border: none;\n"
-"	background-color: rgb(42, 68, 103);\n"
-"	color: white;\n"
-"}\n"
-"\n"
-"QPushButton:hover{\n"
-"	background-color: rgb(67, 110, 165);\n"
-"}\n"
-"\n"
-"QPushButton:pressed{\n"
-"	background-color: rgb(51, 83, 126);\n"
-"}")
-        self.frame_27.setFrameShape(QFrame.StyledPanel)
-        self.frame_27.setFrameShadow(QFrame.Raised)
-        self.horizontalLayout_4 = QHBoxLayout(self.frame_27)
-        self.horizontalLayout_4.setObjectName(u"horizontalLayout_4")
-        self.horizontalSpacer_6 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
-
-        self.horizontalLayout_4.addItem(self.horizontalSpacer_6)
-
-        self.btn_remover = QPushButton(self.frame_27)
-        self.btn_remover.setObjectName(u"btn_remover")
-        sizePolicy3.setHeightForWidth(self.btn_remover.sizePolicy().hasHeightForWidth())
-        self.btn_remover.setSizePolicy(sizePolicy3)
-        self.btn_remover.setMinimumSize(QSize(100, 35))
-        self.btn_remover.setMaximumSize(QSize(100, 35))
-        self.btn_remover.setFont(font4)
-        self.btn_remover.setStyleSheet(u"")
-
-        self.horizontalLayout_4.addWidget(self.btn_remover)
-
-
-        self.gridLayout_8.addWidget(self.frame_27, 3, 0, 1, 8)
-
 
         self.verticalLayout_2.addWidget(self.frame_8)
 
@@ -1081,18 +1046,24 @@ class Ui_Vendas(object):
         self.btn_salvar.setFont(font4)
         self.btn_salvar.setStyleSheet(u"")
 
+        self.btn_remover = QPushButton(self.frame_7)
+        self.btn_remover.setObjectName(u"btn_remover")
+        sizePolicy3.setHeightForWidth(self.btn_remover.sizePolicy().hasHeightForWidth())
+        self.btn_remover.setSizePolicy(sizePolicy3)
+        self.btn_remover.setMinimumSize(QSize(100, 35))
+        self.btn_remover.setMaximumSize(QSize(100, 35))
+        self.btn_remover.setFont(font4)
+        self.btn_remover.setStyleSheet(u"")
+
         self.horizontalLayout_3.addWidget(self.btn_salvar)
+
 
         self.horizontalSpacer_3 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
         self.horizontalLayout_3.addItem(self.horizontalSpacer_3)
-
+        self.horizontalLayout_3.addWidget(self.btn_remover)
 
         self.verticalLayout_2.addWidget(self.frame_7)
-
-        self.verticalSpacer = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
-
-        self.verticalLayout_2.addItem(self.verticalSpacer)
 
         self.stackedWidget.addWidget(self.venda)
 
