@@ -189,10 +189,8 @@ class RelatorioVenda:
         self.pdf.string(340, 635, "UND")
         self.pdf.string(360, 635, "R$ UNI.")
         self.pdf.string(400, 635, "QTDE")
-        self.pdf.string(420, 635, "SUBTOTAL")
-        self.pdf.string(460, 635, "% DESC")
-        self.pdf.string(500, 635, "R$ DESC")
-        self.pdf.string(540, 635, "TOTAL")
+        self.pdf.string(430, 635, "FORNECEDOR")
+        self.pdf.string(520, 635, "TOTAL")
 
         self.pdf.set_font(font='Cambria', tamanho=7)
 
@@ -206,14 +204,13 @@ class RelatorioVenda:
         if len(items) == 1:
             item = items
             produto = db.select(f'SELECT * FROM estoque WHERE id = {item["produto"][0]}')
+            fornecedor = db.select(f'SELECT nome FROM fornecedor WHERE id = {produto["fornecedorId"][0]}')
             self.pdf.string(25, y, f"{produto['cod_barras'][0]}")
             self.pdf.string(340, y, f"{produto['unidade'][0]}")
             self.pdf.string(360, y, f"{moeda(item['preco'][0])}")
             self.pdf.string(400, y, f"{item['quantidade'][0]}")
-            self.pdf.string(420, y, f"{moeda(item['total_bruto'][0])}")
-            self.pdf.string(460, y, f"{mascara_porcento(item['percent_desconto'][0])}")
-            self.pdf.string(500, y, f"{moeda(item['valor_desconto'][0])}")
-            self.pdf.string(540, y, f"{moeda(item['total_liquido'][0])}")
+            self.pdf.string(430, y, f"{fornecedor['nome'][0]}")
+            self.pdf.string(520, y, f"{moeda(item['total_liquido'][0])}")
             texto = f"{produto['descricao'][0]} – {item['cor'][0]} – {item['tamanho'][0]}"
             if len(texto) < 65:
                 self.pdf.string(80, y, texto)
@@ -224,14 +221,13 @@ class RelatorioVenda:
         else:
             for index, item in items.iterrows():
                 produto = db.select(f'SELECT * FROM estoque WHERE id = {item["produto"]}')
+                fornecedor = db.select(f'SELECT nome FROM fornecedor WHERE id = {produto["fornecedorId"][0]}')
                 self.pdf.string(25, y, f"{produto['cod_barras'][0]}")
                 self.pdf.string(340, y, f"{produto['unidade'][0]}")
                 self.pdf.string(360, y, f"{moeda(item['preco'])}")
                 self.pdf.string(400, y, f"{item['quantidade']}")
-                self.pdf.string(420, y, f"{moeda(item['total_bruto'])}")
-                self.pdf.string(460, y, f"{mascara_porcento(item['percent_desconto'])}")
-                self.pdf.string(500, y, f"{moeda(item['valor_desconto'])}")
-                self.pdf.string(540, y, f"{moeda(item['total_liquido'])}")
+                self.pdf.string(430, y, f"{fornecedor['nome'][0]}")
+                self.pdf.string(520, y, f"{moeda(item['total_liquido'])}")
                 texto = f"{produto['descricao'][0]} – {item['cor']} – {item['tamanho']}"
                 if len(texto) < 65:
                     self.pdf.string(80, y, texto)
@@ -255,9 +251,7 @@ class RelatorioVenda:
         self.pdf.set_font(font='Cambria-Bold', tamanho=7)
         self.pdf.string(25, y, "TOTAL")
         self.pdf.string(400, y, f"{qnt}")
-        self.pdf.string(420, y, f"{moeda(bruto)}")
-        self.pdf.string(500, y, f"{moeda(desc)}")
-        self.pdf.string(540, y, f"{moeda(total)}")
+        self.pdf.string(520, y, f"{moeda(total)}")
 
         self.pdf.set_font(font='Cambria', tamanho=10)
 
