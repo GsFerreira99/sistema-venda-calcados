@@ -129,7 +129,7 @@ class RelatorioVenda:
         y-=20
         self.pdf.set_font(font='Cambria-Bold', tamanho=7)
         self.pdf.string(25, y, "TOTAL")
-        self.pdf.string(500, y, f"{total}")
+        self.pdf.string(430, y, f"{total}")
 
         self.pdf.set_font(font='Cambria', tamanho=10)
 
@@ -175,7 +175,7 @@ class RelatorioVenda:
         y -= 20
         self.pdf.set_font(font='Cambria-Bold', tamanho=7)
         self.pdf.string(25, y, "TOTAL")
-        self.pdf.string(500, y, f"{total}")
+        self.pdf.string(430, y, f"{total}")
 
         self.pdf.set_font(font='Cambria', tamanho=10)
 
